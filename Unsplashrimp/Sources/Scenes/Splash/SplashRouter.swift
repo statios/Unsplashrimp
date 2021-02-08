@@ -19,10 +19,10 @@ final class SplashRouter: BaseRouter, SplashDataPassing {
 
   weak var viewController: SplashViewController?
   var dataStore: SplashDataStore?
-
+  
 }
 
 // MARK: - Route
 extension SplashRouter: SplashRoutingLogic {
-
+  
 }

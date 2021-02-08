@@ -21,7 +21,6 @@ class BaseViewController: UIViewController {
   
   deinit {
     Log.verbose(String(describing: Self.self))
-    build()
   }
   
   @objc dynamic func build() {
