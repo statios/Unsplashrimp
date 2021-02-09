@@ -12,6 +12,14 @@
 		F9880BE625D1E12B00967F46 /* Key.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9880BE525D1E12B00967F46 /* Key.plist */; };
 		F9880BEB25D1E46900967F46 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880BEA25D1E46900967F46 /* HTTPMethod.swift */; };
 		F9880BF325D26D5C00967F46 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880BF225D26D5C00967F46 /* Topic.swift */; };
+		F9880BF825D27F9200967F46 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880BF725D27F9200967F46 /* Photo.swift */; };
+		F9880C1125D2823100967F46 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880C0F25D2823100967F46 /* PhotoCell.swift */; };
+		F9880C1225D2823100967F46 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9880C1025D2823100967F46 /* PhotoCell.xib */; };
+		F9880C1C25D288BD00967F46 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880C1B25D288BD00967F46 /* UIImageView.swift */; };
+		F9880C5725D29AB500967F46 /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880C5625D29AB500967F46 /* UINavigationBar.swift */; };
+		F9880C7A25D2AEDB00967F46 /* ExploreHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9880C7925D2AEDB00967F46 /* ExploreHeaderView.xib */; };
+		F9880C7F25D2AF3F00967F46 /* ExploreHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880C7E25D2AF3F00967F46 /* ExploreHeaderView.swift */; };
+		F9880C8525D2E76400967F46 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880C8425D2E76400967F46 /* Device.swift */; };
 		F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497D525D0CA120098A309 /* AppDelegate.swift */; };
 		F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C497DE25D0CA130098A309 /* Images.xcassets */; };
 		F9C497E225D0CA130098A309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C497E025D0CA130098A309 /* LaunchScreen.storyboard */; };
@@ -72,6 +80,14 @@
 		F9880BE525D1E12B00967F46 /* Key.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Key.plist; sourceTree = "<group>"; };
 		F9880BEA25D1E46900967F46 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		F9880BF225D26D5C00967F46 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		F9880BF725D27F9200967F46 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		F9880C0F25D2823100967F46 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		F9880C1025D2823100967F46 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
+		F9880C1B25D288BD00967F46 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		F9880C5625D29AB500967F46 /* UINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
+		F9880C7925D2AEDB00967F46 /* ExploreHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreHeaderView.xib; sourceTree = "<group>"; };
+		F9880C7E25D2AF3F00967F46 /* ExploreHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreHeaderView.swift; sourceTree = "<group>"; };
+		F9880C8425D2E76400967F46 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		F9C497D225D0CA110098A309 /* Unsplashrimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplashrimp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C497D525D0CA120098A309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C497DE25D0CA130098A309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -144,8 +160,59 @@
 			isa = PBXGroup;
 			children = (
 				F9880BF225D26D5C00967F46 /* Topic.swift */,
+				F9880BF725D27F9200967F46 /* Photo.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		F9880BFC25D280DB00967F46 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F9880C0F25D2823100967F46 /* PhotoCell.swift */,
+				F9880C1025D2823100967F46 /* PhotoCell.xib */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F9880C1925D288A700967F46 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F9880C1A25D288B000967F46 /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F9880C1A25D288B000967F46 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				F9880C1B25D288BD00967F46 /* UIImageView.swift */,
+				F9880C5625D29AB500967F46 /* UINavigationBar.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		F9880C5225D297DF00967F46 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		F9880C7525D2ADDC00967F46 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F9880C7925D2AEDB00967F46 /* ExploreHeaderView.xib */,
+				F9880C7E25D2AF3F00967F46 /* ExploreHeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F9880C8325D2E75C00967F46 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F9880C8425D2E76400967F46 /* Device.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		F9C497C925D0CA110098A309 = {
@@ -222,6 +289,7 @@
 				F9C4982425D0CB7C0098A309 /* Splash */,
 				F9C4982525D0CB850098A309 /* Explore */,
 				F9C4982625D0CB8F0098A309 /* Search */,
+				F9880C5225D297DF00967F46 /* Detail */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -283,6 +351,7 @@
 				F9C4989925D0DBDA0098A309 /* ExploreWorker.swift */,
 				F9C4989A25D0DBDA0098A309 /* ExploreRouter.swift */,
 				F9C4989B25D0DBDA0098A309 /* ExploreModels.swift */,
+				F9880C7525D2ADDC00967F46 /* Views */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -304,6 +373,9 @@
 		F9C4985E25D0D4C80098A309 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				F9880C8325D2E75C00967F46 /* Constants */,
+				F9880C1925D288A700967F46 /* Extensions */,
+				F9880BFC25D280DB00967F46 /* Components */,
 				F9C4985F25D0D4DF0098A309 /* Bases */,
 				F9C4986325D0D53C0098A309 /* Utils */,
 			);
@@ -471,6 +543,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9880C1225D2823100967F46 /* PhotoCell.xib in Resources */,
+				F9880C7A25D2AEDB00967F46 /* ExploreHeaderView.xib in Resources */,
 				F9C497E225D0CA130098A309 /* LaunchScreen.storyboard in Resources */,
 				F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */,
 				F9C498C425D0DC0E0098A309 /* Explore.storyboard in Resources */,
@@ -514,13 +588,19 @@
 				F9880BDB25D16D0F00967F46 /* TargetType.swift in Sources */,
 				F9C4989F25D0DBDA0098A309 /* ExploreWorker.swift in Sources */,
 				F9C498A325D0DBDA0098A309 /* ExploreInteractor.swift in Sources */,
+				F9880C8525D2E76400967F46 /* Device.swift in Sources */,
 				F9C4987325D0D5FD0098A309 /* BaseViewController.swift in Sources */,
 				F9C498A125D0DBDA0098A309 /* ExploreModels.swift in Sources */,
+				F9880C5725D29AB500967F46 /* UINavigationBar.swift in Sources */,
 				F9C498E125D0E6C80098A309 /* UnsplashAPI.swift in Sources */,
+				F9880C1C25D288BD00967F46 /* UIImageView.swift in Sources */,
 				F9C4984625D0D3A50098A309 /* SplashViewController.swift in Sources */,
 				F9C4984225D0D3A50098A309 /* SplashPresenter.swift in Sources */,
+				F9880BF825D27F9200967F46 /* Photo.swift in Sources */,
 				F9C498AF25D0DBEC0098A309 /* SearchRouter.swift in Sources */,
+				F9880C1125D2823100967F46 /* PhotoCell.swift in Sources */,
 				F9C4988725D0D6330098A309 /* BaseRouter.swift in Sources */,
+				F9880C7F25D2AF3F00967F46 /* ExploreHeaderView.swift in Sources */,
 				F9C498B125D0DBEC0098A309 /* SearchViewController.swift in Sources */,
 				F9880BEB25D1E46900967F46 /* HTTPMethod.swift in Sources */,
 				F9C498B225D0DBEC0098A309 /* SearchInteractor.swift in Sources */,

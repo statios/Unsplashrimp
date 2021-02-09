@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,24 +15,69 @@
             <objects>
                 <viewController storyboardIdentifier="Explore" title="Explore" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7QP-oR-T8h" customClass="ExploreViewController" customModule="Unsplashrimp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="74Y-hP-vin">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kXs-WA-xuZ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="231" id="7Mo-xA-Mzb" customClass="PhotoCell" customModule="Unsplashrimp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="231"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Mo-xA-Mzb" id="Gpa-ne-3km">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="231"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="7QP-oR-T8h" id="nzx-qO-B5e"/>
+                                    <outlet property="delegate" destination="7QP-oR-T8h" id="giC-PP-nrf"/>
+                                </connections>
                             </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Ws-Q7-35N">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dYH-xa-jRI"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LNJ-io-0ro">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MH7-0L-OPe">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yKv-6p-mFs">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="awe-qf-95h"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="kXs-WA-xuZ" secondAttribute="bottom" id="39h-y9-TkE"/>
-                            <constraint firstItem="kXs-WA-xuZ" firstAttribute="top" secondItem="74Y-hP-vin" secondAttribute="top" id="IZs-XR-EKJ"/>
-                            <constraint firstItem="kXs-WA-xuZ" firstAttribute="leading" secondItem="74Y-hP-vin" secondAttribute="leading" id="iE3-BY-YO4"/>
-                            <constraint firstAttribute="trailing" secondItem="kXs-WA-xuZ" secondAttribute="trailing" id="u77-6S-Cxq"/>
+                            <constraint firstAttribute="trailing" secondItem="kXs-WA-xuZ" secondAttribute="trailing" id="1Xm-8J-dSc"/>
+                            <constraint firstItem="kXs-WA-xuZ" firstAttribute="leading" secondItem="74Y-hP-vin" secondAttribute="leading" id="Ui8-7h-j6k"/>
+                            <constraint firstItem="kXs-WA-xuZ" firstAttribute="top" secondItem="74Y-hP-vin" secondAttribute="top" id="dl1-gN-WNk"/>
+                            <constraint firstItem="7Ws-Q7-35N" firstAttribute="top" secondItem="awe-qf-95h" secondAttribute="top" id="hzh-Id-WwY"/>
+                            <constraint firstItem="7Ws-Q7-35N" firstAttribute="leading" secondItem="74Y-hP-vin" secondAttribute="leading" id="lK9-33-RKX"/>
+                            <constraint firstAttribute="trailing" secondItem="7Ws-Q7-35N" secondAttribute="trailing" id="wva-kw-awF"/>
+                            <constraint firstAttribute="bottom" secondItem="kXs-WA-xuZ" secondAttribute="bottom" id="yD0-p3-qoh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="p0P-5p-yBm"/>
+                    <navigationItem key="navigationItem" id="p0P-5p-yBm">
+                        <nil key="title"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="kXs-WA-xuZ" id="jaO-cA-qef"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nlu-gG-iSM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -40,9 +86,9 @@
         <!--Explore-->
         <scene sceneID="m63-4N-jmk">
             <objects>
-                <navigationController title="Explore" automaticallyAdjustsScrollViewInsets="NO" id="cHg-bB-uZE" sceneMemberID="viewController">
+                <navigationController title="Explore" automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="cHg-bB-uZE" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XUB-iu-gOw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="XUB-iu-gOw" customClass="ExploreNavigationBar" customModule="Unsplashrimp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -59,6 +105,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -9,6 +9,7 @@ import Foundation
 
 enum UnsplashAPI {
   case topics
+  case photos(id: String, page: Int)
 }
 
 extension UnsplashAPI: TargetType {
@@ -23,17 +24,23 @@ extension UnsplashAPI: TargetType {
   var path: String {
     switch self {
     case .topics: return "/topics"
+    case .photos: return "/photos"
     }
   }
   
   var method: HTTPMethod {
     switch self {
-    case .topics: return .get
+    case .topics, .photos: return .get
     }
   }
   
   var queryItems: [URLQueryItem] {
     switch self {
+    case .photos(let id, let page):
+      return [
+        .init(name: "id", value: id),
+        .init(name: "page", value: String(page)),
+      ]
     default: return []
     }
   }

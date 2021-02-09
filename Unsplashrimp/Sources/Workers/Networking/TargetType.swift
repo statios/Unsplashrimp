@@ -28,7 +28,7 @@ extension TargetType {
   var request: URLRequest {
     guard let url = components.url else { fatalError() }
     var request = URLRequest(url: url)
-//    request.allHTTPHeaderFields = header
+    request.allHTTPHeaderFields = header
     return request
   }
 }
