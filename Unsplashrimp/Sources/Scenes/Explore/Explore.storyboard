@@ -20,7 +20,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kXs-WA-xuZ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="Wmh-pf-a2D" userLabel="Header">
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="fh5-4B-tOb" userLabel="Header">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -108,11 +108,21 @@
                                     <outlet property="delegate" destination="7QP-oR-T8h" id="TCG-Qi-6ZM"/>
                                 </connections>
                             </collectionView>
+                            <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="coL-m0-RcQ" userLabel="Divider">
+                                <rect key="frame" x="0.0" y="39" width="414" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="xd4-Rk-AZe"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="awe-qf-95h"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="coL-m0-RcQ" secondAttribute="trailing" id="1BL-uZ-uAX"/>
                             <constraint firstAttribute="trailing" secondItem="kXs-WA-xuZ" secondAttribute="trailing" id="1Xm-8J-dSc"/>
+                            <constraint firstItem="coL-m0-RcQ" firstAttribute="leading" secondItem="74Y-hP-vin" secondAttribute="leading" id="2ey-jp-fXj"/>
+                            <constraint firstItem="coL-m0-RcQ" firstAttribute="bottom" secondItem="7Ws-Q7-35N" secondAttribute="bottom" id="MyI-DT-qzo"/>
                             <constraint firstItem="kXs-WA-xuZ" firstAttribute="leading" secondItem="74Y-hP-vin" secondAttribute="leading" id="Ui8-7h-j6k"/>
                             <constraint firstItem="kXs-WA-xuZ" firstAttribute="top" secondItem="74Y-hP-vin" secondAttribute="top" id="dl1-gN-WNk"/>
                             <constraint firstItem="7Ws-Q7-35N" firstAttribute="top" secondItem="awe-qf-95h" secondAttribute="top" id="hzh-Id-WwY"/>
@@ -141,7 +151,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="XUB-iu-gOw" customClass="ExploreNavigationBar" customModule="Unsplashrimp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

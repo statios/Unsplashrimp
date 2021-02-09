@@ -41,6 +41,7 @@ extension ExploreViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationController?.navigationBar.transparentNavigationBar()
     title = "Unsplashrimp"
     interactor?.fetchTopics(request: .init())
   }
