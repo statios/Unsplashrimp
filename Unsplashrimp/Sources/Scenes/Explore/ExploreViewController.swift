@@ -8,7 +8,8 @@
 import UIKit
 
 protocol ExploreDisplayLogic: class {
-
+  func displayTopics(viewModel: ExploreModels.Topics.ViewModel)
+  func displaySelectedTopic(viewModel: ExploreModels.SelectTopic.ViewModel)
 }
 
 final class ExploreViewController: BaseViewController {
@@ -16,7 +17,10 @@ final class ExploreViewController: BaseViewController {
   var router: (ExploreRoutingLogic & ExploreDataPassing)?
   var interactor: ExploreBusinessLogic?
   
+  @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var tableView: UITableView!
+  
+  fileprivate var topics: [Topic] = []
 }
 
 // MARK: - Configure
@@ -26,10 +30,8 @@ extension ExploreViewController {
     let interactor = ExploreInteractor()
     let presenter = ExplorePresenter()
     let router = ExploreRouter()
-    let worker = ExploreWorker()
     
     interactor.presenter = presenter
-    interactor.worker = worker
     presenter.view = viewController
     router.viewController = viewController
     router.dataStore = interactor
@@ -40,16 +42,71 @@ extension ExploreViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Unsplashrimp"
-    navigationController?.navigationBar.transparentNavigationBar()
-    tableView.tableHeaderView = UIView(
-      frame: .init(x: 0, y: 0, width: Device.width, height: 44)
-    )
+    interactor?.fetchTopics(request: .init())
   }
 }
 
 // MARK: - Display
 extension ExploreViewController: ExploreDisplayLogic {
+  func displayTopics(viewModel: ExploreModels.Topics.ViewModel) {
+    topics = viewModel.topics
+    collectionView.reloadData()
+    interactor?.fetchSelectedTopic(
+      request: .init(selected: .init(item: 0, section: 0))
+    )
+  }
+  
+  func displaySelectedTopic(viewModel: ExploreModels.SelectTopic.ViewModel) {
+    DispatchQueue.main.async { [weak self] in
+      if let previous = viewModel.previousSelected {
+        let unSelectedCell = self?.collectionView.cellForItem(at: previous)
+        unSelectedCell?.isSelected = false
+      }
+      let current = viewModel.currentSelected
+      let selectedCell = self?.collectionView.cellForItem(at: current)
+      selectedCell?.isSelected = true
+    }
+  }
+}
 
+extension ExploreViewController:
+  UICollectionViewDelegateFlowLayout,
+  UICollectionViewDelegate,
+  UICollectionViewDataSource {
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    sizeForItemAt indexPath: IndexPath
+  ) -> CGSize {
+    .init(width: 128, height: 40)
+  }
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    numberOfItemsInSection section: Int
+  ) -> Int {
+    return topics.count
+  }
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    cellForItemAt indexPath: IndexPath
+  ) -> UICollectionViewCell {
+    guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "TopicCell",
+            for: indexPath
+    ) as? TopicCell else { return UICollectionViewCell() }
+    cell.configure(topics[indexPath.item])
+    return cell
+  }
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    didSelectItemAt indexPath: IndexPath
+  ) {
+    interactor?.fetchSelectedTopic(request: .init(selected: indexPath))
+  }
 }
 
 extension ExploreViewController: UITableViewDelegate, UITableViewDataSource {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NetworkingWorkerLogic {
+protocol NetworkWorkerLogic {
   var session: URLSession { get }
   func request<T: Codable>(
     _ target: TargetType,
@@ -16,7 +16,7 @@ protocol NetworkingWorkerLogic {
   )
 }
 
-extension NetworkingWorkerLogic {
+extension NetworkWorkerLogic {
   var session: URLSession {
     return URLSession.shared
   }
@@ -37,7 +37,9 @@ extension NetworkingWorkerLogic {
       
       do {
         let decodedData = try JSONDecoder().decode(T.self, from: data)
-        completion(.success(decodedData))
+        DispatchQueue.main.async {
+          completion(.success(decodedData))
+        }
       } catch let decodingError {
         completion(.failure(decodingError))
       }
@@ -46,11 +48,11 @@ extension NetworkingWorkerLogic {
   }
 }
 
-final class NetworkingWorker: BaseWorker {
-  
+final class NetworkWorker: BaseWorker {
+  static let shared = NetworkWorker()
 }
 
-extension NetworkingWorker: NetworkingWorkerLogic {
+extension NetworkWorker: NetworkWorkerLogic {
   
   
 }

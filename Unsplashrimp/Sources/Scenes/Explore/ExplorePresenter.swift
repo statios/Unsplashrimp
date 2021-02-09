@@ -8,7 +8,8 @@
 import UIKit
 
 protocol ExplorePresentationLogic: class {
-  
+  func presentTopics(response: ExploreModels.Topics.Response)
+  func presentSelectedIndexPath(response: ExploreModels.SelectTopic.Response)
 }
 
 final class ExplorePresenter: BasePresenter {
@@ -19,5 +20,16 @@ final class ExplorePresenter: BasePresenter {
 
 // MARK: - Present
 extension ExplorePresenter: ExplorePresentationLogic {
+  func presentTopics(response: ExploreModels.Topics.Response) {
+    view?.displayTopics(viewModel: .init(topics: response.topics))
+  }
   
+  func presentSelectedIndexPath(response: ExploreModels.SelectTopic.Response) {
+    view?.displaySelectedTopic(
+      viewModel: .init(
+        previousSelected: response.previousSelected,
+        currentSelected: response.currentSelected
+      )
+    )
+  }
 }
