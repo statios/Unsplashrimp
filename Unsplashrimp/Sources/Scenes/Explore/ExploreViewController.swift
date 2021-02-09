@@ -35,6 +35,21 @@ extension ExploreViewController {
     viewController.interactor = interactor
     viewController.router = router
   }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    let network = NetworkingWorker()
+      
+    network
+      .request(UnsplashAPI.topics, type: [Topic].self) {
+        switch $0 {
+        case let .success(data):
+          Log.error(data)
+        case let .failure(error):
+          Log.error(error)
+        }
+      }
+  }
 }
 
 // MARK: - Display

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F9880BD025D16CE800967F46 /* UnsplashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880BCF25D16CE800967F46 /* UnsplashResponse.swift */; };
+		F9880BDB25D16D0F00967F46 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880BDA25D16D0F00967F46 /* TargetType.swift */; };
+		F9880BE625D1E12B00967F46 /* Key.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9880BE525D1E12B00967F46 /* Key.plist */; };
+		F9880BEB25D1E46900967F46 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880BEA25D1E46900967F46 /* HTTPMethod.swift */; };
+		F9880BF325D26D5C00967F46 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880BF225D26D5C00967F46 /* Topic.swift */; };
 		F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497D525D0CA120098A309 /* AppDelegate.swift */; };
 		F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C497DE25D0CA130098A309 /* Images.xcassets */; };
 		F9C497E225D0CA130098A309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C497E025D0CA130098A309 /* LaunchScreen.storyboard */; };
@@ -40,6 +45,8 @@
 		F9C498B225D0DBEC0098A309 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C498AC25D0DBEC0098A309 /* SearchInteractor.swift */; };
 		F9C498B725D0DBF30098A309 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C498B625D0DBF30098A309 /* Search.storyboard */; };
 		F9C498C425D0DC0E0098A309 /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C498C325D0DC0E0098A309 /* Explore.storyboard */; };
+		F9C498DC25D0E6A80098A309 /* NetworkingWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C498DB25D0E6A80098A309 /* NetworkingWorker.swift */; };
+		F9C498E125D0E6C80098A309 /* UnsplashAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C498E025D0E6C80098A309 /* UnsplashAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +67,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F9880BCF25D16CE800967F46 /* UnsplashResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashResponse.swift; sourceTree = "<group>"; };
+		F9880BDA25D16D0F00967F46 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
+		F9880BE525D1E12B00967F46 /* Key.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Key.plist; sourceTree = "<group>"; };
+		F9880BEA25D1E46900967F46 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		F9880BF225D26D5C00967F46 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		F9C497D225D0CA110098A309 /* Unsplashrimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplashrimp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C497D525D0CA120098A309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C497DE25D0CA130098A309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -99,6 +111,8 @@
 		F9C498AC25D0DBEC0098A309 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		F9C498B625D0DBF30098A309 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		F9C498C325D0DC0E0098A309 /* Explore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
+		F9C498DB25D0E6A80098A309 /* NetworkingWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingWorker.swift; sourceTree = "<group>"; };
+		F9C498E025D0E6C80098A309 /* UnsplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +140,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F9880BCE25D16CBE00967F46 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				F9880BF225D26D5C00967F46 /* Topic.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		F9C497C925D0CA110098A309 = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +201,8 @@
 			children = (
 				F9C4981525D0CB140098A309 /* Application */,
 				F9C4981925D0CB1A0098A309 /* Scenes */,
+				F9C498D125D0E6330098A309 /* Workers */,
+				F9880BCE25D16CBE00967F46 /* UseCases */,
 				F9C4985E25D0D4C80098A309 /* Commons */,
 			);
 			path = Sources;
@@ -319,8 +343,29 @@
 			isa = PBXGroup;
 			children = (
 				F9C497E325D0CA130098A309 /* Info.plist */,
+				F9880BE525D1E12B00967F46 /* Key.plist */,
 			);
 			path = plists;
+			sourceTree = "<group>";
+		};
+		F9C498D125D0E6330098A309 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				F9C498D225D0E67D0098A309 /* Networking */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
+		F9C498D225D0E67D0098A309 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F9C498DB25D0E6A80098A309 /* NetworkingWorker.swift */,
+				F9880BDA25D16D0F00967F46 /* TargetType.swift */,
+				F9C498E025D0E6C80098A309 /* UnsplashAPI.swift */,
+				F9880BEA25D1E46900967F46 /* HTTPMethod.swift */,
+				F9880BCF25D16CE800967F46 /* UnsplashResponse.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,6 +474,7 @@
 				F9C497E225D0CA130098A309 /* LaunchScreen.storyboard in Resources */,
 				F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */,
 				F9C498C425D0DC0E0098A309 /* Explore.storyboard in Resources */,
+				F9880BE625D1E12B00967F46 /* Key.plist in Resources */,
 				F9C498B725D0DBF30098A309 /* Search.storyboard in Resources */,
 				F9C4985225D0D3BC0098A309 /* Splash.storyboard in Resources */,
 			);
@@ -458,19 +504,25 @@
 				F9C4984525D0D3A50098A309 /* SplashModels.swift in Sources */,
 				F9C4987D25D0D60A0098A309 /* BasePresenter.swift in Sources */,
 				F9C4984425D0D3A50098A309 /* SplashRouter.swift in Sources */,
+				F9880BD025D16CE800967F46 /* UnsplashResponse.swift in Sources */,
 				F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */,
+				F9880BF325D26D5C00967F46 /* Topic.swift in Sources */,
+				F9C498DC25D0E6A80098A309 /* NetworkingWorker.swift in Sources */,
 				F9C4984325D0D3A50098A309 /* SplashWorker.swift in Sources */,
 				F9C4986E25D0D5960098A309 /* LogEvent.swift in Sources */,
 				F9C4989E25D0DBDA0098A309 /* ExplorePresenter.swift in Sources */,
+				F9880BDB25D16D0F00967F46 /* TargetType.swift in Sources */,
 				F9C4989F25D0DBDA0098A309 /* ExploreWorker.swift in Sources */,
 				F9C498A325D0DBDA0098A309 /* ExploreInteractor.swift in Sources */,
 				F9C4987325D0D5FD0098A309 /* BaseViewController.swift in Sources */,
 				F9C498A125D0DBDA0098A309 /* ExploreModels.swift in Sources */,
+				F9C498E125D0E6C80098A309 /* UnsplashAPI.swift in Sources */,
 				F9C4984625D0D3A50098A309 /* SplashViewController.swift in Sources */,
 				F9C4984225D0D3A50098A309 /* SplashPresenter.swift in Sources */,
 				F9C498AF25D0DBEC0098A309 /* SearchRouter.swift in Sources */,
 				F9C4988725D0D6330098A309 /* BaseRouter.swift in Sources */,
 				F9C498B125D0DBEC0098A309 /* SearchViewController.swift in Sources */,
+				F9880BEB25D1E46900967F46 /* HTTPMethod.swift in Sources */,
 				F9C498B225D0DBEC0098A309 /* SearchInteractor.swift in Sources */,
 				F9C4987825D0D6040098A309 /* BaseInteractor.swift in Sources */,
 				F9C498A225D0DBDA0098A309 /* ExploreViewController.swift in Sources */,
