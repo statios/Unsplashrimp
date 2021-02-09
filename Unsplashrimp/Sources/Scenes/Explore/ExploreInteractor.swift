@@ -14,6 +14,7 @@ protocol ExploreDataStore: class {
 protocol ExploreBusinessLogic: class {
   func fetchTopics(request: ExploreModels.Topics.Request)
   func fetchSelectedTopic(request: ExploreModels.SelectTopic.Request)
+  func fetchPhotos(request: ExploreModels.Photos.Request)
 }
 
 final class ExploreInteractor: BaseInteractor, ExploreDataStore {
@@ -22,6 +23,7 @@ final class ExploreInteractor: BaseInteractor, ExploreDataStore {
   var presenter: ExplorePresentationLogic?
   
   var selectedIndexPath: IndexPath?
+  var topics: [Topic] = []
 }
 
 // MARK: - Business Logic
@@ -31,6 +33,7 @@ extension ExploreInteractor: ExploreBusinessLogic {
       switch $0 {
       case let .success(topics):
         self?.presenter?.presentTopics(response: .init(topics: topics))
+        self?.topics = topics
       case let .failure(error):
         //todo
         return
@@ -46,5 +49,27 @@ extension ExploreInteractor: ExploreBusinessLogic {
       )
     )
     selectedIndexPath = request.selected
+  }
+  
+  func fetchPhotos(request: ExploreModels.Photos.Request) {
+    
+    networkWorker?.request(
+      UnsplashAPI.photos(id: request.id, page: request.page),
+      type: [Photo].self
+    ) { [weak self] in
+      switch $0 {
+      case let .success(photos):
+        self?.presenter?.presentPhotos(
+          response: .init(
+            photos: photos,
+            newPage: request.page + 1,
+            index: request.index
+          )
+        )
+      case let .failure(error):
+        //todo
+        return
+      }
+    }
   }
 }

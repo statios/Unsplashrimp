@@ -18,6 +18,7 @@
 		F9880C5725D29AB500967F46 /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880C5625D29AB500967F46 /* UINavigationBar.swift */; };
 		F9880C8525D2E76400967F46 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880C8425D2E76400967F46 /* Device.swift */; };
 		F9880CA025D2F37500967F46 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880C9F25D2F37500967F46 /* TopicCell.swift */; };
+		F9880CAD25D3221600967F46 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880CAC25D3221600967F46 /* CGFloat.swift */; };
 		F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497D525D0CA120098A309 /* AppDelegate.swift */; };
 		F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C497DE25D0CA130098A309 /* Images.xcassets */; };
 		F9C497E225D0CA130098A309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C497E025D0CA130098A309 /* LaunchScreen.storyboard */; };
@@ -84,6 +85,7 @@
 		F9880C5625D29AB500967F46 /* UINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
 		F9880C8425D2E76400967F46 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		F9880C9F25D2F37500967F46 /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
+		F9880CAC25D3221600967F46 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		F9C497D225D0CA110098A309 /* Unsplashrimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplashrimp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C497D525D0CA120098A309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C497DE25D0CA130098A309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		F9880C1925D288A700967F46 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F9880CAB25D3221000967F46 /* Foundation */,
 				F9880C1A25D288B000967F46 /* UIKit */,
 			);
 			path = Extensions;
@@ -207,6 +210,14 @@
 				F9880C8425D2E76400967F46 /* Device.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		F9880CAB25D3221000967F46 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				F9880CAC25D3221600967F46 /* CGFloat.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 		F9C497C925D0CA110098A309 = {
@@ -576,6 +587,7 @@
 				F9C498DC25D0E6A80098A309 /* NetworkWorker.swift in Sources */,
 				F9C4984325D0D3A50098A309 /* SplashWorker.swift in Sources */,
 				F9C4986E25D0D5960098A309 /* LogEvent.swift in Sources */,
+				F9880CAD25D3221600967F46 /* CGFloat.swift in Sources */,
 				F9C4989E25D0DBDA0098A309 /* ExplorePresenter.swift in Sources */,
 				F9880BDB25D16D0F00967F46 /* TargetType.swift in Sources */,
 				F9880CA025D2F37500967F46 /* TopicCell.swift in Sources */,

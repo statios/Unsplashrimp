@@ -26,7 +26,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="368" id="7Mo-xA-Mzb" customClass="PhotoCell" customModule="Unsplashrimp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="368" id="7Mo-xA-Mzb" customClass="PhotoCell" customModule="Unsplashrimp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="68" width="414" height="368"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Mo-xA-Mzb" id="Gpa-ne-3km">
@@ -34,18 +34,27 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hwd-dB-4fH">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="357"/>
+                                                    <rect key="frame" x="-8" y="-8" width="430" height="384"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHZ-vR-Q3N">
+                                                    <rect key="frame" x="16" y="334" width="37.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Hwd-dB-4fH" firstAttribute="leading" secondItem="Gpa-ne-3km" secondAttribute="leadingMargin" id="AU5-z3-ap9"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Hwd-dB-4fH" secondAttribute="bottom" id="GCQ-4w-K7K"/>
-                                                <constraint firstItem="Hwd-dB-4fH" firstAttribute="top" secondItem="Gpa-ne-3km" secondAttribute="top" id="eeE-4G-FTV"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Hwd-dB-4fH" secondAttribute="trailing" id="jZX-vN-N2Y"/>
+                                                <constraint firstItem="Hwd-dB-4fH" firstAttribute="leadingMargin" secondItem="Gpa-ne-3km" secondAttribute="leading" id="AU5-z3-ap9"/>
+                                                <constraint firstAttribute="bottom" secondItem="Hwd-dB-4fH" secondAttribute="bottomMargin" id="GCQ-4w-K7K"/>
+                                                <constraint firstAttribute="bottom" secondItem="YHZ-vR-Q3N" secondAttribute="bottom" constant="16" id="dZV-5I-Byg"/>
+                                                <constraint firstItem="Hwd-dB-4fH" firstAttribute="topMargin" secondItem="Gpa-ne-3km" secondAttribute="top" id="eeE-4G-FTV"/>
+                                                <constraint firstAttribute="trailing" secondItem="Hwd-dB-4fH" secondAttribute="trailingMargin" id="jZX-vN-N2Y"/>
+                                                <constraint firstItem="YHZ-vR-Q3N" firstAttribute="leading" secondItem="Gpa-ne-3km" secondAttribute="leading" constant="16" id="udP-eK-sHZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="photoView" destination="Hwd-dB-4fH" id="1At-Q8-f2j"/>
+                                            <outlet property="userLabel" destination="YHZ-vR-Q3N" id="3s9-Sq-5hl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -10,6 +10,7 @@ import UIKit
 protocol ExplorePresentationLogic: class {
   func presentTopics(response: ExploreModels.Topics.Response)
   func presentSelectedIndexPath(response: ExploreModels.SelectTopic.Response)
+  func presentPhotos(response: ExploreModels.Photos.Response)
 }
 
 final class ExplorePresenter: BasePresenter {
@@ -29,6 +30,16 @@ extension ExplorePresenter: ExplorePresentationLogic {
       viewModel: .init(
         previousSelected: response.previousSelected,
         currentSelected: response.currentSelected
+      )
+    )
+  }
+  
+  func presentPhotos(response: ExploreModels.Photos.Response) {
+    view?.displayPhotos(
+      viewModel: .init(
+        photos: response.photos,
+        newPage: response.newPage,
+        index: response.index
       )
     )
   }

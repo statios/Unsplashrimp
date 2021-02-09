@@ -37,4 +37,24 @@ enum ExploreModels {
       let currentSelected: IndexPath
     }
   }
+  
+  enum Photos {
+    struct Request {
+      let id: String
+      let page: Int
+      let index: Int
+    }
+
+    struct Response {
+      let photos: [Photo]
+      let newPage: Int
+      let index: Int
+    }
+
+    struct ViewModel {
+      let photos: [Photo]
+      let newPage: Int
+      let index: Int
+    }
+  }
 }

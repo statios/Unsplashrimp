@@ -10,7 +10,7 @@ import UIKit
 class PhotoCell: UITableViewCell {
   
   @IBOutlet weak var photoView: UIImageView!
-  
+  @IBOutlet weak var userLabel: UILabel!
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -22,6 +22,7 @@ class PhotoCell: UITableViewCell {
   
   func configure(_ photo: Photo) {
     photoView.setImage(photo.urls.regular)
+    userLabel.text = photo.user.name
   }
   
 }
