@@ -9,6 +9,7 @@ import UIKit
 
 protocol SearchPresentationLogic: class {
   func presentSearch(response: SearchModels.Search.Response)
+  func presentPagination(response: SearchModels.Pagination.Response)
 }
 
 final class SearchPresenter: BasePresenter {
@@ -21,6 +22,12 @@ final class SearchPresenter: BasePresenter {
 extension SearchPresenter: SearchPresentationLogic {
   func presentSearch(response: SearchModels.Search.Response) {
     view?.displaySearch(
+      viewModel: .init(photos: response.search.results)
+    )
+  }
+  
+  func presentPagination(response: SearchModels.Pagination.Response) {
+    view?.displayPagination(
       viewModel: .init(photos: response.search.results)
     )
   }

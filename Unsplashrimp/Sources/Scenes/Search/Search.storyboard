@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,7 +18,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qOz-rX-Lu5">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCell" rowHeight="339" id="b1H-sH-Ets" customClass="SearchCell" customModule="Unsplashrimp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="339"/>
@@ -59,6 +59,12 @@
                                     <outlet property="prefetchDataSource" destination="0JW-3b-1Q1" id="3w1-Ta-K6n"/>
                                 </connections>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTK-yE-ibV">
+                                <rect key="frame" x="131.5" y="383.5" width="151" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="w6N-an-TcY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -66,11 +72,14 @@
                             <constraint firstItem="qOz-rX-Lu5" firstAttribute="leading" secondItem="w6N-an-TcY" secondAttribute="leading" id="9wq-Lt-fW2"/>
                             <constraint firstItem="qOz-rX-Lu5" firstAttribute="top" secondItem="w6N-an-TcY" secondAttribute="top" id="P3E-zE-X2o"/>
                             <constraint firstItem="w6N-an-TcY" firstAttribute="trailing" secondItem="qOz-rX-Lu5" secondAttribute="trailing" id="Rpe-d5-JIk"/>
+                            <constraint firstItem="HTK-yE-ibV" firstAttribute="centerY" secondItem="ISr-Gg-aWb" secondAttribute="centerY" id="hMk-om-cgB"/>
                             <constraint firstAttribute="bottom" secondItem="qOz-rX-Lu5" secondAttribute="bottom" id="j4b-Oe-DeO"/>
+                            <constraint firstItem="HTK-yE-ibV" firstAttribute="centerX" secondItem="ISr-Gg-aWb" secondAttribute="centerX" id="oZS-4K-yFC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Tym-Ie-BmU"/>
                     <connections>
+                        <outlet property="emptyLabel" destination="HTK-yE-ibV" id="u5q-Pd-Gjf"/>
                         <outlet property="tableView" destination="qOz-rX-Lu5" id="UL4-ie-vcP"/>
                     </connections>
                 </viewController>
@@ -102,9 +111,4 @@
             <point key="canvasLocation" x="118.84057971014494" y="116.51785714285714"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

@@ -18,4 +18,15 @@ enum SearchModels {
       let photos: [Photo]
     }
   }
+  
+  enum Pagination {
+    struct Request {
+    }
+    struct Response {
+      let search: PaginationResponse<Photo>
+    }
+    struct ViewModel {
+      let photos: [Photo]
+    }
+  }
 }

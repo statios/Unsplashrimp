@@ -9,6 +9,7 @@ import UIKit
 
 protocol SearchDisplayLogic: class {
   func displaySearch(viewModel: SearchModels.Search.ViewModel)
+  func displayPagination(viewModel: SearchModels.Pagination.ViewModel)
 }
 
 final class SearchViewController: BaseViewController {
@@ -17,6 +18,7 @@ final class SearchViewController: BaseViewController {
   var interactor: SearchBusinessLogic?
   
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var emptyLabel: UILabel!
   
   lazy var searchController: UISearchController = {
     let s = UISearchController(searchResultsController: nil)
@@ -59,7 +61,14 @@ extension SearchViewController {
 // MARK: - Display
 extension SearchViewController: SearchDisplayLogic {
   func displaySearch(viewModel: SearchModels.Search.ViewModel) {
-    self.photos = viewModel.photos
+    tableView.isHidden = viewModel.photos.isEmpty
+    emptyLabel.isHidden = !viewModel.photos.isEmpty
+    photos = viewModel.photos
+    tableView.reloadData()
+  }
+  
+  func displayPagination(viewModel: SearchModels.Pagination.ViewModel) {
+    photos.append(contentsOf: viewModel.photos)
     tableView.reloadData()
   }
 }
@@ -106,6 +115,10 @@ extension SearchViewController:
   func tableView(
     _ tableView: UITableView,
     prefetchRowsAt indexPaths: [IndexPath]) {
-    
+    for indexPath in indexPaths {
+      if photos.count - 1 == indexPath.row {
+        interactor?.fetchPagination(request: .init())
+      }
+    }
   }
 }
