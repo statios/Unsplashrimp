@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SearchPresentationLogic: class {
-  
+  func presentSearch(response: SearchModels.Search.Response)
 }
 
 final class SearchPresenter: BasePresenter {
@@ -19,5 +19,9 @@ final class SearchPresenter: BasePresenter {
 
 // MARK: - Present
 extension SearchPresenter: SearchPresentationLogic {
-  
+  func presentSearch(response: SearchModels.Search.Response) {
+    view?.displaySearch(
+      viewModel: .init(photos: response.search.results)
+    )
+  }
 }

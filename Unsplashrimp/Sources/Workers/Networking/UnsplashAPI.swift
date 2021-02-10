@@ -10,6 +10,7 @@ import Foundation
 enum UnsplashAPI {
   case topics
   case photos(id: String, page: Int)
+  case search(query: String, page: Int)
 }
 
 extension UnsplashAPI: TargetType {
@@ -25,12 +26,13 @@ extension UnsplashAPI: TargetType {
     switch self {
     case .topics: return "/topics"
     case .photos(let id, _): return "/topics/\(id)/photos"
+    case .search: return "/search/photos"
     }
   }
   
   var method: HTTPMethod {
     switch self {
-    case .topics, .photos: return .get
+    case .topics, .photos, .search: return .get
     }
   }
   
@@ -39,6 +41,11 @@ extension UnsplashAPI: TargetType {
     case .photos(_, let page):
       return [
         .init(name: "page", value: String(page)),
+      ]
+    case .search(let query, let page):
+      return [
+        .init(name: "query", value: String(query)),
+        .init(name: "page", value: String(page))
       ]
     default: return []
     }
