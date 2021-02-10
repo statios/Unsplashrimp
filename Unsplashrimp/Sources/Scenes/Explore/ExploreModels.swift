@@ -34,4 +34,19 @@ enum ExploreModels {
       let photos: [[Photo]]
     }
   }
+  
+  enum PrefetchPhotos {
+    struct Request {
+      let page: Int
+      let index: Int
+    }
+
+    struct Response {
+      
+    }
+
+    struct ViewModel {
+      
+    }
+  }
 }

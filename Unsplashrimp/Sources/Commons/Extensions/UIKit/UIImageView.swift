@@ -4,32 +4,39 @@
 //
 //  Created by KIHYUN SO on 2021/02/09.
 //
+// https://stackoverflow.com/questions/42856065/uitableview-is-not-smoothly-when-using-downloading-images
 
 import UIKit
 
 let imageCache = NSCache<NSString, UIImage>()
 
 extension UIImageView {
-  func setImage(_ from: String) {
-    guard let url = URL(string: from) else { return }
-    let urlString = url.absoluteString as NSString
+  func loadImageUsingCacheWithURLString(_ URLString: String, placeHolder: UIImage?) {
     
-    guard let cachedImage = imageCache.object(forKey: urlString) else {
-      
-      guard let data = try? Data(contentsOf: url) else { return }
-      guard let image = UIImage(data: data) else { return }
-      
-      DispatchQueue.global(qos: .background).async {
-        imageCache.setObject(image, forKey: url.absoluteString as NSString)
-      }
-      
-      DispatchQueue.main.async {
-        self.image = image
-      }
-      
+    if let cachedImage = imageCache.object(forKey: NSString(string: URLString)) {
+      self.image = cachedImage
       return
     }
     
-    self.image = cachedImage
+    if let url = URL(string: URLString) {
+      URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+        
+        if error != nil {
+          print("ERROR LOADING IMAGES FROM URL: \(error)")
+          self.image = placeHolder
+          return
+        }
+        
+        DispatchQueue.main.async {
+          if let data = data {
+            if let downloadedImage = UIImage(data: data) {
+              imageCache.setObject(downloadedImage, forKey: NSString(string: URLString))
+              self.image = downloadedImage
+            }
+          }
+        }
+        
+      }).resume()
+    }
   }
 }

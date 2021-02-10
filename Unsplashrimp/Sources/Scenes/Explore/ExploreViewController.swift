@@ -13,7 +13,7 @@ protocol ExploreDisplayLogic: class {
 }
 
 final class ExploreViewController: BaseViewController {
-
+  
   var router: (ExploreRoutingLogic & ExploreDataPassing)?
   var interactor: ExploreBusinessLogic?
   
@@ -23,6 +23,7 @@ final class ExploreViewController: BaseViewController {
   fileprivate var topics: [Topic] = []
   fileprivate var photos: [[Photo]] = []
   fileprivate var selectedIndex: Int = 0
+  fileprivate var pages: [Int] = []
 }
 
 // MARK: - Configure
@@ -55,13 +56,21 @@ extension ExploreViewController {
 extension ExploreViewController: ExploreDisplayLogic {
   func displayTopics(viewModel: ExploreModels.Topics.ViewModel) {
     topics = viewModel.topics
-    collectionView.reloadData()
+    pages = topics.map { _ in Int(0) }
+    DispatchQueue.main.async { [weak self] in
+      guard let `self` = self else { return }
+      self.collectionView.reloadData()
+      self.collectionView.selectItem(
+        at: .init(row: self.selectedIndex, section: 0),
+        animated: false,
+        scrollPosition: .top
+      )
+    }
     interactor?.fetchPhotos(request: .init())
   }
   
   func displayPhotos(viewModel: ExploreModels.Photos.ViewModel) {
     photos = viewModel.photos
-    tableView.reloadData()
   }
 }
 
@@ -90,13 +99,10 @@ extension ExploreViewController:
     cellForItemAt indexPath: IndexPath
   ) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "TopicCell",
-            for: indexPath
+      withReuseIdentifier: "TopicCell",
+      for: indexPath
     ) as? TopicCell else { return UICollectionViewCell() }
-    cell.configure(
-      topics[indexPath.item],
-      isSelected: selectedIndex == indexPath.item
-    )
+    cell.configure(topics[indexPath.item])
     return cell
   }
   
@@ -104,9 +110,16 @@ extension ExploreViewController:
     _ collectionView: UICollectionView,
     didSelectItemAt indexPath: IndexPath
   ) {
-    selectedIndex = indexPath.row
-    collectionView.reloadData()
-    tableView.reloadData()
+    selectedIndex = indexPath.item
+    UIView.transition(
+      with: tableView,
+      duration: 0.35,
+      options: .transitionCrossDissolve,
+      animations: { () -> Void in
+        self.tableView.reloadData()
+      },
+      completion: nil
+    )
   }
 }
 
@@ -134,8 +147,8 @@ extension ExploreViewController: UITableViewDelegate, UITableViewDataSource {
     cellForRowAt indexPath: IndexPath
   ) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "PhotoCell",
-            for: indexPath
+      withIdentifier: "PhotoCell",
+      for: indexPath
     ) as? PhotoCell else { return PhotoCell() }
     cell.configure(photos[selectedIndex][indexPath.row])
     return cell

@@ -36,6 +36,7 @@ extension SplashInteractor: SplashBusinessLogic {
       switch $0 {
       case let .success(topics):
         self?.topics = topics
+        self?.photos = topics.map { _ in [Photo]() }
         topics.forEach {
           self?.prefetchGroup.enter()
           self?.fetchPhotos($0)
@@ -57,12 +58,14 @@ extension SplashInteractor {
     self.worker?.request(
       UnsplashAPI.photos(id: topic.id, page: 1),
       type: [Photo].self
-    ) {
+    ) { [weak self] in
       switch $0 {
       case let .success(photos):
-        photos.forEach { $0.urls.regular.cacheImage() }
-        self.photos.append(photos)
-        self.prefetchGroup.leave()
+        let index = self?.topics.enumerated()
+          .filter { $0.element.id == topic.id }
+          .first?.offset ?? 0
+        self?.photos[index] = photos
+        self?.prefetchGroup.leave()
       default: return
       }
     }
