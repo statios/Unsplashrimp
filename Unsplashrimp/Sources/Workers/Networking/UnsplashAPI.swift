@@ -24,7 +24,7 @@ extension UnsplashAPI: TargetType {
   var path: String {
     switch self {
     case .topics: return "/topics"
-    case .photos: return "/photos"
+    case .photos(let id, _): return "/topics/\(id)/photos"
     }
   }
   
@@ -36,9 +36,8 @@ extension UnsplashAPI: TargetType {
   
   var queryItems: [URLQueryItem] {
     switch self {
-    case .photos(let id, let page):
+    case .photos(_, let page):
       return [
-        .init(name: "id", value: id),
         .init(name: "page", value: String(page)),
       ]
     default: return []

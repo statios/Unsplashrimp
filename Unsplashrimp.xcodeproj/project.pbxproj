@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F941136425D355B3008132A4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F941136325D355B3008132A4 /* String.swift */; };
 		F9880BD025D16CE800967F46 /* UnsplashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880BCF25D16CE800967F46 /* UnsplashResponse.swift */; };
 		F9880BDB25D16D0F00967F46 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880BDA25D16D0F00967F46 /* TargetType.swift */; };
 		F9880BE625D1E12B00967F46 /* Key.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9880BE525D1E12B00967F46 /* Key.plist */; };
@@ -74,6 +75,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F941136325D355B3008132A4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F9880BCF25D16CE800967F46 /* UnsplashResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashResponse.swift; sourceTree = "<group>"; };
 		F9880BDA25D16D0F00967F46 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		F9880BE525D1E12B00967F46 /* Key.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Key.plist; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				F9880CAC25D3221600967F46 /* CGFloat.swift */,
+				F941136325D355B3008132A4 /* String.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				F9C498E125D0E6C80098A309 /* UnsplashAPI.swift in Sources */,
 				F9880C1C25D288BD00967F46 /* UIImageView.swift in Sources */,
 				F9C4984625D0D3A50098A309 /* SplashViewController.swift in Sources */,
+				F941136425D355B3008132A4 /* String.swift in Sources */,
 				F9C4984225D0D3A50098A309 /* SplashPresenter.swift in Sources */,
 				F9880BF825D27F9200967F46 /* Photo.swift in Sources */,
 				F9C498AF25D0DBEC0098A309 /* SearchRouter.swift in Sources */,

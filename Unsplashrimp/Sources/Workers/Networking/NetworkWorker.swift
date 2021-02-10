@@ -14,6 +14,9 @@ protocol NetworkWorkerLogic {
     type: T.Type,
     completion: @escaping (Result<T, Error>) -> Void
   )
+  
+  func willSend(_ target: TargetType)
+  func didRecive(_ response: URLResponse?)
 }
 
 extension NetworkWorkerLogic {
@@ -26,9 +29,14 @@ extension NetworkWorkerLogic {
     type: T.Type,
     completion: @escaping (Result<T, Error>) -> Void
   ) {
+    willSend(target)
+    
     session.dataTask(with: target.request) { (data, response, error) in
       
+      didRecive(response)
+      
       if let err = error {
+        Log.error(err.localizedDescription)
         completion(.failure(err))
         return
       }
@@ -45,6 +53,16 @@ extension NetworkWorkerLogic {
       }
       
     }.resume()
+  }
+  
+  func willSend(_ target: TargetType) {
+    Log.info(" Request  \(target)")
+  }
+  
+  func didRecive(_ response: URLResponse?) {
+    if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+      Log.info("Response \(statusCode)")
+    }
   }
 }
 

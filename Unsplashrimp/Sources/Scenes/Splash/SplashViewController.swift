@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SplashDisplayLogic: class {
-
+  func displayPrefetch(viewModel: SplashModels.Prefetch.ViewModel)
 }
 
 final class SplashViewController: BaseViewController {
@@ -25,7 +25,7 @@ extension SplashViewController {
     let interactor = SplashInteractor()
     let presenter = SplashPresenter()
     let router = SplashRouter()
-    let worker = SplashWorker()
+    let worker = NetworkWorker.shared
     
     interactor.presenter = presenter
     interactor.worker = worker
@@ -36,30 +36,15 @@ extension SplashViewController {
     viewController.router = router
   }
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    view.backgroundColor = .red
-    
-    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-      guard let explore = UIStoryboard(
-              name: "Explore",
-              bundle: nil
-      ).instantiateInitialViewController() else { return }
-      
-      guard let search = UIStoryboard(
-              name: "Search",
-              bundle: nil
-      ).instantiateInitialViewController() else { return }
-      
-      let tabBar = UITabBarController()
-      tabBar.viewControllers = [explore, search]
-      tabBar.modalPresentationStyle = .overFullScreen
-      self.present(tabBar, animated: true)
-    }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    interactor?.fetchPrefetch(request: .init())
   }
 }
 
 // MARK: - Display
 extension SplashViewController: SplashDisplayLogic {
-
+  func displayPrefetch(viewModel: SplashModels.Prefetch.ViewModel) {
+    router?.routeToExplore()
+  }
 }

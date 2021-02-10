@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SplashPresentationLogic: class {
-  
+  func presentPrefetch(response: SplashModels.Prefetch.Response)
 }
 
 final class SplashPresenter: BasePresenter {
@@ -19,5 +19,7 @@ final class SplashPresenter: BasePresenter {
 
 // MARK: - Present
 extension SplashPresenter: SplashPresentationLogic {
-  
+  func presentPrefetch(response: SplashModels.Prefetch.Response) {
+    view?.displayPrefetch(viewModel: .init())
+  }
 }
