@@ -16,8 +16,20 @@
                     <view key="view" contentMode="scaleToFill" id="ISr-Gg-aWb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qOz-rX-Lu5">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="w6N-an-TcY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qOz-rX-Lu5" firstAttribute="leading" secondItem="w6N-an-TcY" secondAttribute="leading" id="9wq-Lt-fW2"/>
+                            <constraint firstItem="qOz-rX-Lu5" firstAttribute="top" secondItem="w6N-an-TcY" secondAttribute="top" id="P3E-zE-X2o"/>
+                            <constraint firstItem="w6N-an-TcY" firstAttribute="trailing" secondItem="qOz-rX-Lu5" secondAttribute="trailing" id="Rpe-d5-JIk"/>
+                            <constraint firstAttribute="bottom" secondItem="qOz-rX-Lu5" secondAttribute="bottom" id="j4b-Oe-DeO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Tym-Ie-BmU"/>
                 </viewController>

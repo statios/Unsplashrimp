@@ -34,4 +34,20 @@ enum ExploreModels {
       let photos: [[Photo]]
     }
   }
+  
+  enum Pagination {
+    struct Request {
+      let index: Int
+    }
+
+    struct Response {
+      let index: Int
+      let photos: [Photo]
+    }
+
+    struct ViewModel {
+      let index: Int
+      let photos: [Photo]
+    }
+  }
 }

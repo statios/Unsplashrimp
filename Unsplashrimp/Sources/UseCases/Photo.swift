@@ -14,6 +14,8 @@ struct Photo: Codable {
   let width: CGFloat
   let height: CGFloat
   let user: User
+  let color: String
+  let blurHash: String
   
   struct URLs: Codable {
     let thumb: String
@@ -24,5 +26,15 @@ struct Photo: Codable {
   
   struct User: Codable {
     let name: String
+  }
+  
+  enum CodingKeys: String, CodingKey {
+    case id
+    case urls
+    case width
+    case height
+    case user
+    case color
+    case blurHash = "blur_hash"
   }
 }

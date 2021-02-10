@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F941136425D355B3008132A4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F941136325D355B3008132A4 /* String.swift */; };
+		F941138C25D430C0008132A4 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F941138B25D430C0008132A4 /* UIColor.swift */; };
 		F9880BD025D16CE800967F46 /* UnsplashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880BCF25D16CE800967F46 /* UnsplashResponse.swift */; };
 		F9880BDB25D16D0F00967F46 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880BDA25D16D0F00967F46 /* TargetType.swift */; };
 		F9880BE625D1E12B00967F46 /* Key.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9880BE525D1E12B00967F46 /* Key.plist */; };
@@ -76,6 +77,7 @@
 
 /* Begin PBXFileReference section */
 		F941136325D355B3008132A4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		F941138B25D430C0008132A4 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F9880BCF25D16CE800967F46 /* UnsplashResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashResponse.swift; sourceTree = "<group>"; };
 		F9880BDA25D16D0F00967F46 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		F9880BE525D1E12B00967F46 /* Key.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Key.plist; sourceTree = "<group>"; };
@@ -168,7 +170,6 @@
 		F9880BFC25D280DB00967F46 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				F9880C0F25D2823100967F46 /* PhotoCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -187,6 +188,7 @@
 			children = (
 				F9880C1B25D288BD00967F46 /* UIImageView.swift */,
 				F9880C5625D29AB500967F46 /* UINavigationBar.swift */,
+				F941138B25D430C0008132A4 /* UIColor.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				F9880C9F25D2F37500967F46 /* TopicCell.swift */,
+				F9880C0F25D2823100967F46 /* PhotoCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9C4984525D0D3A50098A309 /* SplashModels.swift in Sources */,
+				F941138C25D430C0008132A4 /* UIColor.swift in Sources */,
 				F9C4987D25D0D60A0098A309 /* BasePresenter.swift in Sources */,
 				F9C4984425D0D3A50098A309 /* SplashRouter.swift in Sources */,
 				F9880BD025D16CE800967F46 /* UnsplashResponse.swift in Sources */,

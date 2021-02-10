@@ -50,6 +50,9 @@ extension SplashRouter: SplashRoutingLogic {
     tabBarController.viewControllers = [exploreNavi, search]
     tabBarController.modalPresentationStyle = .overFullScreen
     tabBarController.modalTransitionStyle = .crossDissolve
+    tabBarController.tabBar.barTintColor = .black
+    tabBarController.tabBar.isTranslucent = false
+    
     
     guard var destinationDS = explore.router?.dataStore else {
       

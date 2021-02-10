@@ -13,12 +13,21 @@ class TopicCell: UICollectionViewCell {
   @IBOutlet weak var topicLabel: UILabel!
   @IBOutlet weak var selectedMarkView: UIView!
   
+  override var isSelected: Bool {
+    didSet {
+      updateSelectedMark()
+    }
+  }
+  
   override func awakeFromNib() {
     super.awakeFromNib()
   }
   
-  func configure(_ topic: Topic, isSelected: Bool) {
+  func configure(_ topic: Topic) {
     topicLabel.text = topic.title
+  }
+  
+  func updateSelectedMark() {
     selectedMarkView.isHidden = !isSelected
   }
   
