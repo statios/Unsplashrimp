@@ -10,6 +10,7 @@ import UIKit
 protocol ExploreDisplayLogic: class {
   func displayTopics(viewModel: ExploreModels.Topics.ViewModel)
   func displayPhotos(viewModel: ExploreModels.Photos.ViewModel)
+  func displayPagination(viewModel: ExploreModels.Pagination.ViewModel)
 }
 
 final class ExploreViewController: BaseViewController {
@@ -23,7 +24,6 @@ final class ExploreViewController: BaseViewController {
   fileprivate var topics: [Topic] = []
   fileprivate var photos: [[Photo]] = []
   fileprivate var selectedIndex: Int = 0
-  fileprivate var pages: [Int] = []
 }
 
 // MARK: - Configure
@@ -56,7 +56,6 @@ extension ExploreViewController {
 extension ExploreViewController: ExploreDisplayLogic {
   func displayTopics(viewModel: ExploreModels.Topics.ViewModel) {
     topics = viewModel.topics
-    pages = topics.map { _ in Int(0) }
     DispatchQueue.main.async { [weak self] in
       guard let `self` = self else { return }
       self.collectionView.reloadData()
@@ -71,6 +70,13 @@ extension ExploreViewController: ExploreDisplayLogic {
   
   func displayPhotos(viewModel: ExploreModels.Photos.ViewModel) {
     photos = viewModel.photos
+  }
+  
+  func displayPagination(viewModel: ExploreModels.Pagination.ViewModel) {
+    photos[viewModel.index].append(contentsOf: viewModel.photos)
+    DispatchQueue.main.async { [weak self] in
+      self?.tableView.reloadData()
+    }
   }
 }
 
@@ -115,15 +121,18 @@ extension ExploreViewController:
       with: tableView,
       duration: 0.35,
       options: .transitionCrossDissolve,
-      animations: { () -> Void in
-        self.tableView.reloadData()
-      },
-      completion: nil
-    )
+      animations: { self.tableView.reloadData() }
+    ) { _ in
+
+    }
   }
 }
 
-extension ExploreViewController: UITableViewDelegate, UITableViewDataSource {
+extension ExploreViewController:
+  UITableViewDelegate,
+  UITableViewDataSource,
+  UITableViewDataSourcePrefetching {
+  
   func tableView(
     _ tableView: UITableView,
     numberOfRowsInSection section: Int
@@ -152,5 +161,16 @@ extension ExploreViewController: UITableViewDelegate, UITableViewDataSource {
     ) as? PhotoCell else { return PhotoCell() }
     cell.configure(photos[selectedIndex][indexPath.row])
     return cell
+  }
+  
+  func tableView(
+    _ tableView: UITableView,
+    prefetchRowsAt indexPaths: [IndexPath]
+  ) {
+    for indexPath in indexPaths {
+      if photos[selectedIndex].count - 1 == indexPath.row {
+        interactor?.fetchPagination(request: .init(index: selectedIndex))
+      }
+    }
   }
 }

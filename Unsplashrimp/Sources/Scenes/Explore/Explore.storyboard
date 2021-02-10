@@ -61,6 +61,7 @@
                                 <connections>
                                     <outlet property="dataSource" destination="7QP-oR-T8h" id="nzx-qO-B5e"/>
                                     <outlet property="delegate" destination="7QP-oR-T8h" id="giC-PP-nrf"/>
+                                    <outlet property="prefetchDataSource" destination="7QP-oR-T8h" id="GcB-nH-Kbj"/>
                                 </connections>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Ws-Q7-35N">

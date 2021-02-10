@@ -26,6 +26,7 @@ class PhotoCell: UITableViewCell {
   }
   
   func configure(_ photo: Photo) {
+    photoView.backgroundColor = UIColor(hexString: photo.color)
     photoView.loadImageUsingCacheWithURLString(
       photo.urls.regular,
       placeHolder: nil

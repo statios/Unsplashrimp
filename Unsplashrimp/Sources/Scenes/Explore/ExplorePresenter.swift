@@ -10,6 +10,7 @@ import UIKit
 protocol ExplorePresentationLogic: class {
   func presentTopics(response: ExploreModels.Topics.Response)
   func presentPhotos(response: ExploreModels.Photos.Response)
+  func presentPagination(response: ExploreModels.Pagination.Response)
 }
 
 final class ExplorePresenter: BasePresenter {
@@ -26,5 +27,11 @@ extension ExplorePresenter: ExplorePresentationLogic {
   
   func presentPhotos(response: ExploreModels.Photos.Response) {
     view?.displayPhotos(viewModel: .init(photos: response.photos))
+  }
+  
+  func presentPagination(response: ExploreModels.Pagination.Response) {
+    view?.displayPagination(
+      viewModel: .init(index: response.index, photos: response.photos)
+    )
   }
 }
