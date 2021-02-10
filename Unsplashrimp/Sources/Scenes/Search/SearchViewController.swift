@@ -16,6 +16,8 @@ final class SearchViewController: BaseViewController {
   var router: (SearchRoutingLogic & SearchDataPassing)?
   var interactor: SearchBusinessLogic?
   
+  let searchController = UISearchController(searchResultsController: nil)
+  
 }
 
 // MARK: - Configure
@@ -35,9 +37,26 @@ extension SearchViewController {
     viewController.interactor = interactor
     viewController.router = router
   }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    searchController.searchResultsUpdater = self
+    searchController.obscuresBackgroundDuringPresentation = false
+    searchController.searchBar.placeholder = "Search photos"
+    searchController.searchBar.barStyle = .black
+    navigationItem.searchController = searchController
+    definesPresentationContext = true
+    title = "Unsplashrimp"
+  }
 }
 
 // MARK: - Display
 extension SearchViewController: SearchDisplayLogic {
 
+}
+
+extension SearchViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    
+  }
 }
