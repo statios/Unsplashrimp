@@ -11,6 +11,8 @@ protocol ExplorePresentationLogic: class {
   func presentTopics(response: ExploreModels.Topics.Response)
   func presentPhotos(response: ExploreModels.Photos.Response)
   func presentPagination(response: ExploreModels.Pagination.Response)
+  func presentSelectTopic(resposne: ExploreModels.SelectTopic.Response)
+  func presentSelectPhoto(resposne: ExploreModels.SelectPhoto.Response)
 }
 
 final class ExplorePresenter: BasePresenter {
@@ -33,5 +35,13 @@ extension ExplorePresenter: ExplorePresentationLogic {
     view?.displayPagination(
       viewModel: .init(index: response.index, photos: response.photos)
     )
+  }
+  
+  func presentSelectTopic(resposne: ExploreModels.SelectTopic.Response) {
+    view?.displaySelectTopic(viewModel: .init(index: resposne.index))
+  }
+  
+  func presentSelectPhoto(resposne: ExploreModels.SelectPhoto.Response) {
+    view?.displaySelectPhoto(viewModel: .init())
   }
 }

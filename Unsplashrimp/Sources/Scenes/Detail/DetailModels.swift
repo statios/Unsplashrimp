@@ -6,19 +6,18 @@
 //
 
 enum DetailModels {
-
-  enum Model {
-
+  
+  enum Photos {
     struct Request {
-
+      
     }
-
     struct Response {
-
+      let photos: [Photo]
+      let selectedPhotoIndex: Int
     }
-
     struct ViewModel {
-
+      let photos: [Photo]
+      let selectedPhotoIndex: Int
     }
   }
 }

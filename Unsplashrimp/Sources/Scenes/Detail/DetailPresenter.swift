@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DetailPresentationLogic: class {
-  
+  func presentPhotos(response: DetailModels.Photos.Response)
 }
 
 final class DetailPresenter: BasePresenter {
@@ -19,5 +19,12 @@ final class DetailPresenter: BasePresenter {
 
 // MARK: - Present
 extension DetailPresenter: DetailPresentationLogic {
-  
+  func presentPhotos(response: DetailModels.Photos.Response) {
+    view?.displayPhotos(
+      request: .init(
+        photos: response.photos,
+        selectedPhotoIndex: response.selectedPhotoIndex
+      )
+    )
+  }
 }
