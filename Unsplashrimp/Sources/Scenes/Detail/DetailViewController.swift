@@ -16,6 +16,8 @@ final class DetailViewController: BaseViewController {
   var router: (DetailRoutingLogic & DetailDataPassing)?
   var interactor: DetailBusinessLogic?
   
+  @IBOutlet weak var collectionView: UICollectionView!
+  
   fileprivate var photos: [Photo] = []
 }
 
@@ -47,7 +49,7 @@ extension DetailViewController {
 extension DetailViewController: DetailDisplayLogic {
   func displayPhotos(request: DetailModels.Photos.ViewModel) {
     photos = request.photos
-//    collectionView.reloadData()
+    collectionView.reloadData()
   }
 }
 
@@ -55,43 +57,35 @@ extension DetailViewController: DetailDisplayLogic {
 extension DetailViewController {
 }
 
-//extension DetailViewController:
-//  UICollectionViewDelegateFlowLayout,
-//  UICollectionViewDelegate,
-//  UICollectionViewDataSource {
-//
-//  func collectionView(
-//    _ collectionView: UICollectionView,
-//    layout collectionViewLayout: UICollectionViewLayout,
-//    sizeForItemAt indexPath: IndexPath
-//  ) -> CGSize {
-//    return Device.size
-//  }
-//
-//  func collectionView(
-//    _ collectionView: UICollectionView,
-//    layout collectionViewLayout: UICollectionViewLayout,
-//    insetForSectionAt section: Int
-//  ) -> UIEdgeInsets {
-//    return .zero
-//  }
-//
-//  func collectionView(
-//    _ collectionView: UICollectionView,
-//    numberOfItemsInSection section: Int
-//  ) -> Int {
-//    return photos.count
-//  }
-//
-//  func collectionView(
-//    _ collectionView: UICollectionView,
-//    cellForItemAt indexPath: IndexPath
-//  ) -> UICollectionViewCell {
-//    guard let cell = collectionView.dequeueReusableCell(
-//            withReuseIdentifier: "DetailCell",
-//            for: indexPath
-//    ) as? DetailCell else { return UICollectionViewCell() }
-//    cell.configure(photos[indexPath.item])
-//    return cell
-//  }
-//}
+extension DetailViewController:
+  UICollectionViewDelegateFlowLayout,
+  UICollectionViewDelegate,
+  UICollectionViewDataSource {
+
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    sizeForItemAt indexPath: IndexPath
+  ) -> CGSize {
+    return Device.size
+  }
+
+  func collectionView(
+    _ collectionView: UICollectionView,
+    numberOfItemsInSection section: Int
+  ) -> Int {
+    return photos.count
+  }
+
+  func collectionView(
+    _ collectionView: UICollectionView,
+    cellForItemAt indexPath: IndexPath
+  ) -> UICollectionViewCell {
+    guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "DetailCell",
+            for: indexPath
+    ) as? DetailCell else { return UICollectionViewCell() }
+    cell.configure(photos[indexPath.item])
+    return cell
+  }
+}
