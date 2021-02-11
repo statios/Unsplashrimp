@@ -26,23 +26,17 @@ final class ExploreRouter: BaseRouter, ExploreDataPassing {
 extension ExploreRouter: ExploreRoutingLogic {
   func routeToDetail() {
     
-    guard let detailNavi = UIStoryboard(
+    guard let detailViewController =  UIStoryboard(
       name: "Detail",
       bundle: nil
     ).instantiateInitialViewController()
-    as? UINavigationController else { return }
-    
-    guard let detailViewController =  detailNavi
-            .viewControllers
-            .first(where: {
-              $0.isKind(of: DetailViewController.self)
-            }) as? DetailViewController else { return }
+    as? DetailViewController else { return }
     
     guard var detailDataStore = detailViewController.router?.dataStore else { return }
     guard let source = dataStore else { return }
     
     passDataToDetail(source: source, destination: &detailDataStore)
-    present(to: detailNavi, from: viewController)
+    present(to: detailViewController, from: viewController)
   }
 }
 
