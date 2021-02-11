@@ -54,7 +54,7 @@ extension SearchViewController {
     super.viewDidLoad()
     navigationItem.searchController = searchController
     definesPresentationContext = true
-    title = "Unsplashrimp"
+    navigationItem.title = "Unsplashrimp"
   }
 }
 

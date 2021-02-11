@@ -48,6 +48,7 @@ extension ExploreInteractor: ExploreBusinessLogic {
         switch $0 {
         case .success(let photos):
           self?.pages[request.index] += 1
+          self?.photos[request.index].append(contentsOf: photos)
           self?.presenter?.presentPagination(
             response: .init(index: request.index, photos: photos)
           )

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ExploreRoutingLogic: class {
-
+  
 }
 
 protocol ExploreDataPassing: class {
