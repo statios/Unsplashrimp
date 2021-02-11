@@ -8,7 +8,8 @@
 import UIKit
 
 protocol SearchDisplayLogic: class {
-
+  func displaySearch(viewModel: SearchModels.Search.ViewModel)
+  func displayPagination(viewModel: SearchModels.Pagination.ViewModel)
 }
 
 final class SearchViewController: BaseViewController {
@@ -16,6 +17,19 @@ final class SearchViewController: BaseViewController {
   var router: (SearchRoutingLogic & SearchDataPassing)?
   var interactor: SearchBusinessLogic?
   
+  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var emptyLabel: UILabel!
+  
+  lazy var searchController: UISearchController = {
+    let s = UISearchController(searchResultsController: nil)
+    s.searchBar.delegate = self
+    s.obscuresBackgroundDuringPresentation = false
+    s.searchBar.placeholder = "Search photos"
+    s.searchBar.barStyle = .black
+    return s
+  }()
+  
+  fileprivate var photos: [Photo] = []
 }
 
 // MARK: - Configure
@@ -25,19 +39,86 @@ extension SearchViewController {
     let interactor = SearchInteractor()
     let presenter = SearchPresenter()
     let router = SearchRouter()
-    let worker = SearchWorker()
+    let worker = NetworkWorker.shared
     
     interactor.presenter = presenter
-    interactor.worker = worker
+    interactor.networkWorker = worker
     presenter.view = viewController
     router.viewController = viewController
     router.dataStore = interactor
     viewController.interactor = interactor
     viewController.router = router
   }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    navigationItem.searchController = searchController
+    definesPresentationContext = true
+    navigationItem.title = "Unsplashrimp"
+  }
 }
 
 // MARK: - Display
 extension SearchViewController: SearchDisplayLogic {
+  func displaySearch(viewModel: SearchModels.Search.ViewModel) {
+    tableView.isHidden = viewModel.photos.isEmpty
+    emptyLabel.isHidden = !viewModel.photos.isEmpty
+    photos = viewModel.photos
+    tableView.reloadData()
+  }
+  
+  func displayPagination(viewModel: SearchModels.Pagination.ViewModel) {
+    photos.append(contentsOf: viewModel.photos)
+    tableView.reloadData()
+  }
+}
 
+extension SearchViewController: UISearchBarDelegate {
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    guard let query = searchBar.text else { return }
+    interactor?.fetchSearch(request: .init(query: query))
+  }
+}
+
+extension SearchViewController:
+  UITableViewDelegate,
+  UITableViewDataSource,
+  UITableViewDataSourcePrefetching {
+  
+  func tableView(
+    _ tableView: UITableView,
+    numberOfRowsInSection section: Int
+  ) -> Int {
+    return photos.count
+  }
+  
+  func tableView(
+    _ tableView: UITableView,
+    heightForRowAt indexPath: IndexPath
+  ) -> CGFloat {
+    let photo = photos[indexPath.row]
+    return CGSize(width: photo.width, height: photo.height).toRatioSizedHeight()
+  }
+  
+  func tableView(
+    _ tableView: UITableView,
+    cellForRowAt indexPath: IndexPath
+  ) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(
+      withIdentifier: "SearchCell",
+      for: indexPath
+    ) as? SearchCell else { return SearchCell() }
+    cell.configure(photos[indexPath.row])
+    return cell
+  }
+  
+  func tableView(
+    _ tableView: UITableView,
+    prefetchRowsAt indexPaths: [IndexPath]) {
+    for indexPath in indexPaths {
+      if photos.count - 1 == indexPath.row {
+        interactor?.fetchPagination(request: .init())
+      }
+    }
+  }
 }

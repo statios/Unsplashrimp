@@ -6,19 +6,27 @@
 //
 
 enum SearchModels {
-
-  enum Model {
-
+  
+  enum Search {
     struct Request {
-
+      let query: String
     }
-
     struct Response {
-
+      let search: PaginationResponse<Photo>
     }
-
     struct ViewModel {
-
+      let photos: [Photo]
+    }
+  }
+  
+  enum Pagination {
+    struct Request {
+    }
+    struct Response {
+      let search: PaginationResponse<Photo>
+    }
+    struct ViewModel {
+      let photos: [Photo]
     }
   }
 }

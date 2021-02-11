@@ -47,7 +47,7 @@ extension ExploreViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationController?.navigationBar.transparentNavigationBar()
-    title = "Unsplashrimp"
+    navigationItem.title = "Unsplashrimp"
     interactor?.fetchTopics(request: .init())
   }
 }
@@ -165,12 +165,19 @@ extension ExploreViewController:
   
   func tableView(
     _ tableView: UITableView,
-    prefetchRowsAt indexPaths: [IndexPath]
-  ) {
+    prefetchRowsAt indexPaths: [IndexPath]) {
     for indexPath in indexPaths {
       if photos[selectedIndex].count - 1 == indexPath.row {
-        interactor?.fetchPagination(request: .init(index: selectedIndex))
+        interactor?.fetchPagination(
+          request: .init(index: selectedIndex)
+        )
       }
     }
+  }
+  
+  func tableView(
+    _ tableView: UITableView,
+    didSelectRowAt indexPath: IndexPath) {
+    
   }
 }

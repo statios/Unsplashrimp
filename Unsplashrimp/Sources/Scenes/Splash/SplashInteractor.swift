@@ -18,7 +18,7 @@ protocol SplashBusinessLogic: class {
 
 final class SplashInteractor: BaseInteractor, SplashDataStore {
   
-  var worker: NetworkWorkerLogic?
+  var networkWorker: NetworkWorkerLogic?
   var presenter: SplashPresentationLogic?
   
   fileprivate let prefetchGroup = DispatchGroup()
@@ -30,7 +30,7 @@ final class SplashInteractor: BaseInteractor, SplashDataStore {
 // MARK: - Business Logic
 extension SplashInteractor: SplashBusinessLogic {
   func fetchPrefetch(request: SplashModels.Prefetch.Request) {
-    worker?.request(
+    networkWorker?.request(
       UnsplashAPI.topics,
       type: [Topic].self) { [weak self] in
       switch $0 {
@@ -55,7 +55,7 @@ extension SplashInteractor: SplashBusinessLogic {
 
 extension SplashInteractor {
   func fetchPhotos(_ topic: Topic) {
-    self.worker?.request(
+    self.networkWorker?.request(
       UnsplashAPI.photos(id: topic.id, page: 1),
       type: [Photo].self
     ) { [weak self] in
