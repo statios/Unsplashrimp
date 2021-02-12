@@ -122,10 +122,7 @@ extension SearchViewController:
     _ tableView: UITableView,
     cellForRowAt indexPath: IndexPath
   ) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(
-      withIdentifier: "SearchCell",
-      for: indexPath
-    ) as? SearchCell else { return SearchCell() }
+    let cell = tableView.dequeueReusableCell(SearchCell.self, for: indexPath)
     cell.configure(photos[indexPath.row])
     return cell
   }
