@@ -77,11 +77,11 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Title" id="hXm-fN-bch">
-                                        <barButtonItem key="leftBarButtonItem" style="done" id="sdj-km-M9U">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="jg8-1f-xl9">
-                                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Item" style="done" id="sdj-km-M9U">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jg8-1f-xl9">
+                                                <rect key="frame" x="20" y="11" width="72" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" image="xmark" catalog="system"/>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
@@ -111,4 +111,7 @@
             <point key="canvasLocation" x="1281.1594202898552" y="93.75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+    </resources>
 </document>
