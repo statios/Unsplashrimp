@@ -78,6 +78,11 @@ extension SearchViewController: UISearchBarDelegate {
     guard let query = searchBar.text else { return }
     interactor?.fetchSearch(request: .init(query: query))
   }
+  
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    photos.removeAll()
+    tableView.reloadData()
+  }
 }
 
 extension SearchViewController:
