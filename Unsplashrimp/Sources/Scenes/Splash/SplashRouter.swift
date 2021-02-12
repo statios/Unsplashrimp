@@ -29,15 +29,10 @@ extension SplashRouter: SplashRoutingLogic {
     let exploreViewController = UIStoryboard("Explore").viewController
     let searchViewConroller = UIStoryboard("Search").viewController
 
-    let tabBarController = UITabBarController()
-    tabBarController.viewControllers = [
+    let tabBarController = [
       exploreViewController.embededIn(TransparentNavigationController.self),
       searchViewConroller.embededIn(TransparentNavigationController.self)
-    ]
-    tabBarController.modalPresentationStyle = .overFullScreen
-    tabBarController.modalTransitionStyle = .crossDissolve
-    tabBarController.tabBar.barTintColor = .black
-    tabBarController.tabBar.isTranslucent = false
+    ].embededIn(MainTabBarController.self)
 
     guard let source = dataStore else { return }
     guard let destinationVC = exploreViewController as? ExploreViewController else { return }

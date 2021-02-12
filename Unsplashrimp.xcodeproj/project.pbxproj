@@ -39,6 +39,7 @@
 		F988F0C625D66AFA00AC4DA4 /* TransparentNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0C525D66AFA00AC4DA4 /* TransparentNavigationController.swift */; };
 		F988F0D125D66B9400AC4DA4 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0D025D66B9400AC4DA4 /* UIViewController.swift */; };
 		F988F0D925D66FBB00AC4DA4 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0D825D66FBB00AC4DA4 /* UINavigationController.swift */; };
+		F988F0E125D723C200AC4DA4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0E025D723C200AC4DA4 /* MainTabBarController.swift */; };
 		F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497D525D0CA120098A309 /* AppDelegate.swift */; };
 		F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C497DE25D0CA130098A309 /* Images.xcassets */; };
 		F9C497E225D0CA130098A309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C497E025D0CA130098A309 /* LaunchScreen.storyboard */; };
@@ -126,6 +127,7 @@
 		F988F0C525D66AFA00AC4DA4 /* TransparentNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentNavigationController.swift; sourceTree = "<group>"; };
 		F988F0D025D66B9400AC4DA4 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		F988F0D825D66FBB00AC4DA4 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		F988F0E025D723C200AC4DA4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F9C497D225D0CA110098A309 /* Unsplashrimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplashrimp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C497D525D0CA120098A309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C497DE25D0CA130098A309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				F988F0C525D66AFA00AC4DA4 /* TransparentNavigationController.swift */,
+				F988F0E025D723C200AC4DA4 /* MainTabBarController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -720,6 +723,7 @@
 				F988F07B25D64E2300AC4DA4 /* DetailRoutableDisplayLogic.swift in Sources */,
 				F9C4984725D0D3A50098A309 /* SplashInteractor.swift in Sources */,
 				F9C498AD25D0DBEC0098A309 /* SearchPresenter.swift in Sources */,
+				F988F0E125D723C200AC4DA4 /* MainTabBarController.swift in Sources */,
 				F9C498B025D0DBEC0098A309 /* SearchModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

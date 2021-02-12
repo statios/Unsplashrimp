@@ -1,0 +1,18 @@
+//
+//  MainTabBarController.swift
+//  Unsplashrimp
+//
+//  Created by KIHYUN SO on 2021/02/13.
+//
+
+import UIKit
+
+class MainTabBarController: UITabBarController {
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    modalPresentationStyle = .overFullScreen
+    modalTransitionStyle = .crossDissolve
+    tabBar.barTintColor = .black
+    tabBar.isTranslucent = false
+  }
+}
