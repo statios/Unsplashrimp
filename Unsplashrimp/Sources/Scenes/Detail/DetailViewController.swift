@@ -20,7 +20,7 @@ final class DetailViewController: BaseViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var navigationBar: UINavigationBar!
-  @IBOutlet weak var dismissButton: UIButton!
+  @IBOutlet weak var dismissButton: UIBarButtonItem!
   @IBOutlet weak var customNavigationItem: UINavigationItem!
   
   weak var delegate: DetailRoutableDisplayLogic?
@@ -48,11 +48,8 @@ extension DetailViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationBar.transparentNavigationBar()
-    dismissButton.addTarget(
-      self,
-      action: #selector(tappedDismissButton),
-      for: .touchUpInside
-    )
+    dismissButton.target = self
+    dismissButton.action = #selector(tappedDismissButton)
     interactor?.fetchPhotos(request: .init())
   }
 }

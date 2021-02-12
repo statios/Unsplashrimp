@@ -67,7 +67,7 @@
                                     <outlet property="delegate" destination="sRQ-OF-2Er" id="PmM-sM-qP7"/>
                                 </connections>
                             </collectionView>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64i-kH-dzX">
+                            <navigationBar contentMode="center" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64i-kH-dzX">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -77,13 +77,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Title" id="hXm-fN-bch">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="done" id="sdj-km-M9U">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jg8-1f-xl9">
-                                                <rect key="frame" x="20" y="11" width="72" height="22"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="xmark" catalog="system"/>
-                                            </button>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="stop" id="sdj-km-M9U"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -102,7 +96,7 @@
                     <connections>
                         <outlet property="collectionView" destination="vgn-Gf-Shi" id="PHc-Fa-YMv"/>
                         <outlet property="customNavigationItem" destination="hXm-fN-bch" id="pOa-Lc-yZn"/>
-                        <outlet property="dismissButton" destination="jg8-1f-xl9" id="nyx-GO-Znz"/>
+                        <outlet property="dismissButton" destination="sdj-km-M9U" id="NQH-gt-F65"/>
                         <outlet property="navigationBar" destination="64i-kH-dzX" id="Hc3-cA-tR6"/>
                     </connections>
                 </viewController>
@@ -111,7 +105,4 @@
             <point key="canvasLocation" x="1281.1594202898552" y="93.75"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="xmark" catalog="system" width="128" height="113"/>
-    </resources>
 </document>

@@ -14,5 +14,6 @@ class MainTabBarController: UITabBarController {
     modalTransitionStyle = .crossDissolve
     tabBar.barTintColor = .black
     tabBar.isTranslucent = false
+    tabBar.tintColor = .white
   }
 }
