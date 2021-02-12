@@ -6,19 +6,41 @@
 //
 
 enum DetailModels {
-
-  enum Model {
-
+  
+  enum Photos {
     struct Request {
-
+      
     }
-
     struct Response {
-
+      let photos: [Photo]
+      let selectedPhotoIndex: Int
     }
-
     struct ViewModel {
-
+      let photos: [Photo]
+      let selectedPhotoIndex: Int
+    }
+  }
+  
+  enum Paging {
+    struct Request {
+      let index: Int
+    }
+    struct Response {
+      let username: String
+    }
+    struct ViewModel {
+      let username: String
+    }
+  }
+  
+  enum Dismiss {
+    struct Request {
+    }
+    struct Response {
+      let selectedPhotoIndex: Int
+    }
+    struct ViewModel {
+      let selectedPhotoIndex: Int
     }
   }
 }

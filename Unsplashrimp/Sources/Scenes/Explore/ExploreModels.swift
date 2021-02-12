@@ -50,4 +50,30 @@ enum ExploreModels {
       let photos: [Photo]
     }
   }
+  
+  enum SelectTopic {
+    struct Request {
+      let index: Int
+    }
+
+    struct Response {
+      let index: Int
+    }
+
+    struct ViewModel {
+      let index: Int
+    }
+  }
+  
+  enum SelectPhoto {
+    struct Request {
+      let index: Int
+    }
+
+    struct Response {
+    }
+
+    struct ViewModel {
+    }
+  }
 }

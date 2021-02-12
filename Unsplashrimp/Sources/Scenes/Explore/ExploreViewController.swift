@@ -7,10 +7,12 @@
 
 import UIKit
 
-protocol ExploreDisplayLogic: class {
+protocol ExploreDisplayLogic: class, DetailRoutableScene {
   func displayTopics(viewModel: ExploreModels.Topics.ViewModel)
   func displayPhotos(viewModel: ExploreModels.Photos.ViewModel)
   func displayPagination(viewModel: ExploreModels.Pagination.ViewModel)
+  func displaySelectTopic(viewModel: ExploreModels.SelectTopic.ViewModel)
+  func displaySelectPhoto(viewModel: ExploreModels.SelectPhoto.ViewModel)
 }
 
 final class ExploreViewController: BaseViewController {
@@ -23,7 +25,7 @@ final class ExploreViewController: BaseViewController {
   
   fileprivate var topics: [Topic] = []
   fileprivate var photos: [[Photo]] = []
-  fileprivate var selectedIndex: Int = 0
+  fileprivate var selectedTopicIndex: Int = 0
 }
 
 // MARK: - Configure
@@ -60,7 +62,7 @@ extension ExploreViewController: ExploreDisplayLogic {
       guard let `self` = self else { return }
       self.collectionView.reloadData()
       self.collectionView.selectItem(
-        at: .init(row: self.selectedIndex, section: 0),
+        at: .init(row: self.selectedTopicIndex, section: 0),
         animated: false,
         scrollPosition: .top
       )
@@ -77,6 +79,29 @@ extension ExploreViewController: ExploreDisplayLogic {
     DispatchQueue.main.async { [weak self] in
       self?.tableView.reloadData()
     }
+  }
+  
+  func displaySelectTopic(viewModel: ExploreModels.SelectTopic.ViewModel) {
+    selectedTopicIndex = viewModel.index
+    UIView.transition(
+      with: tableView,
+      duration: 0.35,
+      options: .transitionCrossDissolve,
+      animations: { [weak self] in
+        self?.tableView.reloadData()
+      }) { _ in }
+  }
+  
+  func displaySelectPhoto(viewModel: ExploreModels.SelectPhoto.ViewModel) {
+    router?.routeToDetail()
+  }
+  
+  func displaySelectedPhoto(_ index: Int) {
+    tableView.scrollToRow(
+      at: .init(row: index, section: 0),
+      at: .middle,
+      animated: false
+    )
   }
 }
 
@@ -116,15 +141,7 @@ extension ExploreViewController:
     _ collectionView: UICollectionView,
     didSelectItemAt indexPath: IndexPath
   ) {
-    selectedIndex = indexPath.item
-    UIView.transition(
-      with: tableView,
-      duration: 0.35,
-      options: .transitionCrossDissolve,
-      animations: { self.tableView.reloadData() }
-    ) { _ in
-
-    }
+    interactor?.fetchSelectTopic(request: .init(index: indexPath.row))
   }
 }
 
@@ -140,14 +157,14 @@ extension ExploreViewController:
     guard !photos.isEmpty else {
       return 0
     }
-    return photos[selectedIndex].count
+    return photos[selectedTopicIndex].count
   }
   
   func tableView(
     _ tableView: UITableView,
     heightForRowAt indexPath: IndexPath
   ) -> CGFloat {
-    let photo = photos[selectedIndex][indexPath.row]
+    let photo = photos[selectedTopicIndex][indexPath.row]
     return CGSize(width: photo.width, height: photo.height).toRatioSizedHeight()
   }
   
@@ -159,7 +176,7 @@ extension ExploreViewController:
       withIdentifier: "PhotoCell",
       for: indexPath
     ) as? PhotoCell else { return PhotoCell() }
-    cell.configure(photos[selectedIndex][indexPath.row])
+    cell.configure(photos[selectedTopicIndex][indexPath.row])
     return cell
   }
   
@@ -167,9 +184,9 @@ extension ExploreViewController:
     _ tableView: UITableView,
     prefetchRowsAt indexPaths: [IndexPath]) {
     for indexPath in indexPaths {
-      if photos[selectedIndex].count - 1 == indexPath.row {
+      if photos[selectedTopicIndex].count - 1 == indexPath.row {
         interactor?.fetchPagination(
-          request: .init(index: selectedIndex)
+          request: .init(index: selectedTopicIndex)
         )
       }
     }
@@ -178,6 +195,6 @@ extension ExploreViewController:
   func tableView(
     _ tableView: UITableView,
     didSelectRowAt indexPath: IndexPath) {
-    
+    interactor?.fetchSelectPhoto(request: .init(index: indexPath.row))
   }
 }

@@ -11,12 +11,16 @@ protocol ExploreDataStore: class {
   var topics: [Topic] { get set }
   var photos: [[Photo]] { get set }
   var pages: [Int] { get set }
+  var selectedTopicIndex: Int { get set }
+  var selectedPhotoIndex: Int { get set }
 }
 
 protocol ExploreBusinessLogic: class {
   func fetchTopics(request: ExploreModels.Topics.Request)
   func fetchPhotos(request: ExploreModels.Photos.Request)
   func fetchPagination(request: ExploreModels.Pagination.Request)
+  func fetchSelectTopic(request: ExploreModels.SelectTopic.Request)
+  func fetchSelectPhoto(request: ExploreModels.SelectPhoto.Request)
 }
 
 final class ExploreInteractor: BaseInteractor, ExploreDataStore {
@@ -27,6 +31,8 @@ final class ExploreInteractor: BaseInteractor, ExploreDataStore {
   var topics: [Topic] = []
   var photos: [[Photo]] = []
   var pages: [Int] = []
+  var selectedTopicIndex = 0
+  var selectedPhotoIndex = 0
 }
 
 // MARK: - Business Logic
@@ -45,9 +51,9 @@ extension ExploreInteractor: ExploreBusinessLogic {
       .request(
         UnsplashAPI.photos(id: topics[request.index].id, page: pages[request.index] + 1),
         type: [Photo].self) { [weak self] in
+        self?.pages[request.index] += 1
         switch $0 {
         case .success(let photos):
-          self?.pages[request.index] += 1
           self?.photos[request.index].append(contentsOf: photos)
           self?.presenter?.presentPagination(
             response: .init(index: request.index, photos: photos)
@@ -56,5 +62,15 @@ extension ExploreInteractor: ExploreBusinessLogic {
           return
         }
       }
+  }
+  
+  func fetchSelectTopic(request: ExploreModels.SelectTopic.Request) {
+    selectedTopicIndex = request.index
+    presenter?.presentSelectTopic(resposne: .init(index: request.index))
+  }
+  
+  func fetchSelectPhoto(request: ExploreModels.SelectPhoto.Request) {
+    selectedPhotoIndex = request.index
+    presenter?.presentSelectPhoto(resposne: .init())
   }
 }

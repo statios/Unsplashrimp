@@ -30,6 +30,7 @@
 		F988F02D25D4A72C00AC4DA4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F02725D4A72C00AC4DA4 /* DetailViewController.swift */; };
 		F988F02E25D4A72C00AC4DA4 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F02825D4A72C00AC4DA4 /* DetailInteractor.swift */; };
 		F988F03325D4A74400AC4DA4 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F988F03225D4A74400AC4DA4 /* Detail.storyboard */; };
+		F988F04725D4CF5600AC4DA4 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F04625D4CF5600AC4DA4 /* DetailCell.swift */; };
 		F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497D525D0CA120098A309 /* AppDelegate.swift */; };
 		F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C497DE25D0CA130098A309 /* Images.xcassets */; };
 		F9C497E225D0CA130098A309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C497E025D0CA130098A309 /* LaunchScreen.storyboard */; };
@@ -108,6 +109,7 @@
 		F988F02725D4A72C00AC4DA4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F988F02825D4A72C00AC4DA4 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		F988F03225D4A74400AC4DA4 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		F988F04625D4CF5600AC4DA4 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		F9C497D225D0CA110098A309 /* Unsplashrimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplashrimp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C497D525D0CA120098A309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C497DE25D0CA130098A309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				F988F02425D4A72C00AC4DA4 /* DetailWorker.swift */,
 				F988F02525D4A72C00AC4DA4 /* DetailRouter.swift */,
 				F988F02625D4A72C00AC4DA4 /* DetailModels.swift */,
+				F988F04525D4CF3D00AC4DA4 /* Views */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -258,6 +261,14 @@
 				F941136325D355B3008132A4 /* String.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		F988F04525D4CF3D00AC4DA4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F988F04625D4CF5600AC4DA4 /* DetailCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F9C497C925D0CA110098A309 = {
@@ -640,6 +651,7 @@
 				F988F02925D4A72C00AC4DA4 /* DetailPresenter.swift in Sources */,
 				F9C4989F25D0DBDA0098A309 /* ExploreWorker.swift in Sources */,
 				F9C498A325D0DBDA0098A309 /* ExploreInteractor.swift in Sources */,
+				F988F04725D4CF5600AC4DA4 /* DetailCell.swift in Sources */,
 				F9880C8525D2E76400967F46 /* Device.swift in Sources */,
 				F988F02A25D4A72C00AC4DA4 /* DetailWorker.swift in Sources */,
 				F9C4987325D0D5FD0098A309 /* BaseViewController.swift in Sources */,

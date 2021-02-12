@@ -156,7 +156,7 @@
         <!--Explore-->
         <scene sceneID="m63-4N-jmk">
             <objects>
-                <navigationController title="Explore" automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="cHg-bB-uZE" sceneMemberID="viewController">
+                <navigationController title="Explore" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="overFullScreen" hidesBottomBarWhenPushed="YES" hidesBarsOnSwipe="YES" id="cHg-bB-uZE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="XUB-iu-gOw" customClass="ExploreNavigationBar" customModule="Unsplashrimp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
