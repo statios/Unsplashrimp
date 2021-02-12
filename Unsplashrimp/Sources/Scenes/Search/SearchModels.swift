@@ -29,4 +29,14 @@ enum SearchModels {
       let photos: [Photo]
     }
   }
+  
+  enum SelectPhoto {
+    struct Request {
+      let index: Int
+    }
+    struct Response {
+    }
+    struct ViewModel {
+    }
+  }
 }

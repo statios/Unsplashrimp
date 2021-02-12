@@ -22,7 +22,7 @@ extension UIImageView {
       URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
         
         if error != nil {
-          print("ERROR LOADING IMAGES FROM URL: \(error)")
+          Log.error("")
           self.image = placeHolder
           return
         }

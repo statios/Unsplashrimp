@@ -48,6 +48,6 @@ extension ExploreRouter {
     destination: inout DetailDataStore
   ) {
     destination.selectedPhotoIndex = source.selectedPhotoIndex
-    destination.photos = source.photos[source.selectedTopicIndex]
+    destination.photos = source.photos
   }
 }

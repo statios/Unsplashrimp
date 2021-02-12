@@ -15,8 +15,20 @@
                     <view key="view" contentMode="scaleToFill" id="ydn-gE-1go">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unsplashrimp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20l-o8-12I">
+                                <rect key="frame" x="92" y="427.5" width="230" height="41"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="34"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="aEB-Yz-tSm"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="20l-o8-12I" firstAttribute="centerX" secondItem="ydn-gE-1go" secondAttribute="centerX" id="cet-5t-cq9"/>
+                            <constraint firstItem="20l-o8-12I" firstAttribute="centerY" secondItem="ydn-gE-1go" secondAttribute="centerY" id="sqD-xu-Qd8"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PXu-yf-OCN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

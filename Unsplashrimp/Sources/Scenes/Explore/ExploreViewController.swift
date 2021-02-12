@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ExploreDisplayLogic: class, DetailRoutableScene {
+protocol ExploreDisplayLogic: DetailRoutableDisplayLogic {
   func displayTopics(viewModel: ExploreModels.Topics.ViewModel)
   func displayPhotos(viewModel: ExploreModels.Photos.ViewModel)
   func displayPagination(viewModel: ExploreModels.Pagination.ViewModel)

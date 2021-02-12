@@ -45,6 +45,8 @@ extension SplashViewController {
 // MARK: - Display
 extension SplashViewController: SplashDisplayLogic {
   func displayPrefetch(viewModel: SplashModels.Prefetch.ViewModel) {
-    router?.routeToExplore()
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+      self?.router?.routeToExplore()
+    }
   }
 }

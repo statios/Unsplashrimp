@@ -7,9 +7,10 @@
 
 import UIKit
 
-protocol SearchDisplayLogic: class {
+protocol SearchDisplayLogic: DetailRoutableDisplayLogic {
   func displaySearch(viewModel: SearchModels.Search.ViewModel)
   func displayPagination(viewModel: SearchModels.Pagination.ViewModel)
+  func displaySelectPhoto(viewModel: SearchModels.SelectPhoto.ViewModel)
 }
 
 final class SearchViewController: BaseViewController {
@@ -71,12 +72,29 @@ extension SearchViewController: SearchDisplayLogic {
     photos.append(contentsOf: viewModel.photos)
     tableView.reloadData()
   }
+  
+  func displaySelectPhoto(viewModel: SearchModels.SelectPhoto.ViewModel) {
+    router?.routeToDetail()
+  }
+  
+  func displaySelectedPhoto(_ index: Int) {
+    tableView.scrollToRow(
+      at: .init(row: index, section: 0),
+      at: .middle,
+      animated: false
+    )
+  }
 }
 
 extension SearchViewController: UISearchBarDelegate {
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     guard let query = searchBar.text else { return }
     interactor?.fetchSearch(request: .init(query: query))
+  }
+  
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    photos.removeAll()
+    tableView.reloadData()
   }
 }
 
@@ -120,5 +138,13 @@ extension SearchViewController:
         interactor?.fetchPagination(request: .init())
       }
     }
+  }
+  
+  func tableView(
+    _ tableView: UITableView,
+    didSelectRowAt indexPath: IndexPath) {
+    interactor?.fetchSelectPhoto(
+      request: .init(index: indexPath.row)
+    )
   }
 }

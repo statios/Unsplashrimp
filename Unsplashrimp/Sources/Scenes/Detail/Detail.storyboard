@@ -77,7 +77,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Title" id="hXm-fN-bch">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="sdj-km-M9U">
+                                        <barButtonItem key="leftBarButtonItem" style="done" id="sdj-km-M9U">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="jg8-1f-xl9">
                                                 <rect key="frame" x="20" y="7" width="92" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
