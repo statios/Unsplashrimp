@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ExploreDisplayLogic: class {
+protocol ExploreDisplayLogic: class, DetailRoutableScene {
   func displayTopics(viewModel: ExploreModels.Topics.ViewModel)
   func displayPhotos(viewModel: ExploreModels.Photos.ViewModel)
   func displayPagination(viewModel: ExploreModels.Pagination.ViewModel)
@@ -94,6 +94,14 @@ extension ExploreViewController: ExploreDisplayLogic {
   
   func displaySelectPhoto(viewModel: ExploreModels.SelectPhoto.ViewModel) {
     router?.routeToDetail()
+  }
+  
+  func displaySelectedPhoto(_ index: Int) {
+    tableView.scrollToRow(
+      at: .init(row: index, section: 0),
+      at: .middle,
+      animated: false
+    )
   }
 }
 

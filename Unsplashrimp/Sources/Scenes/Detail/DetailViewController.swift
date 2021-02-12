@@ -10,6 +10,11 @@ import UIKit
 protocol DetailDisplayLogic: class {
   func displayPhotos(viewModel: DetailModels.Photos.ViewModel)
   func displayPaging(viewModel: DetailModels.Paging.ViewModel)
+  func displayDismiss(viewModel: DetailModels.Dismiss.ViewModel)
+}
+
+protocol DetailRoutableScene: class {
+  func displaySelectedPhoto(_ index: Int)
 }
 
 final class DetailViewController: BaseViewController {
@@ -22,6 +27,7 @@ final class DetailViewController: BaseViewController {
   @IBOutlet weak var dismissButton: UIButton!
   @IBOutlet weak var customNavigationItem: UINavigationItem!
   
+  weak var delegate: DetailRoutableScene?
   fileprivate var photos: [Photo] = []
 }
 
@@ -75,12 +81,17 @@ extension DetailViewController: DetailDisplayLogic {
   func displayPaging(viewModel: DetailModels.Paging.ViewModel) {
     customNavigationItem.title = viewModel.username
   }
+  
+  func displayDismiss(viewModel: DetailModels.Dismiss.ViewModel) {
+    delegate?.displaySelectedPhoto(viewModel.selectedPhotoIndex)
+    dismiss(animated: true)
+  }
 }
 
 // MARK: - Action
 extension DetailViewController {
   @objc func tappedDismissButton() {
-    dismiss(animated: true)
+    interactor?.fetchDismiss(request: .init())
   }
 }
 

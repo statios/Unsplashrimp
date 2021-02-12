@@ -36,6 +36,7 @@ extension ExploreRouter: ExploreRoutingLogic {
     guard let source = dataStore else { return }
     
     passDataToDetail(source: source, destination: &detailDataStore)
+    detailViewController.delegate = viewController
     present(to: detailViewController, from: viewController)
   }
 }

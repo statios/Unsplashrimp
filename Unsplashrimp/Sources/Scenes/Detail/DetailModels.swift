@@ -32,4 +32,15 @@ enum DetailModels {
       let username: String
     }
   }
+  
+  enum Dismiss {
+    struct Request {
+    }
+    struct Response {
+      let selectedPhotoIndex: Int
+    }
+    struct ViewModel {
+      let selectedPhotoIndex: Int
+    }
+  }
 }
