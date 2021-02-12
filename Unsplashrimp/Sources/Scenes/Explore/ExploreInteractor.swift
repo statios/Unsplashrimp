@@ -51,9 +51,9 @@ extension ExploreInteractor: ExploreBusinessLogic {
       .request(
         UnsplashAPI.photos(id: topics[request.index].id, page: pages[request.index] + 1),
         type: [Photo].self) { [weak self] in
+        self?.pages[request.index] += 1
         switch $0 {
         case .success(let photos):
-          self?.pages[request.index] += 1
           self?.photos[request.index].append(contentsOf: photos)
           self?.presenter?.presentPagination(
             response: .init(index: request.index, photos: photos)
