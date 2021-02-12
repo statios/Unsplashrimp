@@ -13,7 +13,7 @@ class MainTabBarController: UITabBarController {
     modalPresentationStyle = .overFullScreen
     modalTransitionStyle = .crossDissolve
     tabBar.barTintColor = .black
-    tabBar.isTranslucent = false
+    tabBar.isTranslucent = true
     tabBar.tintColor = .white
   }
 }

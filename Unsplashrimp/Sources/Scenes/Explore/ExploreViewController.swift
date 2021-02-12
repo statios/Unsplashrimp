@@ -49,6 +49,7 @@ extension ExploreViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.title = "Unsplashrimp"
+    navigationController?.hidesBarsOnSwipe = true
     interactor?.fetchTopics(request: .init())
   }
 }
@@ -101,6 +102,13 @@ extension ExploreViewController: ExploreDisplayLogic {
       at: .middle,
       animated: false
     )
+  }
+}
+
+extension ExploreViewController {
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let condition = scrollView.panGestureRecognizer.translation(in: scrollView).y < 0
+    setTabBarHidden(hidden: condition, animated: true)
   }
 }
 

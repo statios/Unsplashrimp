@@ -56,6 +56,7 @@ extension SearchViewController {
     navigationItem.searchController = searchController
     definesPresentationContext = true
     navigationItem.title = "Unsplashrimp"
+    
   }
 }
 
@@ -143,5 +144,12 @@ extension SearchViewController:
     interactor?.fetchSelectPhoto(
       request: .init(index: indexPath.row)
     )
+  }
+}
+
+extension SearchViewController {
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let condition = scrollView.panGestureRecognizer.translation(in: scrollView).y < 0
+    setTabBarHidden(hidden: condition, animated: true)
   }
 }
