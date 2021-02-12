@@ -12,7 +12,7 @@
         <!--Detail View Controller-->
         <scene sceneID="7wQ-2N-ccN">
             <objects>
-                <viewController storyboardIdentifier="Detail" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sRQ-OF-2Er" customClass="DetailViewController" customModule="Unsplashrimp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Detail" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sRQ-OF-2Er" customClass="DetailViewController" customModule="Unsplashrimp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7rc-7w-MGC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

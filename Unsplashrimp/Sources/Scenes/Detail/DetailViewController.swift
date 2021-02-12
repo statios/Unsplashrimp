@@ -141,7 +141,7 @@ extension DetailViewController: DetailCellDelegate {
 }
 
 extension DetailViewController {
-  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
     let page = Int(scrollView.contentOffset.x / Device.width)
     interactor?.fetchPaging(request: .init(index: page))
   }

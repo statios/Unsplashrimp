@@ -40,9 +40,10 @@ extension DetailInteractor: DetailBusinessLogic {
   }
   
   func fetchPaging(request: DetailModels.Paging.Request) {
+    guard selectedPhotoIndex != request.index else { return }
     selectedPhotoIndex = request.index
     presenter?.presentPaging(
-      response: .init(username: photos[request.index].user.name)
+      response: .init(username: photos[selectedPhotoIndex].user.name)
     )
   }
   
