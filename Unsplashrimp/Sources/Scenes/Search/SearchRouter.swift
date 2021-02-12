@@ -26,6 +26,18 @@ final class SearchRouter: BaseRouter, SearchDataPassing {
 extension SearchRouter: SearchRoutingLogic {
   func routeToDetail() {
     
+    guard let detailViewController =  UIStoryboard(
+      name: "Detail",
+      bundle: nil
+    ).instantiateInitialViewController()
+    as? DetailViewController else { return }
+    
+    guard var detailDataStore = detailViewController.router?.dataStore else { return }
+    guard let source = dataStore else { return }
+    
+    passDataToDetail(source: source, destination: &detailDataStore)
+    detailViewController.delegate = viewController
+    present(to: detailViewController, from: viewController)
   }
 }
 

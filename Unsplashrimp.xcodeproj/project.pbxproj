@@ -33,6 +33,7 @@
 		F988F04725D4CF5600AC4DA4 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F04625D4CF5600AC4DA4 /* DetailCell.swift */; };
 		F988F07625D64E0700AC4DA4 /* DetailRoutableDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F07525D64E0700AC4DA4 /* DetailRoutableDataStore.swift */; };
 		F988F07B25D64E2300AC4DA4 /* DetailRoutableDisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F07A25D64E2300AC4DA4 /* DetailRoutableDisplayLogic.swift */; };
+		F988F08F25D6540500AC4DA4 /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F08E25D6540500AC4DA4 /* RouterType.swift */; };
 		F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497D525D0CA120098A309 /* AppDelegate.swift */; };
 		F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C497DE25D0CA130098A309 /* Images.xcassets */; };
 		F9C497E225D0CA130098A309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C497E025D0CA130098A309 /* LaunchScreen.storyboard */; };
@@ -114,6 +115,7 @@
 		F988F04625D4CF5600AC4DA4 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		F988F07525D64E0700AC4DA4 /* DetailRoutableDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRoutableDataStore.swift; sourceTree = "<group>"; };
 		F988F07A25D64E2300AC4DA4 /* DetailRoutableDisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRoutableDisplayLogic.swift; sourceTree = "<group>"; };
+		F988F08E25D6540500AC4DA4 /* RouterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
 		F9C497D225D0CA110098A309 /* Unsplashrimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplashrimp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C497D525D0CA120098A309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C497DE25D0CA130098A309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -236,7 +238,7 @@
 				F988F02425D4A72C00AC4DA4 /* DetailWorker.swift */,
 				F988F02525D4A72C00AC4DA4 /* DetailRouter.swift */,
 				F988F02625D4A72C00AC4DA4 /* DetailModels.swift */,
-				F988F07425D64DE400AC4DA4 /* RoutableType */,
+				F988F07425D64DE400AC4DA4 /* Routable Type */,
 				F988F04525D4CF3D00AC4DA4 /* Views */,
 			);
 			path = Detail;
@@ -276,13 +278,21 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		F988F07425D64DE400AC4DA4 /* RoutableType */ = {
+		F988F07425D64DE400AC4DA4 /* Routable Type */ = {
 			isa = PBXGroup;
 			children = (
 				F988F07A25D64E2300AC4DA4 /* DetailRoutableDisplayLogic.swift */,
 				F988F07525D64E0700AC4DA4 /* DetailRoutableDataStore.swift */,
 			);
-			path = RoutableType;
+			path = "Routable Type";
+			sourceTree = "<group>";
+		};
+		F988F08D25D653EF00AC4DA4 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				F988F08E25D6540500AC4DA4 /* RouterType.swift */,
+			);
+			path = Types;
 			sourceTree = "<group>";
 		};
 		F9C497C925D0CA110098A309 = {
@@ -444,6 +454,7 @@
 		F9C4985E25D0D4C80098A309 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				F988F08D25D653EF00AC4DA4 /* Types */,
 				F9880C8325D2E75C00967F46 /* Constants */,
 				F9880C1925D288A700967F46 /* Extensions */,
 				F9880BFC25D280DB00967F46 /* Components */,
@@ -694,6 +705,7 @@
 				F9C4986625D0D58B0098A309 /* Log.swift in Sources */,
 				F9C498AE25D0DBEC0098A309 /* SearchWorker.swift in Sources */,
 				F988F07B25D64E2300AC4DA4 /* DetailRoutableDisplayLogic.swift in Sources */,
+				F988F08F25D6540500AC4DA4 /* RouterType.swift in Sources */,
 				F9C4984725D0D3A50098A309 /* SplashInteractor.swift in Sources */,
 				F9C498AD25D0DBEC0098A309 /* SearchPresenter.swift in Sources */,
 				F9C498B025D0DBEC0098A309 /* SearchModels.swift in Sources */,
