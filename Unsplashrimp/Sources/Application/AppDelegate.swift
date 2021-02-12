@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   ) -> Bool {
     
     UITextField.appearance().keyboardAppearance = UIKeyboardAppearance.dark
-    
+    UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     return true
   }
 

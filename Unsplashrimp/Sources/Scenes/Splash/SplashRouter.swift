@@ -25,34 +25,23 @@ final class SplashRouter: BaseRouter, SplashDataPassing {
 // MARK: - Route
 extension SplashRouter: SplashRoutingLogic {
   func routeToExplore() {
-    guard let exploreNavi = UIStoryboard(
-      name: "Explore",
-      bundle: nil
-    ).instantiateInitialViewController()
-    as? UINavigationController else { return }
-
-    guard let explore = exploreNavi
-            .viewControllers
-            .first(where: {
-              $0.isKind(of: ExploreViewController.self)
-            }) as? ExploreViewController else { return }
-
-    guard let search = UIStoryboard(
-      name: "Search",
-      bundle: nil
-    ).instantiateInitialViewController() else {
-      return
-    }
+    
+    let exploreViewController = UIStoryboard("Explore").viewController
+    let searchViewConroller = UIStoryboard("Search").viewController
 
     let tabBarController = UITabBarController()
-    tabBarController.viewControllers = [exploreNavi, search]
+    tabBarController.viewControllers = [
+      exploreViewController.embededIn(TransparentNavigationController.self),
+      searchViewConroller.embededIn(TransparentNavigationController.self)
+    ]
     tabBarController.modalPresentationStyle = .overFullScreen
     tabBarController.modalTransitionStyle = .crossDissolve
     tabBarController.tabBar.barTintColor = .black
     tabBarController.tabBar.isTranslucent = false
 
-    guard var destinationDS = explore.router?.dataStore else { return }
     guard let source = dataStore else { return }
+    guard let destinationVC = exploreViewController as? ExploreViewController else { return }
+    guard var destinationDS = destinationVC.router?.dataStore else { return }
     
     passDataToExplore(source: source, destination: &destinationDS)
     present(to: tabBarController, from: viewController)
