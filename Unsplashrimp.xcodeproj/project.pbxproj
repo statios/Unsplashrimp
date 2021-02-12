@@ -32,10 +32,11 @@
 		F988F04725D4CF5600AC4DA4 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F04625D4CF5600AC4DA4 /* DetailCell.swift */; };
 		F988F07625D64E0700AC4DA4 /* DetailRoutableDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F07525D64E0700AC4DA4 /* DetailRoutableDataStore.swift */; };
 		F988F07B25D64E2300AC4DA4 /* DetailRoutableDisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F07A25D64E2300AC4DA4 /* DetailRoutableDisplayLogic.swift */; };
-		F988F08F25D6540500AC4DA4 /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F08E25D6540500AC4DA4 /* RouterType.swift */; };
 		F988F0A325D6630A00AC4DA4 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0A225D6630A00AC4DA4 /* UITableView.swift */; };
 		F988F0AB25D6639E00AC4DA4 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0AA25D6639E00AC4DA4 /* NSObject.swift */; };
 		F988F0B025D664BE00AC4DA4 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0AF25D664BE00AC4DA4 /* UICollectionView.swift */; };
+		F988F0B525D6668F00AC4DA4 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0B425D6668F00AC4DA4 /* Scene.swift */; };
+		F988F0BD25D6687800AC4DA4 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0BC25D6687800AC4DA4 /* UIStoryboard.swift */; };
 		F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497D525D0CA120098A309 /* AppDelegate.swift */; };
 		F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C497DE25D0CA130098A309 /* Images.xcassets */; };
 		F9C497E225D0CA130098A309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C497E025D0CA130098A309 /* LaunchScreen.storyboard */; };
@@ -116,10 +117,11 @@
 		F988F04625D4CF5600AC4DA4 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		F988F07525D64E0700AC4DA4 /* DetailRoutableDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRoutableDataStore.swift; sourceTree = "<group>"; };
 		F988F07A25D64E2300AC4DA4 /* DetailRoutableDisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRoutableDisplayLogic.swift; sourceTree = "<group>"; };
-		F988F08E25D6540500AC4DA4 /* RouterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
 		F988F0A225D6630A00AC4DA4 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		F988F0AA25D6639E00AC4DA4 /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		F988F0AF25D664BE00AC4DA4 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		F988F0B425D6668F00AC4DA4 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		F988F0BC25D6687800AC4DA4 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		F9C497D225D0CA110098A309 /* Unsplashrimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplashrimp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C497D525D0CA120098A309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C497DE25D0CA130098A309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				F941138B25D430C0008132A4 /* UIColor.swift */,
 				F988F0A225D6630A00AC4DA4 /* UITableView.swift */,
 				F988F0AF25D664BE00AC4DA4 /* UICollectionView.swift */,
+				F988F0BC25D6687800AC4DA4 /* UIStoryboard.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -284,14 +287,6 @@
 				F988F07525D64E0700AC4DA4 /* DetailRoutableDataStore.swift */,
 			);
 			path = "Routable Type";
-			sourceTree = "<group>";
-		};
-		F988F08D25D653EF00AC4DA4 /* Types */ = {
-			isa = PBXGroup;
-			children = (
-				F988F08E25D6540500AC4DA4 /* RouterType.swift */,
-			);
-			path = Types;
 			sourceTree = "<group>";
 		};
 		F9C497C925D0CA110098A309 = {
@@ -365,6 +360,7 @@
 		F9C4981925D0CB1A0098A309 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F988F0B425D6668F00AC4DA4 /* Scene.swift */,
 				F9C4982425D0CB7C0098A309 /* Splash */,
 				F9C4982525D0CB850098A309 /* Explore */,
 				F9C4982625D0CB8F0098A309 /* Search */,
@@ -453,7 +449,6 @@
 		F9C4985E25D0D4C80098A309 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
-				F988F08D25D653EF00AC4DA4 /* Types */,
 				F9880C8325D2E75C00967F46 /* Constants */,
 				F9880C1925D288A700967F46 /* Extensions */,
 				F9C4985F25D0D4DF0098A309 /* Bases */,
@@ -654,10 +649,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F988F0BD25D6687800AC4DA4 /* UIStoryboard.swift in Sources */,
 				F9C4984525D0D3A50098A309 /* SplashModels.swift in Sources */,
 				F941138C25D430C0008132A4 /* UIColor.swift in Sources */,
 				F988F01925D4910400AC4DA4 /* PaginationResponse.swift in Sources */,
 				F9C4987D25D0D60A0098A309 /* BasePresenter.swift in Sources */,
+				F988F0B525D6668F00AC4DA4 /* Scene.swift in Sources */,
 				F9C4984425D0D3A50098A309 /* SplashRouter.swift in Sources */,
 				F9880BD025D16CE800967F46 /* UnsplashResponse.swift in Sources */,
 				F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */,
@@ -705,7 +702,6 @@
 				F9C4986625D0D58B0098A309 /* Log.swift in Sources */,
 				F9C498AE25D0DBEC0098A309 /* SearchWorker.swift in Sources */,
 				F988F07B25D64E2300AC4DA4 /* DetailRoutableDisplayLogic.swift in Sources */,
-				F988F08F25D6540500AC4DA4 /* RouterType.swift in Sources */,
 				F9C4984725D0D3A50098A309 /* SplashInteractor.swift in Sources */,
 				F9C498AD25D0DBEC0098A309 /* SearchPresenter.swift in Sources */,
 				F9C498B025D0DBEC0098A309 /* SearchModels.swift in Sources */,
