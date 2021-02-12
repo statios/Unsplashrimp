@@ -10,6 +10,7 @@ import UIKit
 protocol SearchDisplayLogic: class {
   func displaySearch(viewModel: SearchModels.Search.ViewModel)
   func displayPagination(viewModel: SearchModels.Pagination.ViewModel)
+  func displaySelectPhoto(viewModel: SearchModels.SelectPhoto.ViewModel)
 }
 
 final class SearchViewController: BaseViewController {
@@ -70,6 +71,10 @@ extension SearchViewController: SearchDisplayLogic {
   func displayPagination(viewModel: SearchModels.Pagination.ViewModel) {
     photos.append(contentsOf: viewModel.photos)
     tableView.reloadData()
+  }
+  
+  func displaySelectPhoto(viewModel: SearchModels.SelectPhoto.ViewModel) {
+    
   }
 }
 

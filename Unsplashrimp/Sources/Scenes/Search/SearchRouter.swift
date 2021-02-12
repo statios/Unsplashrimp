@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SearchRoutingLogic: class {
-
+  func routeToDetail()
 }
 
 protocol SearchDataPassing: class {
@@ -24,5 +24,18 @@ final class SearchRouter: BaseRouter, SearchDataPassing {
 
 // MARK: - Route
 extension SearchRouter: SearchRoutingLogic {
+  func routeToDetail() {
+    
+  }
+}
 
+// MARK: - DataPassing
+extension SearchRouter {
+  func passDataToDetail(
+    source: SearchDataStore,
+    destination: inout DetailDataStore
+  ) {
+    destination.selectedPhotoIndex = source.selectedPhotoIndex
+    destination.photos = source.photos
+  }
 }

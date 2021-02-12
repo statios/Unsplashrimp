@@ -66,6 +66,6 @@ extension SplashRouter {
     destination: inout ExploreDataStore
   ) {
     destination.topics = source.topics
-    destination.photos = source.photos
+    destination.photosByTopics = source.photos
   }
 }

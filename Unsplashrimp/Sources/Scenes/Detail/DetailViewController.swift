@@ -13,10 +13,6 @@ protocol DetailDisplayLogic: class {
   func displayDismiss(viewModel: DetailModels.Dismiss.ViewModel)
 }
 
-protocol DetailRoutableScene: class {
-  func displaySelectedPhoto(_ index: Int)
-}
-
 final class DetailViewController: BaseViewController {
 
   var router: (DetailRoutingLogic & DetailDataPassing)?
@@ -27,7 +23,7 @@ final class DetailViewController: BaseViewController {
   @IBOutlet weak var dismissButton: UIButton!
   @IBOutlet weak var customNavigationItem: UINavigationItem!
   
-  weak var delegate: DetailRoutableScene?
+  weak var delegate: DetailRoutableDisplayLogic?
   fileprivate var photos: [Photo] = []
 }
 

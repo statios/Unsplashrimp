@@ -31,6 +31,8 @@
 		F988F02E25D4A72C00AC4DA4 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F02825D4A72C00AC4DA4 /* DetailInteractor.swift */; };
 		F988F03325D4A74400AC4DA4 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F988F03225D4A74400AC4DA4 /* Detail.storyboard */; };
 		F988F04725D4CF5600AC4DA4 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F04625D4CF5600AC4DA4 /* DetailCell.swift */; };
+		F988F07625D64E0700AC4DA4 /* DetailRoutableDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F07525D64E0700AC4DA4 /* DetailRoutableDataStore.swift */; };
+		F988F07B25D64E2300AC4DA4 /* DetailRoutableDisplayLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F07A25D64E2300AC4DA4 /* DetailRoutableDisplayLogic.swift */; };
 		F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497D525D0CA120098A309 /* AppDelegate.swift */; };
 		F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C497DE25D0CA130098A309 /* Images.xcassets */; };
 		F9C497E225D0CA130098A309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C497E025D0CA130098A309 /* LaunchScreen.storyboard */; };
@@ -110,6 +112,8 @@
 		F988F02825D4A72C00AC4DA4 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		F988F03225D4A74400AC4DA4 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		F988F04625D4CF5600AC4DA4 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		F988F07525D64E0700AC4DA4 /* DetailRoutableDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRoutableDataStore.swift; sourceTree = "<group>"; };
+		F988F07A25D64E2300AC4DA4 /* DetailRoutableDisplayLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRoutableDisplayLogic.swift; sourceTree = "<group>"; };
 		F9C497D225D0CA110098A309 /* Unsplashrimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplashrimp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C497D525D0CA120098A309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C497DE25D0CA130098A309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 				F988F02425D4A72C00AC4DA4 /* DetailWorker.swift */,
 				F988F02525D4A72C00AC4DA4 /* DetailRouter.swift */,
 				F988F02625D4A72C00AC4DA4 /* DetailModels.swift */,
+				F988F07425D64DE400AC4DA4 /* RoutableType */,
 				F988F04525D4CF3D00AC4DA4 /* Views */,
 			);
 			path = Detail;
@@ -269,6 +274,15 @@
 				F988F04625D4CF5600AC4DA4 /* DetailCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F988F07425D64DE400AC4DA4 /* RoutableType */ = {
+			isa = PBXGroup;
+			children = (
+				F988F07A25D64E2300AC4DA4 /* DetailRoutableDisplayLogic.swift */,
+				F988F07525D64E0700AC4DA4 /* DetailRoutableDataStore.swift */,
+			);
+			path = RoutableType;
 			sourceTree = "<group>";
 		};
 		F9C497C925D0CA110098A309 = {
@@ -658,6 +672,7 @@
 				F9C498A125D0DBDA0098A309 /* ExploreModels.swift in Sources */,
 				F9880C5725D29AB500967F46 /* UINavigationBar.swift in Sources */,
 				F988F02C25D4A72C00AC4DA4 /* DetailModels.swift in Sources */,
+				F988F07625D64E0700AC4DA4 /* DetailRoutableDataStore.swift in Sources */,
 				F9C498E125D0E6C80098A309 /* UnsplashAPI.swift in Sources */,
 				F9880C1C25D288BD00967F46 /* UIImageView.swift in Sources */,
 				F9C4984625D0D3A50098A309 /* SplashViewController.swift in Sources */,
@@ -678,6 +693,7 @@
 				F9C498A025D0DBDA0098A309 /* ExploreRouter.swift in Sources */,
 				F9C4986625D0D58B0098A309 /* Log.swift in Sources */,
 				F9C498AE25D0DBEC0098A309 /* SearchWorker.swift in Sources */,
+				F988F07B25D64E2300AC4DA4 /* DetailRoutableDisplayLogic.swift in Sources */,
 				F9C4984725D0D3A50098A309 /* SplashInteractor.swift in Sources */,
 				F9C498AD25D0DBEC0098A309 /* SearchPresenter.swift in Sources */,
 				F9C498B025D0DBEC0098A309 /* SearchModels.swift in Sources */,

@@ -7,12 +7,11 @@
 
 import Foundation
 
-protocol ExploreDataStore: class {
+protocol ExploreDataStore: DetailRoutableDataStore {
   var topics: [Topic] { get set }
-  var photos: [[Photo]] { get set }
   var pages: [Int] { get set }
   var selectedTopicIndex: Int { get set }
-  var selectedPhotoIndex: Int { get set }
+  var photosByTopics: [[Photo]] { get set }
 }
 
 protocol ExploreBusinessLogic: class {
@@ -29,10 +28,14 @@ final class ExploreInteractor: BaseInteractor, ExploreDataStore {
   var presenter: ExplorePresentationLogic?
   
   var topics: [Topic] = []
-  var photos: [[Photo]] = []
+  var photosByTopics: [[Photo]] = []
   var pages: [Int] = []
   var selectedTopicIndex = 0
   var selectedPhotoIndex = 0
+  
+  var photos: [Photo] {
+    return photosByTopics[selectedTopicIndex]
+  }
 }
 
 // MARK: - Business Logic
@@ -43,7 +46,7 @@ extension ExploreInteractor: ExploreBusinessLogic {
   }
   
   func fetchPhotos(request: ExploreModels.Photos.Request) {
-    presenter?.presentPhotos(response: .init(photos: photos))
+    presenter?.presentPhotos(response: .init(photos: photosByTopics))
   }
   
   func fetchPagination(request: ExploreModels.Pagination.Request) {
@@ -54,7 +57,7 @@ extension ExploreInteractor: ExploreBusinessLogic {
         self?.pages[request.index] += 1
         switch $0 {
         case .success(let photos):
-          self?.photos[request.index].append(contentsOf: photos)
+          self?.photosByTopics[request.index].append(contentsOf: photos)
           self?.presenter?.presentPagination(
             response: .init(index: request.index, photos: photos)
           )

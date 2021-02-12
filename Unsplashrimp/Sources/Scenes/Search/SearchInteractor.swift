@@ -7,14 +7,16 @@
 
 import Foundation
 
-protocol SearchDataStore: class {
+protocol SearchDataStore: DetailRoutableDataStore {
   var query: String { get set }
   var page: Int { get set }
+  var selectedPhotoIndex: Int { get set }
 }
 
 protocol SearchBusinessLogic: class {
   func fetchSearch(request: SearchModels.Search.Request)
   func fetchPagination(request: SearchModels.Pagination.Request)
+  func fetchSelectPhoto(request: SearchModels.SelectPhoto.Request)
 }
 
 final class SearchInteractor: BaseInteractor, SearchDataStore {
@@ -26,10 +28,12 @@ final class SearchInteractor: BaseInteractor, SearchDataStore {
   var page: Int = 0
   var totalPage: Int = 0
   var photos: [Photo] = []
+  var selectedPhotoIndex: Int = 0
 }
 
 // MARK: - Business Logic
 extension SearchInteractor: SearchBusinessLogic {
+  
   func fetchSearch(request: SearchModels.Search.Request) {
     self.query = request.query
     self.page = 1
@@ -70,5 +74,10 @@ extension SearchInteractor: SearchBusinessLogic {
         return
       }
     }
+  }
+  
+  func fetchSelectPhoto(request: SearchModels.SelectPhoto.Request) {
+    selectedPhotoIndex = request.index
+    presenter?.presentSelectPhoto(resposne: .init())
   }
 }
