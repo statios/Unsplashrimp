@@ -27,8 +27,8 @@ class PhotoCell: UITableViewCell {
   
   func configure(_ photo: Photo) {
     photoView.backgroundColor = UIColor(hexString: photo.color)
-    photoView.loadImageUsingCacheWithURLString(
-      photo.urls.regular,
+    photoView.loadImageUsingCache(
+      with: photo.urls.regular,
       placeHolder: nil
     )
     userLabel.text = photo.user.name

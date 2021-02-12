@@ -42,8 +42,8 @@ class DetailCell: UICollectionViewCell {
   }
   
   func configure(_ photo: Photo) {
-    photoView.loadImageUsingCacheWithURLString(
-      photo.urls.regular,
+    photoView.loadImageUsingCache(
+      with: photo.urls.regular,
       placeHolder: nil
     )
   }
