@@ -8,7 +8,8 @@
 import UIKit
 
 protocol DetailDisplayLogic: class {
-  func displayPhotos(request: DetailModels.Photos.ViewModel)
+  func displayPhotos(viewModel: DetailModels.Photos.ViewModel)
+  func displayPaging(viewModel: DetailModels.Paging.ViewModel)
 }
 
 final class DetailViewController: BaseViewController {
@@ -17,6 +18,9 @@ final class DetailViewController: BaseViewController {
   var interactor: DetailBusinessLogic?
   
   @IBOutlet weak var collectionView: UICollectionView!
+  @IBOutlet weak var navigationBar: UINavigationBar!
+  @IBOutlet weak var dismissButton: UIButton!
+  @IBOutlet weak var customNavigationItem: UINavigationItem!
   
   fileprivate var photos: [Photo] = []
 }
@@ -41,20 +45,43 @@ extension DetailViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationBar.transparentNavigationBar()
+    dismissButton.addTarget(
+      self,
+      action: #selector(tappedDismissButton),
+      for: .touchUpInside
+    )
     interactor?.fetchPhotos(request: .init())
   }
 }
 
 // MARK: - Display
 extension DetailViewController: DetailDisplayLogic {
-  func displayPhotos(request: DetailModels.Photos.ViewModel) {
-    photos = request.photos
-    collectionView.reloadData()
+  func displayPhotos(viewModel: DetailModels.Photos.ViewModel) {
+    photos = viewModel.photos
+    let index = viewModel.selectedPhotoIndex
+    let name = photos[index].user.name
+    DispatchQueue.main.async { [weak self] in
+      self?.customNavigationItem.title = name
+      self?.collectionView.reloadData()
+      self?.collectionView.scrollToItem(
+        at: .init(item: index, section: 0),
+        at: .centeredHorizontally,
+        animated: false
+      )
+    }
+  }
+  
+  func displayPaging(viewModel: DetailModels.Paging.ViewModel) {
+    customNavigationItem.title = viewModel.username
   }
 }
 
 // MARK: - Action
 extension DetailViewController {
+  @objc func tappedDismissButton() {
+    dismiss(animated: true)
+  }
 }
 
 extension DetailViewController:
@@ -86,6 +113,25 @@ extension DetailViewController:
             for: indexPath
     ) as? DetailCell else { return UICollectionViewCell() }
     cell.configure(photos[indexPath.item])
+    cell.delegate = self
     return cell
+  }
+}
+
+extension DetailViewController: DetailCellDelegate {
+  func didSelectScrollView(
+    in cell: UICollectionViewCell,
+    _ scrollView: UIScrollView) {
+    let isHidden = navigationBar.alpha == 0.0
+    UIView.animate(withDuration: 0.25) { [weak self] in
+      self?.navigationBar.alpha = isHidden ? 1.0 : 0.0
+    }
+  }
+}
+
+extension DetailViewController {
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    let page = Int(scrollView.contentOffset.x / Device.width)
+    interactor?.fetchPaging(request: .init(index: page))
   }
 }

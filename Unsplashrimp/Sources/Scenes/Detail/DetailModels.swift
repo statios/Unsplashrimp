@@ -20,4 +20,16 @@ enum DetailModels {
       let selectedPhotoIndex: Int
     }
   }
+  
+  enum Paging {
+    struct Request {
+      let index: Int
+    }
+    struct Response {
+      let username: String
+    }
+    struct ViewModel {
+      let username: String
+    }
+  }
 }

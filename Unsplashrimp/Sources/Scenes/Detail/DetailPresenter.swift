@@ -9,6 +9,7 @@ import UIKit
 
 protocol DetailPresentationLogic: class {
   func presentPhotos(response: DetailModels.Photos.Response)
+  func presentPaging(response: DetailModels.Paging.Response)
 }
 
 final class DetailPresenter: BasePresenter {
@@ -21,10 +22,14 @@ final class DetailPresenter: BasePresenter {
 extension DetailPresenter: DetailPresentationLogic {
   func presentPhotos(response: DetailModels.Photos.Response) {
     view?.displayPhotos(
-      request: .init(
+      viewModel: .init(
         photos: response.photos,
         selectedPhotoIndex: response.selectedPhotoIndex
       )
     )
+  }
+  
+  func presentPaging(response: DetailModels.Paging.Response) {
+    view?.displayPaging(viewModel: .init(username: response.username))
   }
 }

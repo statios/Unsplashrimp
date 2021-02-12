@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,25 +17,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vgn-Gf-Shi">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" pagingEnabled="YES" contentInsetAdjustmentBehavior="never" canCancelContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vgn-Gf-Shi">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="le1-fA-MY8">
-                                    <size key="itemSize" width="414" height="411"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="le1-fA-MY8">
+                                    <size key="itemSize" width="414" height="826"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DetailCell" id="XWF-fn-qVL" customClass="DetailCell" customModule="Unsplashrimp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="411"/>
+                                        <rect key="frame" x="0.0" y="35" width="414" height="826"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lE9-Ey-dUz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="411"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="826"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" contentInsetAdjustmentBehavior="scrollableAxes" maximumZoomScale="4" translatesAutoresizingMaskIntoConstraints="NO" id="Hw1-RJ-3tR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="826"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ks6-CS-0vY">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="826"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <gestureRecognizers/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <viewLayoutGuide key="contentLayoutGuide" id="4WX-kg-FWo"/>
+                                                    <viewLayoutGuide key="frameLayoutGuide" id="myA-i3-7Hw"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="XWF-fn-qVL" id="dco-zA-7j4"/>
+                                                    </connections>
+                                                </scrollView>
+                                            </subviews>
+                                            <gestureRecognizers/>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <size key="customSize" width="414" height="411"/>
+                                        <size key="customSize" width="414" height="826"/>
+                                        <connections>
+                                            <outlet property="photoView" destination="Ks6-CS-0vY" id="fwp-dT-BZo"/>
+                                            <outlet property="scrollView" destination="Hw1-RJ-3tR" id="E9Q-gw-5dc"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -44,18 +67,43 @@
                                     <outlet property="delegate" destination="sRQ-OF-2Er" id="PmM-sM-qP7"/>
                                 </connections>
                             </collectionView>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64i-kH-dzX">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Title" id="hXm-fN-bch">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="sdj-km-M9U">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="jg8-1f-xl9">
+                                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J0g-LT-yKd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vgn-Gf-Shi" firstAttribute="top" secondItem="7rc-7w-MGC" secondAttribute="top" id="DlF-Ym-lHg"/>
                             <constraint firstItem="vgn-Gf-Shi" firstAttribute="leading" secondItem="7rc-7w-MGC" secondAttribute="leading" id="Pw2-RZ-cSO"/>
+                            <constraint firstItem="64i-kH-dzX" firstAttribute="trailing" secondItem="J0g-LT-yKd" secondAttribute="trailing" id="Sh0-D6-cbY"/>
+                            <constraint firstItem="64i-kH-dzX" firstAttribute="top" secondItem="J0g-LT-yKd" secondAttribute="top" id="Yer-CX-YnP"/>
                             <constraint firstAttribute="bottom" secondItem="vgn-Gf-Shi" secondAttribute="bottom" id="k3Z-DN-ps1"/>
+                            <constraint firstItem="64i-kH-dzX" firstAttribute="leading" secondItem="J0g-LT-yKd" secondAttribute="leading" id="sUR-0d-cg4"/>
                             <constraint firstAttribute="trailing" secondItem="vgn-Gf-Shi" secondAttribute="trailing" id="wch-fd-fcT"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="vgn-Gf-Shi" id="PHc-Fa-YMv"/>
+                        <outlet property="customNavigationItem" destination="hXm-fN-bch" id="pOa-Lc-yZn"/>
+                        <outlet property="dismissButton" destination="jg8-1f-xl9" id="nyx-GO-Znz"/>
+                        <outlet property="navigationBar" destination="64i-kH-dzX" id="Hc3-cA-tR6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T0g-1Y-Zci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -63,9 +111,4 @@
             <point key="canvasLocation" x="1281.1594202898552" y="93.75"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

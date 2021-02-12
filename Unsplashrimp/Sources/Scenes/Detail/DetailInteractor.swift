@@ -14,6 +14,7 @@ protocol DetailDataStore: class {
 
 protocol DetailBusinessLogic: class {
   func fetchPhotos(request: DetailModels.Photos.Request)
+  func fetchPaging(request: DetailModels.Paging.Request)
 }
 
 final class DetailInteractor: BaseInteractor, DetailDataStore {
@@ -34,6 +35,13 @@ extension DetailInteractor: DetailBusinessLogic {
         photos: photos,
         selectedPhotoIndex: selectedPhotoIndex
       )
+    )
+  }
+  
+  func fetchPaging(request: DetailModels.Paging.Request) {
+    selectedPhotoIndex = request.index
+    presenter?.presentPaging(
+      response: .init(username: photos[request.index].user.name)
     )
   }
 }
