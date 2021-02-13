@@ -41,6 +41,10 @@
 		F988F0E125D723C200AC4DA4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0E025D723C200AC4DA4 /* MainTabBarController.swift */; };
 		F988F12F25D77BBF00AC4DA4 /* UnsplashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F12E25D77BBF00AC4DA4 /* UnsplashResponse.swift */; };
 		F988F13725D77BC800AC4DA4 /* UnsplashError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F13625D77BC800AC4DA4 /* UnsplashError.swift */; };
+		F9B277E225D7ADC100385E18 /* SplashViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B277DE25D7ADC100385E18 /* SplashViewControllerTests.swift */; };
+		F9B277E325D7ADC100385E18 /* SplashInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B277DF25D7ADC100385E18 /* SplashInteractorTests.swift */; };
+		F9B277E425D7ADC100385E18 /* SplashWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B277E025D7ADC100385E18 /* SplashWorkerTests.swift */; };
+		F9B277E525D7ADC100385E18 /* SplashPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B277E125D7ADC100385E18 /* SplashPresenterTests.swift */; };
 		F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497D525D0CA120098A309 /* AppDelegate.swift */; };
 		F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C497DE25D0CA130098A309 /* Images.xcassets */; };
 		F9C497E225D0CA130098A309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C497E025D0CA130098A309 /* LaunchScreen.storyboard */; };
@@ -130,6 +134,10 @@
 		F988F0E025D723C200AC4DA4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F988F12E25D77BBF00AC4DA4 /* UnsplashResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashResponse.swift; sourceTree = "<group>"; };
 		F988F13625D77BC800AC4DA4 /* UnsplashError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashError.swift; sourceTree = "<group>"; };
+		F9B277DE25D7ADC100385E18 /* SplashViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewControllerTests.swift; sourceTree = "<group>"; };
+		F9B277DF25D7ADC100385E18 /* SplashInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractorTests.swift; sourceTree = "<group>"; };
+		F9B277E025D7ADC100385E18 /* SplashWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashWorkerTests.swift; sourceTree = "<group>"; };
+		F9B277E125D7ADC100385E18 /* SplashPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenterTests.swift; sourceTree = "<group>"; };
 		F9C497D225D0CA110098A309 /* Unsplashrimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplashrimp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C497D525D0CA120098A309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C497DE25D0CA130098A309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -318,6 +326,33 @@
 			path = Unsplash;
 			sourceTree = "<group>";
 		};
+		F9B277DB25D7ADA800385E18 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F9B277DC25D7ADAF00385E18 /* Scenes */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		F9B277DC25D7ADAF00385E18 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F9B277DD25D7ADB400385E18 /* Splash */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F9B277DD25D7ADB400385E18 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				F9B277DE25D7ADC100385E18 /* SplashViewControllerTests.swift */,
+				F9B277DF25D7ADC100385E18 /* SplashInteractorTests.swift */,
+				F9B277E125D7ADC100385E18 /* SplashPresenterTests.swift */,
+				F9B277E025D7ADC100385E18 /* SplashWorkerTests.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		F9C497C925D0CA110098A309 = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +386,7 @@
 		F9C497EB25D0CA130098A309 /* UnsplashrimpTests */ = {
 			isa = PBXGroup;
 			children = (
+				F9B277DB25D7ADA800385E18 /* Sources */,
 				F9C497EC25D0CA130098A309 /* UnsplashrimpTests.swift */,
 				F9C497EE25D0CA130098A309 /* Info.plist */,
 			);
@@ -745,6 +781,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9C497ED25D0CA130098A309 /* UnsplashrimpTests.swift in Sources */,
+				F9B277E525D7ADC100385E18 /* SplashPresenterTests.swift in Sources */,
+				F9B277E325D7ADC100385E18 /* SplashInteractorTests.swift in Sources */,
+				F9B277E425D7ADC100385E18 /* SplashWorkerTests.swift in Sources */,
+				F9B277E225D7ADC100385E18 /* SplashViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
