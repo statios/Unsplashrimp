@@ -12,47 +12,50 @@ import XCTest
 final class SplashInteractorTests: XCTestCase {
 
   // MARK: Test Double Objects
-
   final class SplashPresenterSpy: SplashPresentationLogic {
+    var isCalledPresentPrefetch = false
     func presentPrefetch(response: SplashModels.Prefetch.Response) {
-      
+      isCalledPresentPrefetch = true
     }
   }
 
-  final class SplashWorkerSpy: SplashWorkerLogic {
-
-    // var somethingCalled: Int = 0
-    // var somethingStub: Value?
-
-    // func something() { ... }
+  final class NetworkWorkerSpy: NetworkWorkerLogic {
+    var isCalledRequest = false
+    func request<T: Codable>(
+      _ target: TargetType,
+      type: T.Type,
+      completion: @escaping (Result<T, Error>) -> Void
+    ) {
+      isCalledRequest = true
+    }
   }
 
 
   // MARK: Properties
-  
   var interactor: SplashInteractor!
   var presenter: SplashPresenterSpy!
-  var worker: SplashWorkerSpy!
+  var networkWorker: NetworkWorkerSpy!
 
   override func setUp() {
     self.interactor = SplashInteractor()
     self.presenter = SplashPresenterSpy()
-    self.worker =  SplashWorkerSpy()
+    self.networkWorker =  NetworkWorkerSpy()
     self.interactor.presenter = self.presenter
-//    self.interactor.worker = self.worker
+    self.interactor.networkWorker = self.networkWorker
   }
 }
 
 
 // MARK: - TODO TestName (BDD)
-
 extension SplashInteractorTests {
+  func test_callingNetworkRequestWhenRequestPrefetch() {
+    // Given
+    let dummyRequest = SplashModels.Prefetch.Request()
 
-  func test_doSomething() {
-    // given
+    // When
+    interactor.fetchPrefetch(request: dummyRequest)
 
-    // when
-
-    // then
+    // Then
+    XCTAssert(networkWorker.isCalledRequest)
   }
 }
