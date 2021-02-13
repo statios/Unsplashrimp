@@ -107,7 +107,8 @@ extension ExploreViewController: ExploreDisplayLogic {
 
 extension ExploreViewController {
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    let condition = scrollView.panGestureRecognizer.translation(in: scrollView).y < 0
+    let recognizer = scrollView.panGestureRecognizer
+    let condition = recognizer.translation(in: scrollView).y < 0
     setTabBarHidden(hidden: condition, animated: true)
   }
 }

@@ -130,7 +130,8 @@ extension SearchViewController:
   
   func tableView(
     _ tableView: UITableView,
-    prefetchRowsAt indexPaths: [IndexPath]) {
+    prefetchRowsAt indexPaths: [IndexPath]
+  ) {
     for indexPath in indexPaths {
       if photos.count - 1 == indexPath.row {
         interactor?.fetchPagination(request: .init())
@@ -140,7 +141,8 @@ extension SearchViewController:
   
   func tableView(
     _ tableView: UITableView,
-    didSelectRowAt indexPath: IndexPath) {
+    didSelectRowAt indexPath: IndexPath
+  ) {
     interactor?.fetchSelectPhoto(
       request: .init(index: indexPath.row)
     )
@@ -149,7 +151,8 @@ extension SearchViewController:
 
 extension SearchViewController {
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    let condition = scrollView.panGestureRecognizer.translation(in: scrollView).y < 0
+    let recognizer = scrollView.panGestureRecognizer
+    let condition = recognizer.translation(in: scrollView).y < 0
     setTabBarHidden(hidden: condition, animated: true)
   }
 }

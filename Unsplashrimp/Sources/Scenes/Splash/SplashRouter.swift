@@ -29,33 +29,18 @@ extension SplashRouter: SplashRoutingLogic {
     let exploreViewController = UIStoryboard("Explore").viewController
     let searchViewConroller = UIStoryboard("Search").viewController
     
-    let exploreNavigationController: UINavigationController = {
-      let n = exploreViewController
-        .embededIn(TransparentNavigationController.self)
-      n.tabBarItem.image = #imageLiteral(resourceName: "picture")
-      n.tabBarItem.title = nil
-      n.tabBarItem.imageInsets = .init(
-        top: 16,
-        left: 0,
-        bottom: -16,
-        right: 0
-      )
-      return n
-    }()
+    let exploreNavigationController = exploreViewController
+      .embededIn(TransparentNavigationController.self)
+    let searchNavigationController = searchViewConroller
+      .embededIn(TransparentNavigationController.self)
     
-    let searchNavigationController: UINavigationController = {
-      let n = searchViewConroller
-        .embededIn(TransparentNavigationController.self)
-      n.tabBarItem.image = #imageLiteral(resourceName: "search")
-      n.tabBarItem.title = nil
-      n.tabBarItem.imageInsets = .init(
-        top: 16,
-        left: 0,
-        bottom: -16,
-        right: 0
-      )
-      return n
-    }()
+    [exploreNavigationController, searchNavigationController].forEach {
+      $0.tabBarItem.title = nil
+      $0.tabBarItem.imageInsets = .init(top: 16, left: 0, bottom: -16, right: 0)
+    }
+    
+    exploreNavigationController.tabBarItem.image = #imageLiteral(resourceName: "picture")
+    searchNavigationController.tabBarItem.image = #imageLiteral(resourceName: "search")
     
     let tabBarController = [
       exploreNavigationController,
