@@ -13,8 +13,8 @@ extension UITableView {
     for indexPath: IndexPath
   ) -> T {
     guard let cell = self.dequeueReusableCell(
-            withIdentifier: cellType.className,
-            for: indexPath
+      withIdentifier: cellType.className,
+      for: indexPath
     ) as? T else { fatalError() }
     return cell
   }

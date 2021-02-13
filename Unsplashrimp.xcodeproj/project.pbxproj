@@ -36,7 +36,6 @@
 		F988F0BD25D6687800AC4DA4 /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0BC25D6687800AC4DA4 /* UIStoryboard.swift */; };
 		F988F0C625D66AFA00AC4DA4 /* TransparentNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0C525D66AFA00AC4DA4 /* TransparentNavigationController.swift */; };
 		F988F0D125D66B9400AC4DA4 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0D025D66B9400AC4DA4 /* UIViewController.swift */; };
-		F988F0D925D66FBB00AC4DA4 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0D825D66FBB00AC4DA4 /* UINavigationController.swift */; };
 		F988F0E125D723C200AC4DA4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0E025D723C200AC4DA4 /* MainTabBarController.swift */; };
 		F988F12F25D77BBF00AC4DA4 /* UnsplashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F12E25D77BBF00AC4DA4 /* UnsplashResponse.swift */; };
 		F988F13725D77BC800AC4DA4 /* UnsplashError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F13625D77BC800AC4DA4 /* UnsplashError.swift */; };
@@ -124,7 +123,6 @@
 		F988F0BC25D6687800AC4DA4 /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
 		F988F0C525D66AFA00AC4DA4 /* TransparentNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentNavigationController.swift; sourceTree = "<group>"; };
 		F988F0D025D66B9400AC4DA4 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		F988F0D825D66FBB00AC4DA4 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		F988F0E025D723C200AC4DA4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F988F12E25D77BBF00AC4DA4 /* UnsplashResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashResponse.swift; sourceTree = "<group>"; };
 		F988F13625D77BC800AC4DA4 /* UnsplashError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashError.swift; sourceTree = "<group>"; };
@@ -233,7 +231,6 @@
 				F988F0AF25D664BE00AC4DA4 /* UICollectionView.swift */,
 				F988F0BC25D6687800AC4DA4 /* UIStoryboard.swift */,
 				F988F0D025D66B9400AC4DA4 /* UIViewController.swift */,
-				F988F0D825D66FBB00AC4DA4 /* UINavigationController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -710,7 +707,6 @@
 				F9880BF325D26D5C00967F46 /* Topic.swift in Sources */,
 				F988F13725D77BC800AC4DA4 /* UnsplashError.swift in Sources */,
 				F9C498DC25D0E6A80098A309 /* NetworkWorker.swift in Sources */,
-				F988F0D925D66FBB00AC4DA4 /* UINavigationController.swift in Sources */,
 				F988F0A325D6630A00AC4DA4 /* UITableView.swift in Sources */,
 				F9C4986E25D0D5960098A309 /* LogEvent.swift in Sources */,
 				F988F02E25D4A72C00AC4DA4 /* DetailInteractor.swift in Sources */,

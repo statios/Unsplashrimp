@@ -8,7 +8,9 @@
 import UIKit
 
 extension UIViewController {
-  func embededIn<T: UINavigationController>(_ type: T.Type) -> T {
+  func embededIn<T: UINavigationController>(
+    _ type: T.Type
+  ) -> T {
     return T(rootViewController: self)
   }
   
@@ -30,8 +32,16 @@ extension UIViewController {
     button: String? = "확인",
     handler: ((UIAlertAction) -> Void)? = nil
   ) {
-    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    let alertAction = UIAlertAction(title: button, style: .default, handler: handler)
+    let alertController = UIAlertController(
+      title: title,
+      message: message,
+      preferredStyle: .alert
+    )
+    let alertAction = UIAlertAction(
+      title: button,
+      style: .default,
+      handler: handler
+    )
     alertController.addAction(alertAction)
     present(alertController, animated: true)
   }
