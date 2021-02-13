@@ -23,7 +23,6 @@ protocol ExploreBusinessLogic: class {
 }
 
 final class ExploreInteractor: BaseInteractor, ExploreDataStore {
-  
   var networkWorker: NetworkWorkerLogic?
   var presenter: ExplorePresentationLogic?
   

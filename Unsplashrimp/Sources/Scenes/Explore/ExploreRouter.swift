@@ -16,16 +16,13 @@ protocol ExploreDataPassing: class {
 }
 
 final class ExploreRouter: BaseRouter, ExploreDataPassing {
-
   weak var viewController: ExploreViewController?
   var dataStore: ExploreDataStore?
-
 }
 
 // MARK: - Route
 extension ExploreRouter: ExploreRoutingLogic {
   func routeToDetail() {
-    
     let detailViewController = UIStoryboard("Detail").viewController
     
     guard let destinationVC = detailViewController as? DetailViewController else { return }

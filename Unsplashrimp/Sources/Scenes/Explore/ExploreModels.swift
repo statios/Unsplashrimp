@@ -8,10 +8,8 @@
 import UIKit
 
 enum ExploreModels {
-
   enum Topics {
-    struct Request {
-    }
+    struct Request { }
     struct Response {
       let topics: [Topic]
     }
@@ -21,8 +19,7 @@ enum ExploreModels {
   }
   
   enum Photos {
-    struct Request {
-    }
+    struct Request { }
     struct Response {
       let photos: [[Photo]]
     }
@@ -61,10 +58,8 @@ enum ExploreModels {
     struct Request {
       let index: Int
     }
-    struct Response {
-    }
-    struct ViewModel {
-    }
+    struct Response { }
+    struct ViewModel { }
   }
   
   enum ErrorMessage {

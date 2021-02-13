@@ -16,7 +16,6 @@ protocol SearchDataPassing: class {
 }
 
 final class SearchRouter: BaseRouter, SearchDataPassing {
-  
   weak var viewController: SearchViewController?
   var dataStore: SearchDataStore?
 }

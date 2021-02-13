@@ -15,7 +15,6 @@ protocol SearchDisplayLogic: DetailRoutableDisplayLogic {
 }
 
 final class SearchViewController: BaseViewController {
-  
   var router: (SearchRoutingLogic & SearchDataPassing)?
   var interactor: SearchBusinessLogic?
   

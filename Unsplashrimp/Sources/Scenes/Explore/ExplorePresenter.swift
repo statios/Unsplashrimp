@@ -17,9 +17,7 @@ protocol ExplorePresentationLogic: class {
 }
 
 final class ExplorePresenter: BasePresenter {
-  
   weak var view: ExploreDisplayLogic?
-
 }
 
 // MARK: - Present

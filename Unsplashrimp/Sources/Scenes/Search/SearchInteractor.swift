@@ -20,7 +20,6 @@ protocol SearchBusinessLogic: class {
 }
 
 final class SearchInteractor: BaseInteractor, SearchDataStore {
-  
   var networkWorker: NetworkWorkerLogic?
   var presenter: SearchPresentationLogic?
 

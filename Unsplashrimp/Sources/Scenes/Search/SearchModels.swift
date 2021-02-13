@@ -6,7 +6,6 @@
 //
 
 enum SearchModels {
-  
   enum Search {
     struct Request {
       let query: String

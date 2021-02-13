@@ -17,7 +17,6 @@ protocol ExploreDisplayLogic: DetailRoutableDisplayLogic {
 }
 
 final class ExploreViewController: BaseViewController {
-  
   var router: (ExploreRoutingLogic & ExploreDataPassing)?
   var interactor: ExploreBusinessLogic?
   
@@ -94,7 +93,9 @@ extension ExploreViewController: ExploreDisplayLogic {
         animated: false
       )
     } completion: { [weak self] _ in
-      self?.tableView.reloadData()
+      DispatchQueue.main.async {
+        self?.tableView.reloadData()
+      }
       UIView.animate(withDuration: 0.5) {
         self?.tableView.alpha = 1.0
       }
@@ -198,19 +199,19 @@ extension ExploreViewController:
   
   func tableView(
     _ tableView: UITableView,
-    prefetchRowsAt indexPaths: [IndexPath]) {
-    for indexPath in indexPaths {
-      if photos[selectedTopicIndex].count - 1 == indexPath.row {
-        interactor?.fetchPagination(
-          request: .init(index: selectedTopicIndex)
-        )
-      }
-    }
+    prefetchRowsAt indexPaths: [IndexPath]
+  ) {
+    guard indexPaths
+            .filter({ $0.row == photos[selectedTopicIndex].count - 1 })
+            .isEmpty else { return }
+    
+    interactor?.fetchPagination(request: .init(index: selectedTopicIndex))
   }
   
   func tableView(
     _ tableView: UITableView,
-    didSelectRowAt indexPath: IndexPath) {
+    didSelectRowAt indexPath: IndexPath
+  ) {
     interactor?.fetchSelectPhoto(request: .init(index: indexPath.row))
   }
 }
