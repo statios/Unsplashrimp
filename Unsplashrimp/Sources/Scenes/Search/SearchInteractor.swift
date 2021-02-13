@@ -35,69 +35,62 @@ final class SearchInteractor: BaseInteractor, SearchDataStore {
 extension SearchInteractor: SearchBusinessLogic {
   
   func fetchSearch(request: SearchModels.Search.Request) {
-    self.query = request.query
-    self.page = 1
-    networkWorker?.request(
-      UnsplashAPI.search(query: query, page: page),
-      type: UnsplashResponse<PaginationResponse<Photo>>.self) { [weak self] in
-      switch $0 {
-      case .success(let result):
-        if let photosPagination = result.successResult {
-          self?.totalPage = photosPagination.totalPages
-          self?.photos = photosPagination.results
-          self?.presenter?.presentSearch(response: .init(search: photosPagination))
-        } else if let failureResult = result.failureResult {
-          self?.presenter?.presentErrorMessage(
-            resposne: .init(
-              message: failureResult.errors.first
-            )
-          )
-        }
-      case .failure:
-        // Do NOTHING
-        return
-      }
+    query = request.query
+    page = 1
+    requestSearch(query: query, page: page) { [weak self] in
+      self?.totalPage = $0.totalPages
+      self?.photos = $0.results
+      self?.presenter?.presentSearch(response: .init(search: $0))
     }
   }
   
   func fetchPagination(request: SearchModels.Pagination.Request) {
-    
     guard page < totalPage else {
       Log.error("No more pages")
       return
     }
-    
-    networkWorker?.request(
-      UnsplashAPI.search(query: query, page: page + 1),
-      type: UnsplashResponse<PaginationResponse<Photo>>.self) { [weak self] in
-      switch $0 {
-      case .success(let result):
-        if let successResult = result.successResult {
-          self?.page += 1
-          self?.photos.append(contentsOf: successResult.results)
-          self?.presenter?.presentPagination(
-            response: .init(search: successResult)
-          )
-        } else if let failureResult = result.failureResult {
-          self?.presenter?.presentErrorMessage(
-            resposne: .init(
-              message: failureResult.errors.first
-            )
-          )
-        }
-      case .failure(let error):
-        self?.presenter?.presentErrorMessage(
-          resposne: .init(
-            message: error.localizedDescription
-          )
-        )
-        return
-      }
+    requestSearch(query: query, page: page + 1) { [weak self] in
+      self?.page += 1
+      self?.photos.append(contentsOf: $0.results)
+      self?.presenter?.presentPagination(
+        response: .init(search: $0)
+      )
     }
   }
   
   func fetchSelectPhoto(request: SearchModels.SelectPhoto.Request) {
     selectedPhotoIndex = request.index
     presenter?.presentSelectPhoto(resposne: .init())
+  }
+}
+
+// MARK:- Helpers
+extension SearchInteractor {
+  func requestSearch(
+    query: String,
+    page: Int,
+    completion: @escaping ((PaginationResponse<Photo>) -> Void)
+  ) {
+    networkWorker?.request(
+      UnsplashAPI.search(query: query, page: page),
+      type: UnsplashResponse<PaginationResponse<Photo>>.self) { [weak self] in
+      switch $0 {
+      case .success(let result):
+        if let successResult = result.successResult {
+          completion(successResult)
+        } else if let failureResult = result.failureResult {
+          self?.presentErrorMessage(message: failureResult.errors.first)
+        }
+      case .failure(let error):
+        self?.presentErrorMessage(message: error.localizedDescription)
+        return
+      }
+    }
+  }
+  
+  func presentErrorMessage(message: String?) {
+    presenter?.presentErrorMessage(
+      resposne: .init(message: message)
+    )
   }
 }
