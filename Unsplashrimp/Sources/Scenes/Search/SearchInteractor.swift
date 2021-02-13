@@ -39,12 +39,20 @@ extension SearchInteractor: SearchBusinessLogic {
     self.page = 1
     networkWorker?.request(
       UnsplashAPI.search(query: query, page: page),
-      type: PaginationResponse<Photo>.self) { [weak self] in
+      type: UnsplashResponse<PaginationResponse<Photo>>.self) { [weak self] in
       switch $0 {
-      case .success(let searchResponse):
-        self?.totalPage = searchResponse.totalPages
-        self?.photos = searchResponse.results
-        self?.presenter?.presentSearch(response: .init(search: searchResponse))
+      case .success(let result):
+        if let photosPagination = result.successResult {
+          self?.totalPage = photosPagination.totalPages
+          self?.photos = photosPagination.results
+          self?.presenter?.presentSearch(response: .init(search: photosPagination))
+        } else if let failureResult = result.failureResult {
+          self?.presenter?.presentErrorMessage(
+            resposne: .init(
+              message: failureResult.errors.first
+            )
+          )
+        }
       case .failure(let error):
         //TODO
         return

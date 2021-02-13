@@ -13,6 +13,7 @@ protocol ExploreDisplayLogic: DetailRoutableDisplayLogic {
   func displayPagination(viewModel: ExploreModels.Pagination.ViewModel)
   func displaySelectTopic(viewModel: ExploreModels.SelectTopic.ViewModel)
   func displaySelectPhoto(viewModel: ExploreModels.SelectPhoto.ViewModel)
+  func displayErrorMessage(viewModel: ExploreModels.ErrorMessage.ViewModel)
 }
 
 final class ExploreViewController: BaseViewController {
@@ -102,6 +103,10 @@ extension ExploreViewController: ExploreDisplayLogic {
       at: .middle,
       animated: false
     )
+  }
+  
+  func displayErrorMessage(viewModel: ExploreModels.ErrorMessage.ViewModel) {
+    showAlert(message: viewModel.message)
   }
 }
 

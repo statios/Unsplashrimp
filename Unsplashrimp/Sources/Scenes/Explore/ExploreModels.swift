@@ -66,4 +66,13 @@ enum ExploreModels {
     struct ViewModel {
     }
   }
+  
+  enum ErrorMessage {
+    struct Response {
+      let message: String?
+    }
+    struct ViewModel {
+      let message: String
+    }
+  }
 }

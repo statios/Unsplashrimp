@@ -11,6 +11,7 @@ protocol SearchDisplayLogic: DetailRoutableDisplayLogic {
   func displaySearch(viewModel: SearchModels.Search.ViewModel)
   func displayPagination(viewModel: SearchModels.Pagination.ViewModel)
   func displaySelectPhoto(viewModel: SearchModels.SelectPhoto.ViewModel)
+  func displayErrorMessage(viewModel: SearchModels.ErrorMessage.ViewModel)
 }
 
 final class SearchViewController: BaseViewController {
@@ -84,6 +85,10 @@ extension SearchViewController: SearchDisplayLogic {
       at: .middle,
       animated: false
     )
+  }
+  
+  func displayErrorMessage(viewModel: SearchModels.ErrorMessage.ViewModel) {
+    showAlert(message: viewModel.message)
   }
 }
 

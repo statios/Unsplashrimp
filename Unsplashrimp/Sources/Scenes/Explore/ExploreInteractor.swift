@@ -53,14 +53,22 @@ extension ExploreInteractor: ExploreBusinessLogic {
     networkWorker?
       .request(
         UnsplashAPI.photos(id: topics[request.index].id, page: pages[request.index] + 1),
-        type: [Photo].self) { [weak self] in
+        type: UnsplashResponse<[Photo]>.self) { [weak self] in
         self?.pages[request.index] += 1
         switch $0 {
-        case .success(let photos):
-          self?.photosByTopics[request.index].append(contentsOf: photos)
-          self?.presenter?.presentPagination(
-            response: .init(index: request.index, photos: photos)
-          )
+        case .success(let result):
+          if let photos = result.successResult {
+            self?.photosByTopics[request.index].append(contentsOf: photos)
+            self?.presenter?.presentPagination(
+              response: .init(index: request.index, photos: photos)
+            )
+          } else if let failureResult = result.failureResult {
+            self?.presenter?.presentErrorMessage(
+              resposne: .init(
+                message: failureResult.errors.first
+              )
+            )
+          }
         case .failure(let error):
           return
         }

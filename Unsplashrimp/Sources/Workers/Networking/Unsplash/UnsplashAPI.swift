@@ -56,7 +56,7 @@ extension UnsplashAPI: TargetType {
     if let path = Bundle.main.path(forResource: "Key", ofType: "plist") {
       if let dict = NSDictionary(contentsOfFile: path) {
         let token = dict["UNSPLASH_ACCESS_KEY"] as? String
-        header["Authorization"] = "Client-IDd " + (token ?? "")
+        header["Authorization"] = "Client-ID " + (token ?? "")
       }
     }
     return header

@@ -39,4 +39,13 @@ enum SearchModels {
     struct ViewModel {
     }
   }
+  
+  enum ErrorMessage {
+    struct Response {
+      let message: String?
+    }
+    struct ViewModel {
+      let message: String
+    }
+  }
 }

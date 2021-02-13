@@ -13,6 +13,7 @@ protocol ExplorePresentationLogic: class {
   func presentPagination(response: ExploreModels.Pagination.Response)
   func presentSelectTopic(resposne: ExploreModels.SelectTopic.Response)
   func presentSelectPhoto(resposne: ExploreModels.SelectPhoto.Response)
+  func presentErrorMessage(resposne: ExploreModels.ErrorMessage.Response)
 }
 
 final class ExplorePresenter: BasePresenter {
@@ -43,5 +44,10 @@ extension ExplorePresenter: ExplorePresentationLogic {
   
   func presentSelectPhoto(resposne: ExploreModels.SelectPhoto.Response) {
     view?.displaySelectPhoto(viewModel: .init())
+  }
+  
+  func presentErrorMessage(resposne: ExploreModels.ErrorMessage.Response) {
+    guard let message = resposne.message else { return }
+    view?.displayErrorMessage(viewModel: .init(message: message))
   }
 }

@@ -11,6 +11,7 @@ protocol SearchPresentationLogic: class {
   func presentSearch(response: SearchModels.Search.Response)
   func presentPagination(response: SearchModels.Pagination.Response)
   func presentSelectPhoto(resposne: SearchModels.SelectPhoto.Response)
+  func presentErrorMessage(resposne: SearchModels.ErrorMessage.Response)
 }
 
 final class SearchPresenter: BasePresenter {
@@ -35,5 +36,10 @@ extension SearchPresenter: SearchPresentationLogic {
   
   func presentSelectPhoto(resposne: SearchModels.SelectPhoto.Response) {
     view?.displaySelectPhoto(viewModel: .init())
+  }
+  
+  func presentErrorMessage(resposne: SearchModels.ErrorMessage.Response) {
+    guard let message = resposne.message else { return }
+    view?.displayErrorMessage(viewModel: .init(message: message))
   }
 }
