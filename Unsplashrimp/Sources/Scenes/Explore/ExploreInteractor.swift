@@ -52,8 +52,12 @@ extension ExploreInteractor: ExploreBusinessLogic {
   func fetchPagination(request: ExploreModels.Pagination.Request) {
     networkWorker?
       .request(
-        UnsplashAPI.photos(id: topics[request.index].id, page: pages[request.index] + 1),
-        type: UnsplashResponse<[Photo]>.self) { [weak self] in
+        UnsplashAPI.photos(
+          id: topics[request.index].id,
+          page: pages[request.index] + 1
+        ),
+        type: UnsplashResponse<[Photo]>.self
+      ) { [weak self] in
         self?.pages[request.index] += 1
         switch $0 {
         case .success(let result):
