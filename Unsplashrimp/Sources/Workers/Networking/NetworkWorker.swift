@@ -47,6 +47,7 @@ extension NetworkWorkerLogic {
           completion(.success(decodedData))
         }
       } catch let decodingError {
+        
         completion(.failure(decodingError))
       }
       

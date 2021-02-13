@@ -39,6 +39,8 @@
 		F988F0D125D66B9400AC4DA4 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0D025D66B9400AC4DA4 /* UIViewController.swift */; };
 		F988F0D925D66FBB00AC4DA4 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0D825D66FBB00AC4DA4 /* UINavigationController.swift */; };
 		F988F0E125D723C200AC4DA4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0E025D723C200AC4DA4 /* MainTabBarController.swift */; };
+		F988F12F25D77BBF00AC4DA4 /* UnsplashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F12E25D77BBF00AC4DA4 /* UnsplashResponse.swift */; };
+		F988F13725D77BC800AC4DA4 /* UnsplashError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F13625D77BC800AC4DA4 /* UnsplashError.swift */; };
 		F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497D525D0CA120098A309 /* AppDelegate.swift */; };
 		F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C497DE25D0CA130098A309 /* Images.xcassets */; };
 		F9C497E225D0CA130098A309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C497E025D0CA130098A309 /* LaunchScreen.storyboard */; };
@@ -126,6 +128,8 @@
 		F988F0D025D66B9400AC4DA4 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		F988F0D825D66FBB00AC4DA4 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		F988F0E025D723C200AC4DA4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		F988F12E25D77BBF00AC4DA4 /* UnsplashResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashResponse.swift; sourceTree = "<group>"; };
+		F988F13625D77BC800AC4DA4 /* UnsplashError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashError.swift; sourceTree = "<group>"; };
 		F9C497D225D0CA110098A309 /* Unsplashrimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplashrimp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C497D525D0CA120098A309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C497DE25D0CA130098A309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -302,6 +306,16 @@
 				F988F0E025D723C200AC4DA4 /* MainTabBarController.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		F988F12D25D77BAC00AC4DA4 /* Unsplash */ = {
+			isa = PBXGroup;
+			children = (
+				F9C498E025D0E6C80098A309 /* UnsplashAPI.swift */,
+				F988F12E25D77BBF00AC4DA4 /* UnsplashResponse.swift */,
+				F988F13625D77BC800AC4DA4 /* UnsplashError.swift */,
+			);
+			path = Unsplash;
 			sourceTree = "<group>";
 		};
 		F9C497C925D0CA110098A309 = {
@@ -521,9 +535,9 @@
 		F9C498D225D0E67D0098A309 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				F988F12D25D77BAC00AC4DA4 /* Unsplash */,
 				F9C498DB25D0E6A80098A309 /* NetworkWorker.swift */,
 				F9880BDA25D16D0F00967F46 /* TargetType.swift */,
-				F9C498E025D0E6C80098A309 /* UnsplashAPI.swift */,
 				F9880BEA25D1E46900967F46 /* HTTPMethod.swift */,
 			);
 			path = Networking;
@@ -673,6 +687,7 @@
 				F9C4984425D0D3A50098A309 /* SplashRouter.swift in Sources */,
 				F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */,
 				F9880BF325D26D5C00967F46 /* Topic.swift in Sources */,
+				F988F13725D77BC800AC4DA4 /* UnsplashError.swift in Sources */,
 				F9C498DC25D0E6A80098A309 /* NetworkWorker.swift in Sources */,
 				F9C4984325D0D3A50098A309 /* SplashWorker.swift in Sources */,
 				F988F0D925D66FBB00AC4DA4 /* UINavigationController.swift in Sources */,
@@ -683,6 +698,7 @@
 				F9C4989E25D0DBDA0098A309 /* ExplorePresenter.swift in Sources */,
 				F988F02B25D4A72C00AC4DA4 /* DetailRouter.swift in Sources */,
 				F9880BDB25D16D0F00967F46 /* TargetType.swift in Sources */,
+				F988F12F25D77BBF00AC4DA4 /* UnsplashResponse.swift in Sources */,
 				F9880CA025D2F37500967F46 /* TopicCell.swift in Sources */,
 				F988F02925D4A72C00AC4DA4 /* DetailPresenter.swift in Sources */,
 				F9C4989F25D0DBDA0098A309 /* ExploreWorker.swift in Sources */,
