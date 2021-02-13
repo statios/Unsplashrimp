@@ -4,7 +4,7 @@
 //
 //  Created by KIHYUN SO on 2021/02/09.
 //
-// https://stackoverflow.com/questions/42856065/uitableview-is-not-smoothly-when-using-downloading-images
+// https://stackoverflow.com/questions/42856065/
 
 import UIKit
 
