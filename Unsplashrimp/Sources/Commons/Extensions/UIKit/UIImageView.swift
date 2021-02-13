@@ -18,25 +18,23 @@ extension UIImageView {
       return
     }
     
-    if let url = URL(string: URLString) {
-      URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-        
-        if error != nil {
-          Log.error("")
-          self.image = placeHolder
-          return
-        }
-        
-        DispatchQueue.main.async {
-          if let data = data {
-            if let downloadedImage = UIImage(data: data) {
-              imageCache.setObject(downloadedImage, forKey: NSString(string: URLString))
-              self.image = downloadedImage
-            }
-          }
-        }
-        
-      }).resume()
-    }
+    guard let url = URL(string: URLString) else { return }
+    
+    URLSession.shared.dataTask(with: url) { (data, response, error) in
+      
+      if error != nil {
+        Log.error("Failed image download")
+        self.image = placeHolder
+        return
+      }
+      
+      DispatchQueue.main.async { [weak self] in
+        guard let `data` = data,
+              let downloadedImage = UIImage(data: data) else { return }
+        imageCache.setObject(downloadedImage, forKey: NSString(string: URLString))
+        self?.image = downloadedImage
+      }
+      
+    }.resume()
   }
 }
