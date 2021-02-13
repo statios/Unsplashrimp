@@ -34,6 +34,7 @@ extension NetworkWorkerLogic {
     session.dataTask(with: target.request) { (data, response, error) in
       
       didRecive(response)
+      
       if let err = error {
         completion(.failure(err))
         return

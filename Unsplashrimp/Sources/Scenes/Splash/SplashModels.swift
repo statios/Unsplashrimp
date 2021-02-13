@@ -6,7 +6,6 @@
 //
 
 enum SplashModels {
-
   enum Prefetch {
     struct Request {
     }

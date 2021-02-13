@@ -13,9 +13,8 @@ final class SplashInteractorTests: XCTestCase {
 
   // MARK: Test Double Objects
   final class SplashPresenterSpy: SplashPresentationLogic {
-    var isCalledPresentPrefetch = false
     func presentPrefetch(response: SplashModels.Prefetch.Response) {
-      isCalledPresentPrefetch = true
+      
     }
   }
 
@@ -29,7 +28,6 @@ final class SplashInteractorTests: XCTestCase {
       isCalledRequest = true
     }
   }
-
 
   // MARK: Properties
   var interactor: SplashInteractor!
@@ -45,10 +43,8 @@ final class SplashInteractorTests: XCTestCase {
   }
 }
 
-
-// MARK: - TODO TestName (BDD)
 extension SplashInteractorTests {
-  func test_callingNetworkRequestWhenRequestPrefetch() {
+  func test_callingNetworkRequest() {
     // Given
     let dummyRequest = SplashModels.Prefetch.Request()
 

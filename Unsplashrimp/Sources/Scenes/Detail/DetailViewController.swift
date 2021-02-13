@@ -34,10 +34,10 @@ extension DetailViewController {
     let interactor = DetailInteractor()
     let presenter = DetailPresenter()
     let router = DetailRouter()
-    let worker = DetailWorker()
+    let worker = NetworkWorker.shared
     
     interactor.presenter = presenter
-    interactor.worker = worker
+    interactor.networkWorker = worker
     presenter.view = viewController
     router.viewController = viewController
     router.dataStore = interactor

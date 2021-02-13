@@ -20,7 +20,7 @@ protocol DetailBusinessLogic: class {
 
 final class DetailInteractor: BaseInteractor, DetailDataStore {
 
-  var worker: DetailWorkerLogic?
+  var networkWorker: NetworkWorkerLogic?
   var presenter: DetailPresentationLogic?
   
   var photos: [Photo] = []

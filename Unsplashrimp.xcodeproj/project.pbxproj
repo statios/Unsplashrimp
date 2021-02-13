@@ -22,7 +22,6 @@
 		F9880CAD25D3221600967F46 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880CAC25D3221600967F46 /* CGFloat.swift */; };
 		F988F01925D4910400AC4DA4 /* PaginationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F01825D4910400AC4DA4 /* PaginationResponse.swift */; };
 		F988F02925D4A72C00AC4DA4 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F02325D4A72C00AC4DA4 /* DetailPresenter.swift */; };
-		F988F02A25D4A72C00AC4DA4 /* DetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F02425D4A72C00AC4DA4 /* DetailWorker.swift */; };
 		F988F02B25D4A72C00AC4DA4 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F02525D4A72C00AC4DA4 /* DetailRouter.swift */; };
 		F988F02C25D4A72C00AC4DA4 /* DetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F02625D4A72C00AC4DA4 /* DetailModels.swift */; };
 		F988F02D25D4A72C00AC4DA4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F02725D4A72C00AC4DA4 /* DetailViewController.swift */; };
@@ -43,7 +42,6 @@
 		F988F13725D77BC800AC4DA4 /* UnsplashError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F13625D77BC800AC4DA4 /* UnsplashError.swift */; };
 		F9B277E225D7ADC100385E18 /* SplashViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B277DE25D7ADC100385E18 /* SplashViewControllerTests.swift */; };
 		F9B277E325D7ADC100385E18 /* SplashInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B277DF25D7ADC100385E18 /* SplashInteractorTests.swift */; };
-		F9B277E425D7ADC100385E18 /* SplashWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B277E025D7ADC100385E18 /* SplashWorkerTests.swift */; };
 		F9B277E525D7ADC100385E18 /* SplashPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B277E125D7ADC100385E18 /* SplashPresenterTests.swift */; };
 		F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497D525D0CA120098A309 /* AppDelegate.swift */; };
 		F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C497DE25D0CA130098A309 /* Images.xcassets */; };
@@ -51,7 +49,6 @@
 		F9C497ED25D0CA130098A309 /* UnsplashrimpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497EC25D0CA130098A309 /* UnsplashrimpTests.swift */; };
 		F9C497F825D0CA130098A309 /* UnsplashrimpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497F725D0CA130098A309 /* UnsplashrimpUITests.swift */; };
 		F9C4984225D0D3A50098A309 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4983C25D0D3A50098A309 /* SplashPresenter.swift */; };
-		F9C4984325D0D3A50098A309 /* SplashWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4983D25D0D3A50098A309 /* SplashWorker.swift */; };
 		F9C4984425D0D3A50098A309 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4983E25D0D3A50098A309 /* SplashRouter.swift */; };
 		F9C4984525D0D3A50098A309 /* SplashModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4983F25D0D3A50098A309 /* SplashModels.swift */; };
 		F9C4984625D0D3A50098A309 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4984025D0D3A50098A309 /* SplashViewController.swift */; };
@@ -65,13 +62,11 @@
 		F9C4988225D0D62C0098A309 /* BaseWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4988125D0D62C0098A309 /* BaseWorker.swift */; };
 		F9C4988725D0D6330098A309 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4988625D0D6330098A309 /* BaseRouter.swift */; };
 		F9C4989E25D0DBDA0098A309 /* ExplorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4989825D0DBDA0098A309 /* ExplorePresenter.swift */; };
-		F9C4989F25D0DBDA0098A309 /* ExploreWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4989925D0DBDA0098A309 /* ExploreWorker.swift */; };
 		F9C498A025D0DBDA0098A309 /* ExploreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4989A25D0DBDA0098A309 /* ExploreRouter.swift */; };
 		F9C498A125D0DBDA0098A309 /* ExploreModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4989B25D0DBDA0098A309 /* ExploreModels.swift */; };
 		F9C498A225D0DBDA0098A309 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4989C25D0DBDA0098A309 /* ExploreViewController.swift */; };
 		F9C498A325D0DBDA0098A309 /* ExploreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4989D25D0DBDA0098A309 /* ExploreInteractor.swift */; };
 		F9C498AD25D0DBEC0098A309 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C498A725D0DBEC0098A309 /* SearchPresenter.swift */; };
-		F9C498AE25D0DBEC0098A309 /* SearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C498A825D0DBEC0098A309 /* SearchWorker.swift */; };
 		F9C498AF25D0DBEC0098A309 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C498A925D0DBEC0098A309 /* SearchRouter.swift */; };
 		F9C498B025D0DBEC0098A309 /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C498AA25D0DBEC0098A309 /* SearchModels.swift */; };
 		F9C498B125D0DBEC0098A309 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C498AB25D0DBEC0098A309 /* SearchViewController.swift */; };
@@ -115,7 +110,6 @@
 		F9880CAC25D3221600967F46 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		F988F01825D4910400AC4DA4 /* PaginationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationResponse.swift; sourceTree = "<group>"; };
 		F988F02325D4A72C00AC4DA4 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
-		F988F02425D4A72C00AC4DA4 /* DetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWorker.swift; sourceTree = "<group>"; };
 		F988F02525D4A72C00AC4DA4 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		F988F02625D4A72C00AC4DA4 /* DetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModels.swift; sourceTree = "<group>"; };
 		F988F02725D4A72C00AC4DA4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -136,7 +130,6 @@
 		F988F13625D77BC800AC4DA4 /* UnsplashError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashError.swift; sourceTree = "<group>"; };
 		F9B277DE25D7ADC100385E18 /* SplashViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewControllerTests.swift; sourceTree = "<group>"; };
 		F9B277DF25D7ADC100385E18 /* SplashInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractorTests.swift; sourceTree = "<group>"; };
-		F9B277E025D7ADC100385E18 /* SplashWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashWorkerTests.swift; sourceTree = "<group>"; };
 		F9B277E125D7ADC100385E18 /* SplashPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenterTests.swift; sourceTree = "<group>"; };
 		F9C497D225D0CA110098A309 /* Unsplashrimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplashrimp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C497D525D0CA120098A309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,7 +143,6 @@
 		F9C497F725D0CA130098A309 /* UnsplashrimpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashrimpUITests.swift; sourceTree = "<group>"; };
 		F9C497F925D0CA130098A309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9C4983C25D0D3A50098A309 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
-		F9C4983D25D0D3A50098A309 /* SplashWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashWorker.swift; sourceTree = "<group>"; };
 		F9C4983E25D0D3A50098A309 /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
 		F9C4983F25D0D3A50098A309 /* SplashModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashModels.swift; sourceTree = "<group>"; };
 		F9C4984025D0D3A50098A309 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -164,13 +156,11 @@
 		F9C4988125D0D62C0098A309 /* BaseWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWorker.swift; sourceTree = "<group>"; };
 		F9C4988625D0D6330098A309 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		F9C4989825D0DBDA0098A309 /* ExplorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenter.swift; sourceTree = "<group>"; };
-		F9C4989925D0DBDA0098A309 /* ExploreWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreWorker.swift; sourceTree = "<group>"; };
 		F9C4989A25D0DBDA0098A309 /* ExploreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRouter.swift; sourceTree = "<group>"; };
 		F9C4989B25D0DBDA0098A309 /* ExploreModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreModels.swift; sourceTree = "<group>"; };
 		F9C4989C25D0DBDA0098A309 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		F9C4989D25D0DBDA0098A309 /* ExploreInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreInteractor.swift; sourceTree = "<group>"; };
 		F9C498A725D0DBEC0098A309 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
-		F9C498A825D0DBEC0098A309 /* SearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorker.swift; sourceTree = "<group>"; };
 		F9C498A925D0DBEC0098A309 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
 		F9C498AA25D0DBEC0098A309 /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
 		F9C498AB25D0DBEC0098A309 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -255,7 +245,6 @@
 				F988F02725D4A72C00AC4DA4 /* DetailViewController.swift */,
 				F988F02825D4A72C00AC4DA4 /* DetailInteractor.swift */,
 				F988F02325D4A72C00AC4DA4 /* DetailPresenter.swift */,
-				F988F02425D4A72C00AC4DA4 /* DetailWorker.swift */,
 				F988F02525D4A72C00AC4DA4 /* DetailRouter.swift */,
 				F988F02625D4A72C00AC4DA4 /* DetailModels.swift */,
 				F988F07425D64DE400AC4DA4 /* Routable Type */,
@@ -348,7 +337,6 @@
 				F9B277DE25D7ADC100385E18 /* SplashViewControllerTests.swift */,
 				F9B277DF25D7ADC100385E18 /* SplashInteractorTests.swift */,
 				F9B277E125D7ADC100385E18 /* SplashPresenterTests.swift */,
-				F9B277E025D7ADC100385E18 /* SplashWorkerTests.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -473,7 +461,6 @@
 				F9C4984025D0D3A50098A309 /* SplashViewController.swift */,
 				F9C4984125D0D3A50098A309 /* SplashInteractor.swift */,
 				F9C4983C25D0D3A50098A309 /* SplashPresenter.swift */,
-				F9C4983D25D0D3A50098A309 /* SplashWorker.swift */,
 				F9C4983E25D0D3A50098A309 /* SplashRouter.swift */,
 				F9C4983F25D0D3A50098A309 /* SplashModels.swift */,
 			);
@@ -487,7 +474,6 @@
 				F9C4989C25D0DBDA0098A309 /* ExploreViewController.swift */,
 				F9C4989D25D0DBDA0098A309 /* ExploreInteractor.swift */,
 				F9C4989825D0DBDA0098A309 /* ExplorePresenter.swift */,
-				F9C4989925D0DBDA0098A309 /* ExploreWorker.swift */,
 				F9C4989A25D0DBDA0098A309 /* ExploreRouter.swift */,
 				F9C4989B25D0DBDA0098A309 /* ExploreModels.swift */,
 				F9880C7525D2ADDC00967F46 /* Views */,
@@ -502,7 +488,6 @@
 				F9C498AB25D0DBEC0098A309 /* SearchViewController.swift */,
 				F9C498AC25D0DBEC0098A309 /* SearchInteractor.swift */,
 				F9C498A725D0DBEC0098A309 /* SearchPresenter.swift */,
-				F9C498A825D0DBEC0098A309 /* SearchWorker.swift */,
 				F9C498A925D0DBEC0098A309 /* SearchRouter.swift */,
 				F9C498AA25D0DBEC0098A309 /* SearchModels.swift */,
 				F922AAA125D48B9D00DA8F60 /* Views */,
@@ -725,7 +710,6 @@
 				F9880BF325D26D5C00967F46 /* Topic.swift in Sources */,
 				F988F13725D77BC800AC4DA4 /* UnsplashError.swift in Sources */,
 				F9C498DC25D0E6A80098A309 /* NetworkWorker.swift in Sources */,
-				F9C4984325D0D3A50098A309 /* SplashWorker.swift in Sources */,
 				F988F0D925D66FBB00AC4DA4 /* UINavigationController.swift in Sources */,
 				F988F0A325D6630A00AC4DA4 /* UITableView.swift in Sources */,
 				F9C4986E25D0D5960098A309 /* LogEvent.swift in Sources */,
@@ -737,13 +721,11 @@
 				F988F12F25D77BBF00AC4DA4 /* UnsplashResponse.swift in Sources */,
 				F9880CA025D2F37500967F46 /* TopicCell.swift in Sources */,
 				F988F02925D4A72C00AC4DA4 /* DetailPresenter.swift in Sources */,
-				F9C4989F25D0DBDA0098A309 /* ExploreWorker.swift in Sources */,
 				F988F0B025D664BE00AC4DA4 /* UICollectionView.swift in Sources */,
 				F9C498A325D0DBDA0098A309 /* ExploreInteractor.swift in Sources */,
 				F988F0AB25D6639E00AC4DA4 /* NSObject.swift in Sources */,
 				F988F04725D4CF5600AC4DA4 /* DetailCell.swift in Sources */,
 				F9880C8525D2E76400967F46 /* Device.swift in Sources */,
-				F988F02A25D4A72C00AC4DA4 /* DetailWorker.swift in Sources */,
 				F9C4987325D0D5FD0098A309 /* BaseViewController.swift in Sources */,
 				F9C498A125D0DBDA0098A309 /* ExploreModels.swift in Sources */,
 				F9880C5725D29AB500967F46 /* UINavigationBar.swift in Sources */,
@@ -767,7 +749,6 @@
 				F9C4988225D0D62C0098A309 /* BaseWorker.swift in Sources */,
 				F9C498A025D0DBDA0098A309 /* ExploreRouter.swift in Sources */,
 				F9C4986625D0D58B0098A309 /* Log.swift in Sources */,
-				F9C498AE25D0DBEC0098A309 /* SearchWorker.swift in Sources */,
 				F988F07B25D64E2300AC4DA4 /* DetailRoutableDisplayLogic.swift in Sources */,
 				F9C4984725D0D3A50098A309 /* SplashInteractor.swift in Sources */,
 				F9C498AD25D0DBEC0098A309 /* SearchPresenter.swift in Sources */,
@@ -783,7 +764,6 @@
 				F9C497ED25D0CA130098A309 /* UnsplashrimpTests.swift in Sources */,
 				F9B277E525D7ADC100385E18 /* SplashPresenterTests.swift in Sources */,
 				F9B277E325D7ADC100385E18 /* SplashInteractorTests.swift in Sources */,
-				F9B277E425D7ADC100385E18 /* SplashWorkerTests.swift in Sources */,
 				F9B277E225D7ADC100385E18 /* SplashViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

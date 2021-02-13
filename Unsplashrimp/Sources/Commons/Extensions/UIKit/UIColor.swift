@@ -4,11 +4,10 @@
 //
 //  Created by KIHYUN SO on 2021/02/11.
 //
+// https://www.iosapptemplates.com/blog/swift-programming/convert-hex-colors-to-uicolor-swift-4
 
 import UIKit
 
-// Open source usage
-// https://www.iosapptemplates.com/blog/swift-programming/convert-hex-colors-to-uicolor-swift-4
 extension UIColor {
   convenience init(hexString: String, alpha: CGFloat = 1.0) {
     let hexString: String = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
@@ -27,6 +26,7 @@ extension UIColor {
     let blue  = CGFloat(b) / 255.0
     self.init(red:red, green:green, blue:blue, alpha:alpha)
   }
+  
   func toHexString() -> String {
     var r:CGFloat = 0
     var g:CGFloat = 0

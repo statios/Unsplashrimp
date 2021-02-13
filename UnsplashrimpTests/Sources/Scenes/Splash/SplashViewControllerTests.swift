@@ -28,7 +28,6 @@ final class SplashViewControllerTests: XCTestCase {
     }
   }
 
-
   // MARK: Properties
   var viewController: SplashViewController!
   var interactor: SplashInteractorSpy!
@@ -42,9 +41,6 @@ final class SplashViewControllerTests: XCTestCase {
     self.viewController.router = self.router
   }
 }
-
-
-// MARK: - TODO TestName (BDD)
 
 extension SplashViewControllerTests {
 

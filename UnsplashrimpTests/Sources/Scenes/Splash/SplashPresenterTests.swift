@@ -12,16 +12,15 @@ import XCTest
 final class SplashPresenterTests: XCTestCase {
   
   // MARK: Test Double Objects
-  
   final class SplashDisplaySpy: SplashDisplayLogic {
+    var isCalledDisplayPrefetch = false
+    
     func displayPrefetch(viewModel: SplashModels.Prefetch.ViewModel) {
-      
+      isCalledDisplayPrefetch = true
     }
   }
-  
 
   // MARK: Properties
-  
   var presenter: SplashPresenter!
   var display: SplashDisplaySpy!
   
@@ -32,16 +31,15 @@ final class SplashPresenterTests: XCTestCase {
   }
 }
 
-
-// MARK: - TODO TestName (BDD)
-
 extension SplashPresenterTests {
   
-  func test_doSomething() {
-    // given
+  func test_callingDisplayPrefetch() {
+    // Given
     
-    // when
+    // When
+    presenter.presentPrefetch(response: .init())
     
-    // then
+    // Then
+    XCTAssert(display.isCalledDisplayPrefetch)
   }
 }
