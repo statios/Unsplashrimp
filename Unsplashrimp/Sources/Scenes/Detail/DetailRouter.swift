@@ -8,7 +8,6 @@
 import UIKit
 
 protocol DetailRoutingLogic: class {
-  
 }
 
 protocol DetailDataPassing: class {
@@ -16,10 +15,8 @@ protocol DetailDataPassing: class {
 }
 
 final class DetailRouter: BaseRouter, DetailDataPassing {
-
   weak var viewController: DetailViewController?
   var dataStore: DetailDataStore?
-
 }
 
 // MARK: - Route

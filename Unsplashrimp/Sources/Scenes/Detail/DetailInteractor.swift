@@ -19,16 +19,14 @@ protocol DetailBusinessLogic: class {
 }
 
 final class DetailInteractor: BaseInteractor, DetailDataStore {
-
   var networkWorker: NetworkWorkerLogic?
   var presenter: DetailPresentationLogic?
   
   var photos: [Photo] = []
   var selectedPhotoIndex: Int = 0
-
 }
 
-// MARK: - Business Logic
+// MARK:- Business Logic
 extension DetailInteractor: DetailBusinessLogic {
   func fetchPhotos(request: DetailModels.Photos.Request) {
     presenter?.presentPhotos(

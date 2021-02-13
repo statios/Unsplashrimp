@@ -14,12 +14,10 @@ protocol DetailPresentationLogic: class {
 }
 
 final class DetailPresenter: BasePresenter {
-  
   weak var view: DetailDisplayLogic?
-
 }
 
-// MARK: - Present
+// MARK:- Present
 extension DetailPresenter: DetailPresentationLogic {
   func presentPhotos(response: DetailModels.Photos.Response) {
     view?.displayPhotos(

@@ -14,7 +14,6 @@ protocol DetailDisplayLogic: class {
 }
 
 final class DetailViewController: BaseViewController {
-
   var router: (DetailRoutingLogic & DetailDataPassing)?
   var interactor: DetailBusinessLogic?
   
@@ -88,6 +87,7 @@ extension DetailViewController {
   }
 }
 
+// MARK: - CollectionView Delegate
 extension DetailViewController:
   UICollectionViewDelegateFlowLayout,
   UICollectionViewDelegate,
@@ -119,6 +119,7 @@ extension DetailViewController:
   }
 }
 
+// MARK:- Cell Delegate
 extension DetailViewController: DetailCellDelegate {
   func didSelectScrollView(
     in cell: UICollectionViewCell,
@@ -130,6 +131,7 @@ extension DetailViewController: DetailCellDelegate {
   }
 }
 
+// MARK:- ScrollView Delegate
 extension DetailViewController {
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     let page = Int(scrollView.contentOffset.x / Device.width)

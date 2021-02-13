@@ -6,11 +6,8 @@
 //
 
 enum DetailModels {
-  
   enum Photos {
-    struct Request {
-      
-    }
+    struct Request { }
     struct Response {
       let photos: [Photo]
       let selectedPhotoIndex: Int
@@ -34,8 +31,7 @@ enum DetailModels {
   }
   
   enum Dismiss {
-    struct Request {
-    }
+    struct Request { }
     struct Response {
       let selectedPhotoIndex: Int
     }

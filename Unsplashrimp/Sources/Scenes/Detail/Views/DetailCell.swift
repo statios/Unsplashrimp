@@ -12,7 +12,6 @@ protocol DetailCellDelegate: class {
 }
 
 class DetailCell: UICollectionViewCell {
-  
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var photoView: UIImageView!
   
@@ -49,8 +48,7 @@ class DetailCell: UICollectionViewCell {
   }
   
   @objc func doubleTappedScrollView() {
-    //TODO:
-    Log.info("double tap")
+    
   }
   
   @objc func tappedScrollView() {
@@ -64,33 +62,33 @@ extension DetailCell: UIScrollViewDelegate {
   }
   
   func scrollViewDidZoom(_ scrollView: UIScrollView) {
-    if scrollView.zoomScale > 1 {
-      if let image = photoView.image {
-        
-        let ratioWidth = photoView.frame.width / image.size.width
-        let ratioHeight = photoView.frame.height / image.size.height
-        
-        let ratio = ratioWidth < ratioHeight ? ratioWidth : ratioHeight
-        
-        let newWidth = image.size.width * ratio
-        let newHeight = image.size.height * ratio
-        
-        let left = newWidth * scrollView.zoomScale > photoView.frame.width
-          ? (newWidth - photoView.frame.width)
-          : (scrollView.frame.width - scrollView.contentSize.width)
-        let top = newHeight * scrollView.zoomScale > photoView.frame.height
-          ? (newHeight - photoView.frame.height)
-          : (scrollView.frame.height - scrollView.contentSize.height)
-        
-        scrollView.contentInset = .init(
-          top: top * 0.5,
-          left: left * 0.5,
-          bottom: top * 0.5,
-          right: left * 0.5
-        )
-      }
-    } else {
+    guard scrollView.zoomScale > 1 else {
       scrollView.contentInset = .zero
+      return
     }
+    
+    guard let image = photoView.image else { return }
+    
+    let ratioWidth = photoView.frame.width / image.size.width
+    let ratioHeight = photoView.frame.height / image.size.height
+    
+    let ratio = ratioWidth < ratioHeight ? ratioWidth : ratioHeight
+    
+    let newWidth = image.size.width * ratio
+    let newHeight = image.size.height * ratio
+    
+    let left = newWidth * scrollView.zoomScale > photoView.frame.width
+      ? (newWidth - photoView.frame.width)
+      : (scrollView.frame.width - scrollView.contentSize.width)
+    let top = newHeight * scrollView.zoomScale > photoView.frame.height
+      ? (newHeight - photoView.frame.height)
+      : (scrollView.frame.height - scrollView.contentSize.height)
+    
+    scrollView.contentInset = .init(
+      top: top * 0.5,
+      left: left * 0.5,
+      bottom: top * 0.5,
+      right: left * 0.5
+    )
   }
 }
