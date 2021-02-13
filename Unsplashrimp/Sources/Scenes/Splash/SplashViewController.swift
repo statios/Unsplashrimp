@@ -12,10 +12,8 @@ protocol SplashDisplayLogic: class {
 }
 
 final class SplashViewController: BaseViewController {
-
   var router: (SplashRoutingLogic & SplashDataPassing)?
   var interactor: SplashBusinessLogic?
-  
 }
 
 // MARK: - Build

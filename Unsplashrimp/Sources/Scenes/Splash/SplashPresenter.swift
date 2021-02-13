@@ -12,9 +12,7 @@ protocol SplashPresentationLogic: class {
 }
 
 final class SplashPresenter: BasePresenter {
-  
   weak var view: SplashDisplayLogic?
-
 }
 
 // MARK: - Present

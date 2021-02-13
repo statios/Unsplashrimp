@@ -16,16 +16,13 @@ protocol SplashDataPassing: class {
 }
 
 final class SplashRouter: BaseRouter, SplashDataPassing {
-  
   weak var viewController: SplashViewController?
   var dataStore: SplashDataStore?
-  
 }
 
 // MARK: - Route
 extension SplashRouter: SplashRoutingLogic {
   func routeToExplore() {
-    
     let exploreViewController = UIStoryboard("Explore").viewController
     let searchViewConroller = UIStoryboard("Search").viewController
     

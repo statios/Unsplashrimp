@@ -7,11 +7,8 @@
 
 enum SplashModels {
   enum Prefetch {
-    struct Request {
-    }
-    struct Response {
-    }
-    struct ViewModel {
-    }
+    struct Request { }
+    struct Response { }
+    struct ViewModel { }
   }
 }

@@ -17,7 +17,6 @@ protocol SplashBusinessLogic: class {
 }
 
 final class SplashInteractor: BaseInteractor, SplashDataStore {
-  
   var networkWorker: NetworkWorkerLogic?
   var presenter: SplashPresentationLogic?
   
@@ -53,8 +52,9 @@ extension SplashInteractor: SplashBusinessLogic {
   }
 }
 
+// MARK:- Helpers
 extension SplashInteractor {
-  func fetchPhotos(_ topic: Topic) {
+  private func fetchPhotos(_ topic: Topic) {
     self.networkWorker?.request(
       UnsplashAPI.photos(id: topic.id, page: 1),
       type: [Photo].self
