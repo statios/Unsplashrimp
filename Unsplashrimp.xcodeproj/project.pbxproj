@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		F922AAA325D48BAC00DA8F60 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F922AAA225D48BAC00DA8F60 /* SearchCell.swift */; };
 		F941138C25D430C0008132A4 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F941138B25D430C0008132A4 /* UIColor.swift */; };
-		F9880BD025D16CE800967F46 /* UnsplashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880BCF25D16CE800967F46 /* UnsplashResponse.swift */; };
 		F9880BDB25D16D0F00967F46 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880BDA25D16D0F00967F46 /* TargetType.swift */; };
 		F9880BE625D1E12B00967F46 /* Key.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9880BE525D1E12B00967F46 /* Key.plist */; };
 		F9880BEB25D1E46900967F46 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9880BEA25D1E46900967F46 /* HTTPMethod.swift */; };
@@ -97,7 +96,6 @@
 /* Begin PBXFileReference section */
 		F922AAA225D48BAC00DA8F60 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		F941138B25D430C0008132A4 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		F9880BCF25D16CE800967F46 /* UnsplashResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashResponse.swift; sourceTree = "<group>"; };
 		F9880BDA25D16D0F00967F46 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		F9880BE525D1E12B00967F46 /* Key.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Key.plist; sourceTree = "<group>"; };
 		F9880BEA25D1E46900967F46 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -527,7 +525,6 @@
 				F9880BDA25D16D0F00967F46 /* TargetType.swift */,
 				F9C498E025D0E6C80098A309 /* UnsplashAPI.swift */,
 				F9880BEA25D1E46900967F46 /* HTTPMethod.swift */,
-				F9880BCF25D16CE800967F46 /* UnsplashResponse.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -674,7 +671,6 @@
 				F988F0C625D66AFA00AC4DA4 /* TransparentNavigationController.swift in Sources */,
 				F9C4987D25D0D60A0098A309 /* BasePresenter.swift in Sources */,
 				F9C4984425D0D3A50098A309 /* SplashRouter.swift in Sources */,
-				F9880BD025D16CE800967F46 /* UnsplashResponse.swift in Sources */,
 				F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */,
 				F9880BF325D26D5C00967F46 /* Topic.swift in Sources */,
 				F9C498DC25D0E6A80098A309 /* NetworkWorker.swift in Sources */,
