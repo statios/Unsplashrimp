@@ -123,7 +123,7 @@ extension ExploreViewController:
     layout collectionViewLayout: UICollectionViewLayout,
     sizeForItemAt indexPath: IndexPath
   ) -> CGSize {
-    .init(width: 128, height: 40)
+    return .init(width: 128, height: 40)
   }
   
   func collectionView(
@@ -170,7 +170,8 @@ extension ExploreViewController:
     heightForRowAt indexPath: IndexPath
   ) -> CGFloat {
     let photo = photos[selectedTopicIndex][indexPath.row]
-    return CGSize(width: photo.width, height: photo.height).toRatioSizedHeight()
+    let size = CGSize(width: photo.width, height: photo.height)
+    return size.toRatioSizedHeight()
   }
   
   func tableView(
