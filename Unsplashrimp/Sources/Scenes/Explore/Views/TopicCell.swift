@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class TopicCell: UICollectionViewCell {
-  
   @IBOutlet weak var topicLabel: UILabel!
   @IBOutlet weak var selectedMarkView: UIView!
   
@@ -30,5 +29,4 @@ class TopicCell: UICollectionViewCell {
   func updateSelectedMark() {
     selectedMarkView.isHidden = !isSelected
   }
-  
 }

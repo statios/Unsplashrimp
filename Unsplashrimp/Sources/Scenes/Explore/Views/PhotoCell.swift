@@ -8,7 +8,6 @@
 import UIKit
 
 class PhotoCell: UITableViewCell {
-  
   @IBOutlet weak var photoView: UIImageView!
   @IBOutlet weak var userLabel: UILabel!
   
@@ -33,5 +32,4 @@ class PhotoCell: UITableViewCell {
     )
     userLabel.text = photo.user.name
   }
-  
 }
