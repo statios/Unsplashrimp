@@ -45,8 +45,8 @@ extension SplashInteractor: SplashBusinessLogic {
           Log.debug("Prefetch Done")
           self?.presenter?.presentPrefetch(response: .init())
         }
-      case let .failure(error):
-        //TODO:
+      case .failure:
+        // Do NOTHING
         return
       }
     }

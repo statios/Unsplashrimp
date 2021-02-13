@@ -70,6 +70,11 @@ extension ExploreInteractor: ExploreBusinessLogic {
             )
           }
         case .failure(let error):
+          self?.presenter?.presentErrorMessage(
+            resposne: .init(
+              message: error.localizedDescription
+            )
+          )
           return
         }
       }

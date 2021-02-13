@@ -53,8 +53,8 @@ extension SearchInteractor: SearchBusinessLogic {
             )
           )
         }
-      case .failure(let error):
-        //TODO
+      case .failure:
+        // Do NOTHING
         return
       }
     }
@@ -69,16 +69,28 @@ extension SearchInteractor: SearchBusinessLogic {
     
     networkWorker?.request(
       UnsplashAPI.search(query: query, page: page + 1),
-      type: PaginationResponse<Photo>.self) { [weak self] in
+      type: UnsplashResponse<PaginationResponse<Photo>>.self) { [weak self] in
       switch $0 {
-      case .success(let searchResponse):
-        self?.page += 1
-        self?.photos.append(contentsOf: searchResponse.results)
-        self?.presenter?.presentPagination(
-          response: .init(search: searchResponse)
-        )
+      case .success(let result):
+        if let successResult = result.successResult {
+          self?.page += 1
+          self?.photos.append(contentsOf: successResult.results)
+          self?.presenter?.presentPagination(
+            response: .init(search: successResult)
+          )
+        } else if let failureResult = result.failureResult {
+          self?.presenter?.presentErrorMessage(
+            resposne: .init(
+              message: failureResult.errors.first
+            )
+          )
+        }
       case .failure(let error):
-        //TODO
+        self?.presenter?.presentErrorMessage(
+          resposne: .init(
+            message: error.localizedDescription
+          )
+        )
         return
       }
     }
