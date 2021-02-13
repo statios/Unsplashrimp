@@ -86,17 +86,17 @@ extension ExploreViewController: ExploreDisplayLogic {
     selectedTopicIndex = viewModel.index
     UIView.animate(
       withDuration: 0.025
-    ) {
-      self.tableView.alpha = 0.0
-      self.tableView.scrollToRow(
+    ) { [weak self] in
+      self?.tableView.alpha = 0.0
+      self?.tableView.scrollToRow(
         at: .init(row: 0, section: 0),
         at: .middle,
         animated: false
       )
-    } completion: { (_) in
-      self.tableView.reloadData()
+    } completion: { [weak self] _ in
+      self?.tableView.reloadData()
       UIView.animate(withDuration: 0.5) {
-        self.tableView.alpha = 1.0
+        self?.tableView.alpha = 1.0
       }
     }
   }
