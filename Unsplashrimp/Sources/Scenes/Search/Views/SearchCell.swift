@@ -15,6 +15,7 @@ class SearchCell: UITableViewCell {
   override func prepareForReuse() {
     super.prepareForReuse()
     photoView.image = nil
+    userLabel.text = nil
   }
   
   override func awakeFromNib() {
@@ -33,6 +34,5 @@ class SearchCell: UITableViewCell {
     )
     userLabel.text = photo.user.name
   }
-  
 }
 

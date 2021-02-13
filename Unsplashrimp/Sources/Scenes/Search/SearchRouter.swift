@@ -16,16 +16,14 @@ protocol SearchDataPassing: class {
 }
 
 final class SearchRouter: BaseRouter, SearchDataPassing {
-
+  
   weak var viewController: SearchViewController?
   var dataStore: SearchDataStore?
-
 }
 
 // MARK: - Route
 extension SearchRouter: SearchRoutingLogic {
   func routeToDetail() {
-    
     let detailViewController = UIStoryboard("Detail").viewController
     
     guard let destinationVC = detailViewController as? DetailViewController else { return }

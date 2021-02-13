@@ -34,10 +34,8 @@ enum SearchModels {
     struct Request {
       let index: Int
     }
-    struct Response {
-    }
-    struct ViewModel {
-    }
+    struct Response { }
+    struct ViewModel { }
   }
   
   enum ErrorMessage {

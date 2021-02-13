@@ -20,7 +20,7 @@ protocol SearchBusinessLogic: class {
 }
 
 final class SearchInteractor: BaseInteractor, SearchDataStore {
-
+  
   var networkWorker: NetworkWorkerLogic?
   var presenter: SearchPresentationLogic?
 
@@ -33,7 +33,6 @@ final class SearchInteractor: BaseInteractor, SearchDataStore {
 
 // MARK: - Business Logic
 extension SearchInteractor: SearchBusinessLogic {
-  
   func fetchSearch(request: SearchModels.Search.Request) {
     query = request.query
     page = 1
@@ -66,7 +65,7 @@ extension SearchInteractor: SearchBusinessLogic {
 
 // MARK:- Helpers
 extension SearchInteractor {
-  func requestSearch(
+  private func requestSearch(
     query: String,
     page: Int,
     completion: @escaping ((PaginationResponse<Photo>) -> Void)
@@ -88,7 +87,7 @@ extension SearchInteractor {
     }
   }
   
-  func presentErrorMessage(message: String?) {
+  private func presentErrorMessage(message: String?) {
     presenter?.presentErrorMessage(
       resposne: .init(message: message)
     )

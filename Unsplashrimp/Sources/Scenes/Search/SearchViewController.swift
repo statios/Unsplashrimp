@@ -15,7 +15,7 @@ protocol SearchDisplayLogic: DetailRoutableDisplayLogic {
 }
 
 final class SearchViewController: BaseViewController {
-
+  
   var router: (SearchRoutingLogic & SearchDataPassing)?
   var interactor: SearchBusinessLogic?
   
@@ -57,7 +57,6 @@ extension SearchViewController {
     navigationItem.searchController = searchController
     definesPresentationContext = true
     navigationItem.title = "Unsplashrimp"
-    
   }
 }
 
@@ -137,11 +136,11 @@ extension SearchViewController:
     _ tableView: UITableView,
     prefetchRowsAt indexPaths: [IndexPath]
   ) {
-    for indexPath in indexPaths {
-      if photos.count - 1 == indexPath.row {
-        interactor?.fetchPagination(request: .init())
-      }
-    }
+    guard indexPaths
+            .filter({$0.row == photos.count - 1})
+            .isEmpty else { return }
+    
+    interactor?.fetchPagination(request: .init())
   }
   
   func tableView(

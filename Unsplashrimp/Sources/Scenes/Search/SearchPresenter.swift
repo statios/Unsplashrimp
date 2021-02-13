@@ -17,7 +17,6 @@ protocol SearchPresentationLogic: class {
 final class SearchPresenter: BasePresenter {
   
   weak var view: SearchDisplayLogic?
-
 }
 
 // MARK: - Present
