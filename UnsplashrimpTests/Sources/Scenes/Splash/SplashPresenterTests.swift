@@ -10,7 +10,6 @@ import XCTest
 @testable import Unsplashrimp
 
 final class SplashPresenterTests: XCTestCase {
-  
   // MARK: Test Double Objects
   final class SplashDisplaySpy: SplashDisplayLogic {
     var isCalledDisplayPrefetch = false
@@ -31,8 +30,8 @@ final class SplashPresenterTests: XCTestCase {
   }
 }
 
+// MARK: - Tests
 extension SplashPresenterTests {
-  
   func test_callingDisplayPrefetch() {
     // Given
     

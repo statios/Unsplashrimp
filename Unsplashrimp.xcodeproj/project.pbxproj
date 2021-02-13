@@ -42,6 +42,9 @@
 		F9B277E225D7ADC100385E18 /* SplashViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B277DE25D7ADC100385E18 /* SplashViewControllerTests.swift */; };
 		F9B277E325D7ADC100385E18 /* SplashInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B277DF25D7ADC100385E18 /* SplashInteractorTests.swift */; };
 		F9B277E525D7ADC100385E18 /* SplashPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B277E125D7ADC100385E18 /* SplashPresenterTests.swift */; };
+		F9B2780E25D88B3D00385E18 /* ExploreViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2780A25D88B3D00385E18 /* ExploreViewControllerTests.swift */; };
+		F9B2780F25D88B3D00385E18 /* ExploreInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2780B25D88B3D00385E18 /* ExploreInteractorTests.swift */; };
+		F9B2781125D88B3D00385E18 /* ExplorePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2780D25D88B3D00385E18 /* ExplorePresenterTests.swift */; };
 		F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497D525D0CA120098A309 /* AppDelegate.swift */; };
 		F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C497DE25D0CA130098A309 /* Images.xcassets */; };
 		F9C497E225D0CA130098A309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C497E025D0CA130098A309 /* LaunchScreen.storyboard */; };
@@ -129,6 +132,9 @@
 		F9B277DE25D7ADC100385E18 /* SplashViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewControllerTests.swift; sourceTree = "<group>"; };
 		F9B277DF25D7ADC100385E18 /* SplashInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractorTests.swift; sourceTree = "<group>"; };
 		F9B277E125D7ADC100385E18 /* SplashPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenterTests.swift; sourceTree = "<group>"; };
+		F9B2780A25D88B3D00385E18 /* ExploreViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewControllerTests.swift; sourceTree = "<group>"; };
+		F9B2780B25D88B3D00385E18 /* ExploreInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreInteractorTests.swift; sourceTree = "<group>"; };
+		F9B2780D25D88B3D00385E18 /* ExplorePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenterTests.swift; sourceTree = "<group>"; };
 		F9C497D225D0CA110098A309 /* Unsplashrimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplashrimp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C497D525D0CA120098A309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C497DE25D0CA130098A309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -324,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				F9B277DD25D7ADB400385E18 /* Splash */,
+				F9B2780925D88B1E00385E18 /* Explore */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -336,6 +343,16 @@
 				F9B277E125D7ADC100385E18 /* SplashPresenterTests.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		F9B2780925D88B1E00385E18 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				F9B2780A25D88B3D00385E18 /* ExploreViewControllerTests.swift */,
+				F9B2780B25D88B3D00385E18 /* ExploreInteractorTests.swift */,
+				F9B2780D25D88B3D00385E18 /* ExplorePresenterTests.swift */,
+			);
+			path = Explore;
 			sourceTree = "<group>";
 		};
 		F9C497C925D0CA110098A309 = {
@@ -757,7 +774,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9B2781125D88B3D00385E18 /* ExplorePresenterTests.swift in Sources */,
+				F9B2780F25D88B3D00385E18 /* ExploreInteractorTests.swift in Sources */,
 				F9C497ED25D0CA130098A309 /* UnsplashrimpTests.swift in Sources */,
+				F9B2780E25D88B3D00385E18 /* ExploreViewControllerTests.swift in Sources */,
 				F9B277E525D7ADC100385E18 /* SplashPresenterTests.swift in Sources */,
 				F9B277E325D7ADC100385E18 /* SplashInteractorTests.swift in Sources */,
 				F9B277E225D7ADC100385E18 /* SplashViewControllerTests.swift in Sources */,

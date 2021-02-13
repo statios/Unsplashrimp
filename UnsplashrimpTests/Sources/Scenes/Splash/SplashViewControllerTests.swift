@@ -10,7 +10,6 @@ import XCTest
 @testable import Unsplashrimp
 
 final class SplashViewControllerTests: XCTestCase {
-
   // MARK: Test Double Objects
   final class SplashInteractorSpy: SplashBusinessLogic {
     var isCalledFetchPrefetch = false
@@ -42,8 +41,8 @@ final class SplashViewControllerTests: XCTestCase {
   }
 }
 
+// MARK: - Tests
 extension SplashViewControllerTests {
-
   func test_callingFetchPrefetch() {
     // Given - Not required
 
