@@ -10,8 +10,6 @@
 
 ### Splash
 
-![Unsplashrimp%2092b8339979f04798b963235b158dc37f/Simulator_Screen_Shot_-_iPhone_12_-_2021-02-14_at_20.03.58.png](Unsplashrimp%2092b8339979f04798b963235b158dc37f/Simulator_Screen_Shot_-_iPhone_12_-_2021-02-14_at_20.03.58.png)
-
 Explore에서 사용할 Topics API를 호출하여 각 topic의 Photos API를 호출하여 각각 저장합니다.
 
 네트워크가 완료되면 Main scene으로 present합니다. 
