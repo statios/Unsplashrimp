@@ -12,7 +12,7 @@ protocol NetworkWorkerLogic {
   func request<T: Codable>(
     _ target: TargetType,
     type: T.Type,
-    completion: @escaping (Result<T, Error>) -> Void
+    completion: @escaping (Result<T, NetworkError>) -> Void
   )
   
   func willSend(_ target: TargetType)
@@ -27,7 +27,7 @@ extension NetworkWorkerLogic {
   func request<T: Codable>(
     _ target: TargetType,
     type: T.Type,
-    completion: @escaping (Result<T, Error>) -> Void
+    completion: @escaping (Result<T, NetworkError>) -> Void
   ) {
     willSend(target)
     
@@ -36,7 +36,9 @@ extension NetworkWorkerLogic {
       didRecive(response)
       
       if let err = error {
-        completion(.failure(err))
+        completion(
+          .failure(NetworkError(message: err.localizedDescription))
+        )
         return
       }
       
@@ -47,9 +49,11 @@ extension NetworkWorkerLogic {
         DispatchQueue.main.async {
           completion(.success(decodedData))
         }
-      } catch let decodingError {
-        
-        completion(.failure(decodingError))
+      } catch {
+        let message = String(decoding: data, as: UTF8.self)
+        completion(
+          .failure(NetworkError(message: message))
+        )
       }
       
     }.resume()
@@ -60,9 +64,8 @@ extension NetworkWorkerLogic {
   }
   
   func didRecive(_ response: URLResponse?) {
-    if let statusCode = (response as? HTTPURLResponse)?.statusCode {
-      Log.info("Response \(statusCode)")
-    }
+    guard let httpResponse = (response as? HTTPURLResponse) else { return }
+    Log.info("Response \(httpResponse.statusCode)")
   }
 }
 
@@ -71,6 +74,5 @@ final class NetworkWorker: BaseWorker {
 }
 
 extension NetworkWorker: NetworkWorkerLogic {
-  
   
 }
