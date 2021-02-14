@@ -30,7 +30,7 @@ final class SearchViewController: BaseViewController {
     return s
   }()
   
-  fileprivate var photos: [Photo] = []
+  var photos: [Photo] = []
 }
 
 // MARK: - Configure

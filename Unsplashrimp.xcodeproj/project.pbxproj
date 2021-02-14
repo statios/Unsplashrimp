@@ -47,6 +47,9 @@
 		F9B2781125D88B3D00385E18 /* ExplorePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2780D25D88B3D00385E18 /* ExplorePresenterTests.swift */; };
 		F9B2783925D8B8E600385E18 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2783825D8B8E600385E18 /* NetworkError.swift */; };
 		F9B2784225D8E97600385E18 /* Seeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2784125D8E97600385E18 /* Seeds.swift */; };
+		F9B2785C25D9219C00385E18 /* SearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2785825D9219C00385E18 /* SearchViewControllerTests.swift */; };
+		F9B2785D25D9219C00385E18 /* SearchInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2785925D9219C00385E18 /* SearchInteractorTests.swift */; };
+		F9B2785F25D9219C00385E18 /* SearchPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2785B25D9219C00385E18 /* SearchPresenterTests.swift */; };
 		F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497D525D0CA120098A309 /* AppDelegate.swift */; };
 		F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C497DE25D0CA130098A309 /* Images.xcassets */; };
 		F9C497E225D0CA130098A309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C497E025D0CA130098A309 /* LaunchScreen.storyboard */; };
@@ -139,6 +142,9 @@
 		F9B2780D25D88B3D00385E18 /* ExplorePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenterTests.swift; sourceTree = "<group>"; };
 		F9B2783825D8B8E600385E18 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F9B2784125D8E97600385E18 /* Seeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seeds.swift; sourceTree = "<group>"; };
+		F9B2785825D9219C00385E18 /* SearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTests.swift; sourceTree = "<group>"; };
+		F9B2785925D9219C00385E18 /* SearchInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractorTests.swift; sourceTree = "<group>"; };
+		F9B2785B25D9219C00385E18 /* SearchPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenterTests.swift; sourceTree = "<group>"; };
 		F9C497D225D0CA110098A309 /* Unsplashrimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplashrimp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C497D525D0CA120098A309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C497DE25D0CA130098A309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -335,6 +341,7 @@
 			children = (
 				F9B277DD25D7ADB400385E18 /* Splash */,
 				F9B2780925D88B1E00385E18 /* Explore */,
+				F9B2785725D9218900385E18 /* Search */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -365,6 +372,16 @@
 				F9B2784125D8E97600385E18 /* Seeds.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F9B2785725D9218900385E18 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F9B2785825D9219C00385E18 /* SearchViewControllerTests.swift */,
+				F9B2785925D9219C00385E18 /* SearchInteractorTests.swift */,
+				F9B2785B25D9219C00385E18 /* SearchPresenterTests.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		F9C497C925D0CA110098A309 = {
@@ -794,8 +811,11 @@
 				F9B2784225D8E97600385E18 /* Seeds.swift in Sources */,
 				F9C497ED25D0CA130098A309 /* UnsplashrimpTests.swift in Sources */,
 				F9B2780E25D88B3D00385E18 /* ExploreViewControllerTests.swift in Sources */,
+				F9B2785F25D9219C00385E18 /* SearchPresenterTests.swift in Sources */,
+				F9B2785C25D9219C00385E18 /* SearchViewControllerTests.swift in Sources */,
 				F9B277E525D7ADC100385E18 /* SplashPresenterTests.swift in Sources */,
 				F9B277E325D7ADC100385E18 /* SplashInteractorTests.swift in Sources */,
+				F9B2785D25D9219C00385E18 /* SearchInteractorTests.swift in Sources */,
 				F9B277E225D7ADC100385E18 /* SplashViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

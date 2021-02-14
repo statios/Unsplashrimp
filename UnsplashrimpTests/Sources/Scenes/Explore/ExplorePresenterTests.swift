@@ -12,6 +12,7 @@ import XCTest
 final class ExplorePresenterTests: XCTestCase {
   // MARK: Test Double Objects
   final class ExploreDisplaySpy: ExploreDisplayLogic {
+    
     var isCalledDisplayTopics = false
     var isCalledDisplayPhotos = false
     var isCalledDisplayPagination = false
@@ -81,7 +82,7 @@ extension ExplorePresenterTests {
     presenter.presentPhotos(response: .init(photos: dummy))
     
     // Then
-    XCTAssert(display.isCalledDisplaySelectPhoto)
+    XCTAssert(display.isCalledDisplayPhotos)
   }
   
   func test_callingDisplayPagination() {
@@ -129,14 +130,5 @@ extension ExplorePresenterTests {
     
     // Then
     XCTAssert(display.isCalledDisplayErrorMessage)
-  }
-  
-  func test_callingDisplaySelectedPhoto() {
-    // Given
-    
-    // When
-    
-    // Then
-    XCTAssert(display.isCalledDisplaySelectedPhoto)
   }
 }

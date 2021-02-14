@@ -26,8 +26,14 @@ struct Seeds {
     ]
   ]
   
-  static var photoURLs: Photo.URLs = .init(
+  static let photoURLs: Photo.URLs = .init(
     thumb: "1", small: "1", regular: "1", full: "1"
+  )
+  
+  static let search: PaginationResponse<Photo> = .init(
+    total: 1,
+    totalPages: 2,
+    results: photos.first!
   )
   
 }
