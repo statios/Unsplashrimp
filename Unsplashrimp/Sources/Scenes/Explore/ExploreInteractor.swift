@@ -51,7 +51,7 @@ extension ExploreInteractor: ExploreBusinessLogic {
   func fetchPagination(request: ExploreModels.Pagination.Request) {
     let topic = topics[request.index]
     let page = pages[request.index]
-    requestPhotos(id: topic.id, page: page) { [weak self] in
+    requestPhotos(id: topic.id, page: page + 1) { [weak self] in
       guard let index = self?.selectedTopicIndex else { return }
       self?.pages[index] += 1
       self?.photosByTopics[index].append(contentsOf: $0)
