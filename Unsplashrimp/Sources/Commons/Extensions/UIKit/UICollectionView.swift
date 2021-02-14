@@ -8,7 +8,7 @@
 import UIKit
 
 extension UICollectionView {
-  func dequeueReusableCell<T: UICollectionViewCell>(
+  func dequeueCell<T: UICollectionViewCell>(
     _ cellType: T.Type,
     for indexPath: IndexPath
   ) -> T {

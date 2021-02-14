@@ -56,7 +56,6 @@
                                 <connections>
                                     <outlet property="dataSource" destination="0JW-3b-1Q1" id="mHj-R1-u08"/>
                                     <outlet property="delegate" destination="0JW-3b-1Q1" id="a5T-Lb-VC9"/>
-                                    <outlet property="prefetchDataSource" destination="0JW-3b-1Q1" id="3w1-Ta-K6n"/>
                                 </connections>
                             </tableView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTK-yE-ibV">

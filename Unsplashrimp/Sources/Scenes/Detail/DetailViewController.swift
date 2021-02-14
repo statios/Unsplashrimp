@@ -112,7 +112,7 @@ extension DetailViewController:
     _ collectionView: UICollectionView,
     cellForItemAt indexPath: IndexPath
   ) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(DetailCell.self, for: indexPath)
+    let cell = collectionView.dequeueCell(DetailCell.self, for: indexPath)
     cell.configure(photos[indexPath.item])
     cell.delegate = self
     return cell

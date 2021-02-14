@@ -151,7 +151,7 @@ extension ExploreViewController:
     _ collectionView: UICollectionView,
     cellForItemAt indexPath: IndexPath
   ) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(TopicCell.self, for: indexPath)
+    let cell = collectionView.dequeueCell(TopicCell.self, for: indexPath)
     cell.configure(topics[indexPath.item])
     return cell
   }
@@ -192,7 +192,7 @@ extension ExploreViewController:
     _ tableView: UITableView,
     cellForRowAt indexPath: IndexPath
   ) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(PhotoCell.self, for: indexPath)
+    let cell = tableView.dequeueCell(PhotoCell.self, for: indexPath)
     cell.configure(photos[selectedTopicIndex][indexPath.row])
     return cell
   }

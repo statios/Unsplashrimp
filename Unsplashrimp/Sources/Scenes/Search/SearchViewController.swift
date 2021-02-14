@@ -104,8 +104,7 @@ extension SearchViewController: UISearchBarDelegate {
 
 extension SearchViewController:
   UITableViewDelegate,
-  UITableViewDataSource,
-  UITableViewDataSourcePrefetching {
+  UITableViewDataSource {
   
   func tableView(
     _ tableView: UITableView,
@@ -119,27 +118,26 @@ extension SearchViewController:
     heightForRowAt indexPath: IndexPath
   ) -> CGFloat {
     let photo = photos[indexPath.row]
-    return CGSize(width: photo.width, height: photo.height).toRatioSizedHeight()
+    let size = CGSize(width: photo.width, height: photo.height)
+    return size.toRatioSizedHeight()
   }
   
   func tableView(
     _ tableView: UITableView,
     cellForRowAt indexPath: IndexPath
   ) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(SearchCell.self, for: indexPath)
+    let cell = tableView.dequeueCell(SearchCell.self, for: indexPath)
     cell.configure(photos[indexPath.row])
     return cell
   }
   
   func tableView(
     _ tableView: UITableView,
-    prefetchRowsAt indexPaths: [IndexPath]
+    willDisplay cell: UITableViewCell,
+    forRowAt indexPath: IndexPath
   ) {
-    for indexPath in indexPaths {
-      if photos.count - 1 == indexPath.row {
-        interactor?.fetchPagination(request: .init())
-      }
-    }
+    guard photos.count - 1 == indexPath.row else { return }
+    interactor?.fetchPagination(request: .init())
   }
   
   func tableView(
