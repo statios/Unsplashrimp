@@ -38,15 +38,7 @@ final class ExploreInteractorTests: XCTestCase {
   }
 
   final class NetworkWorkerSpy: NetworkWorkerLogic {
-    var isCalledRequest = false
-    
-    func request<T: Codable>(
-      _ target: TargetType,
-      type: T.Type,
-      completion: @escaping (Result<T, Error>) -> Void
-    ) {
-      isCalledRequest = true
-    }
+
   }
 
   // MARK: Properties

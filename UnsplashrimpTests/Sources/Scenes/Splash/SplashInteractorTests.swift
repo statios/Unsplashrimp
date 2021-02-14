@@ -37,5 +37,11 @@ final class SplashInteractorTests: XCTestCase {
 
 // MARK: - Tests
 extension SplashInteractorTests {
-  
+  func test_doSomething() {
+    // given
+    
+    // when
+    
+    // then
+  }
 }
