@@ -160,15 +160,15 @@ extension ExploreViewController:
     _ collectionView: UICollectionView,
     didSelectItemAt indexPath: IndexPath
   ) {
-    interactor?.fetchSelectTopic(request: .init(index: indexPath.row))
+    interactor?.fetchSelectTopic(
+      request: .init(index: indexPath.row)
+    )
   }
 }
 
 extension ExploreViewController:
   UITableViewDelegate,
-  UITableViewDataSource,
-  UITableViewDataSourcePrefetching {
-  
+  UITableViewDataSource {
   func tableView(
     _ tableView: UITableView,
     numberOfRowsInSection section: Int
@@ -199,19 +199,22 @@ extension ExploreViewController:
   
   func tableView(
     _ tableView: UITableView,
-    prefetchRowsAt indexPaths: [IndexPath]
+    willDisplay cell: UITableViewCell,
+    forRowAt indexPath: IndexPath
   ) {
-    guard indexPaths
-            .filter({ $0.row == photos[selectedTopicIndex].count - 1 })
-            .isEmpty else { return }
-    
-    interactor?.fetchPagination(request: .init(index: selectedTopicIndex))
+    let lastIndex = photos[selectedTopicIndex].count - 1
+    guard indexPath.row == lastIndex else { return }
+    interactor?.fetchPagination(
+      request: .init(index: selectedTopicIndex)
+    )
   }
   
   func tableView(
     _ tableView: UITableView,
     didSelectRowAt indexPath: IndexPath
   ) {
-    interactor?.fetchSelectPhoto(request: .init(index: indexPath.row))
+    interactor?.fetchSelectPhoto(
+      request: .init(index: indexPath.row)
+    )
   }
 }

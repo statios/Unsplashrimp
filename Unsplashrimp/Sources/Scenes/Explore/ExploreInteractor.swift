@@ -57,10 +57,10 @@ extension ExploreInteractor: ExploreBusinessLogic {
         ),
         type: UnsplashResponse<[Photo]>.self
       ) { [weak self] in
-        self?.pages[request.index] += 1
         switch $0 {
         case .success(let result):
           if let photos = result.successResult {
+            self?.pages[request.index] += 1
             self?.photosByTopics[request.index].append(contentsOf: photos)
             self?.presenter?.presentPagination(
               response: .init(index: request.index, photos: photos)
@@ -75,7 +75,7 @@ extension ExploreInteractor: ExploreBusinessLogic {
         case .failure(let error):
           self?.presenter?.presentErrorMessage(
             resposne: .init(
-              message: error.localizedDescription
+              message: error.message
             )
           )
           return

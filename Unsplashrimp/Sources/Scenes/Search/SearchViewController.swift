@@ -135,11 +135,11 @@ extension SearchViewController:
     _ tableView: UITableView,
     prefetchRowsAt indexPaths: [IndexPath]
   ) {
-    guard indexPaths
-            .filter({$0.row == photos.count - 1})
-            .isEmpty else { return }
-    
-    interactor?.fetchPagination(request: .init())
+    for indexPath in indexPaths {
+      if photos.count - 1 == indexPath.row {
+        interactor?.fetchPagination(request: .init())
+      }
+    }
   }
   
   func tableView(

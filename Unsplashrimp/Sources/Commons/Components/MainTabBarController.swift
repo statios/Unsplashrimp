@@ -10,7 +10,7 @@ import UIKit
 class MainTabBarController: UITabBarController {
   override func viewDidLoad() {
     super.viewDidLoad()
-    modalPresentationStyle = .overFullScreen
+    modalPresentationStyle = .fullScreen
     modalTransitionStyle = .crossDissolve
     tabBar.barTintColor = .black
     tabBar.isTranslucent = true

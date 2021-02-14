@@ -38,13 +38,14 @@
 		F988F0D125D66B9400AC4DA4 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0D025D66B9400AC4DA4 /* UIViewController.swift */; };
 		F988F0E125D723C200AC4DA4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F0E025D723C200AC4DA4 /* MainTabBarController.swift */; };
 		F988F12F25D77BBF00AC4DA4 /* UnsplashResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F12E25D77BBF00AC4DA4 /* UnsplashResponse.swift */; };
-		F988F13725D77BC800AC4DA4 /* UnsplashError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F13625D77BC800AC4DA4 /* UnsplashError.swift */; };
+		F988F13725D77BC800AC4DA4 /* UnsplashErrorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988F13625D77BC800AC4DA4 /* UnsplashErrorResult.swift */; };
 		F9B277E225D7ADC100385E18 /* SplashViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B277DE25D7ADC100385E18 /* SplashViewControllerTests.swift */; };
 		F9B277E325D7ADC100385E18 /* SplashInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B277DF25D7ADC100385E18 /* SplashInteractorTests.swift */; };
 		F9B277E525D7ADC100385E18 /* SplashPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B277E125D7ADC100385E18 /* SplashPresenterTests.swift */; };
 		F9B2780E25D88B3D00385E18 /* ExploreViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2780A25D88B3D00385E18 /* ExploreViewControllerTests.swift */; };
 		F9B2780F25D88B3D00385E18 /* ExploreInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2780B25D88B3D00385E18 /* ExploreInteractorTests.swift */; };
 		F9B2781125D88B3D00385E18 /* ExplorePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2780D25D88B3D00385E18 /* ExplorePresenterTests.swift */; };
+		F9B2783925D8B8E600385E18 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2783825D8B8E600385E18 /* NetworkError.swift */; };
 		F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497D525D0CA120098A309 /* AppDelegate.swift */; };
 		F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C497DE25D0CA130098A309 /* Images.xcassets */; };
 		F9C497E225D0CA130098A309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C497E025D0CA130098A309 /* LaunchScreen.storyboard */; };
@@ -128,13 +129,14 @@
 		F988F0D025D66B9400AC4DA4 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		F988F0E025D723C200AC4DA4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F988F12E25D77BBF00AC4DA4 /* UnsplashResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashResponse.swift; sourceTree = "<group>"; };
-		F988F13625D77BC800AC4DA4 /* UnsplashError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashError.swift; sourceTree = "<group>"; };
+		F988F13625D77BC800AC4DA4 /* UnsplashErrorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashErrorResult.swift; sourceTree = "<group>"; };
 		F9B277DE25D7ADC100385E18 /* SplashViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewControllerTests.swift; sourceTree = "<group>"; };
 		F9B277DF25D7ADC100385E18 /* SplashInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractorTests.swift; sourceTree = "<group>"; };
 		F9B277E125D7ADC100385E18 /* SplashPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenterTests.swift; sourceTree = "<group>"; };
 		F9B2780A25D88B3D00385E18 /* ExploreViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewControllerTests.swift; sourceTree = "<group>"; };
 		F9B2780B25D88B3D00385E18 /* ExploreInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreInteractorTests.swift; sourceTree = "<group>"; };
 		F9B2780D25D88B3D00385E18 /* ExplorePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenterTests.swift; sourceTree = "<group>"; };
+		F9B2783825D8B8E600385E18 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F9C497D225D0CA110098A309 /* Unsplashrimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplashrimp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C497D525D0CA120098A309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C497DE25D0CA130098A309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -313,7 +315,7 @@
 			children = (
 				F9C498E025D0E6C80098A309 /* UnsplashAPI.swift */,
 				F988F12E25D77BBF00AC4DA4 /* UnsplashResponse.swift */,
-				F988F13625D77BC800AC4DA4 /* UnsplashError.swift */,
+				F988F13625D77BC800AC4DA4 /* UnsplashErrorResult.swift */,
 			);
 			path = Unsplash;
 			sourceTree = "<group>";
@@ -572,6 +574,7 @@
 			children = (
 				F988F12D25D77BAC00AC4DA4 /* Unsplash */,
 				F9C498DB25D0E6A80098A309 /* NetworkWorker.swift */,
+				F9B2783825D8B8E600385E18 /* NetworkError.swift */,
 				F9880BDA25D16D0F00967F46 /* TargetType.swift */,
 				F9880BEA25D1E46900967F46 /* HTTPMethod.swift */,
 			);
@@ -713,6 +716,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F988F0D125D66B9400AC4DA4 /* UIViewController.swift in Sources */,
+				F9B2783925D8B8E600385E18 /* NetworkError.swift in Sources */,
 				F988F0BD25D6687800AC4DA4 /* UIStoryboard.swift in Sources */,
 				F9C4984525D0D3A50098A309 /* SplashModels.swift in Sources */,
 				F941138C25D430C0008132A4 /* UIColor.swift in Sources */,
@@ -722,7 +726,7 @@
 				F9C4984425D0D3A50098A309 /* SplashRouter.swift in Sources */,
 				F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */,
 				F9880BF325D26D5C00967F46 /* Topic.swift in Sources */,
-				F988F13725D77BC800AC4DA4 /* UnsplashError.swift in Sources */,
+				F988F13725D77BC800AC4DA4 /* UnsplashErrorResult.swift in Sources */,
 				F9C498DC25D0E6A80098A309 /* NetworkWorker.swift in Sources */,
 				F988F0A325D6630A00AC4DA4 /* UITableView.swift in Sources */,
 				F9C4986E25D0D5960098A309 /* LogEvent.swift in Sources */,

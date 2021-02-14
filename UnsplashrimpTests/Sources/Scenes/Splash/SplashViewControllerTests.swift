@@ -33,7 +33,7 @@ final class SplashViewControllerTests: XCTestCase {
   var router: SplashRouterSpy!
 
   override func setUp() {
-    self.viewController = SplashViewController()
+    self.viewController = UIStoryboard("Splash").viewController as? SplashViewController
     self.interactor = SplashInteractorSpy()
     self.router = SplashRouterSpy()
     self.viewController.interactor = self.interactor

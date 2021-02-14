@@ -80,7 +80,7 @@ extension SearchInteractor {
           self?.presentErrorMessage(message: failureResult.errors.first)
         }
       case .failure(let error):
-        self?.presentErrorMessage(message: error.localizedDescription)
+        self?.presentErrorMessage(message: error.message)
         return
       }
     }
