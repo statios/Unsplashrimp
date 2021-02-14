@@ -39,6 +39,10 @@ extension SearchInteractor: SearchBusinessLogic {
       self?.totalPage = $0.totalPages
       self?.photos = $0.results
       self?.presenter?.presentSearch(response: .init(search: $0))
+    } onFailure: { [weak self] in
+      self?.presenter?.presentErrorMessage(
+        resposne: .init(message: $0)
+      )
     }
   }
   
@@ -52,6 +56,10 @@ extension SearchInteractor: SearchBusinessLogic {
       self?.photos.append(contentsOf: $0.results)
       self?.presenter?.presentPagination(
         response: .init(search: $0)
+      )
+    } onFailure: { [weak self] in
+      self?.presenter?.presentErrorMessage(
+        resposne: .init(message: $0)
       )
     }
   }
@@ -67,28 +75,23 @@ extension SearchInteractor {
   private func requestSearch(
     query: String,
     page: Int,
-    completion: @escaping ((PaginationResponse<Photo>) -> Void)
+    onSuccess: @escaping (PaginationResponse<Photo>) -> Void,
+    onFailure: @escaping (String?) -> Void
   ) {
     networkWorker?.request(
       UnsplashAPI.search(query: query, page: page),
-      type: UnsplashResponse<PaginationResponse<Photo>>.self) { [weak self] in
+      type: UnsplashResponse<PaginationResponse<Photo>>.self
+    ) {
       switch $0 {
       case .success(let result):
         if let successResult = result.successResult {
-          completion(successResult)
+          onSuccess(successResult)
         } else if let failureResult = result.failureResult {
-          self?.presentErrorMessage(message: failureResult.errors.first)
+          onFailure(failureResult.errors.first)
         }
       case .failure(let error):
-        self?.presentErrorMessage(message: error.message)
-        return
+        onFailure(error.message)
       }
     }
-  }
-  
-  private func presentErrorMessage(message: String?) {
-    presenter?.presentErrorMessage(
-      resposne: .init(message: message)
-    )
   }
 }
