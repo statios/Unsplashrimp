@@ -24,7 +24,9 @@ extension UIImageView {
       
       if error != nil {
         Log.error("Failed image download")
-        self.image = placeHolder
+        DispatchQueue.main.async { [weak self] in
+          self?.image = placeHolder
+        }
         return
       }
       

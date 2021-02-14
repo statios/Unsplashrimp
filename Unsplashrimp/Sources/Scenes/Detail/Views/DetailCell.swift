@@ -59,18 +59,6 @@ class DetailCell: UICollectionViewCell {
     }
   }
   
-  func zoomRectForScale(scale : CGFloat, center : CGPoint) -> CGRect {
-    var zoomRect = CGRect.zero
-    if let imageView = viewForZooming(in: scrollView) {
-      zoomRect.size.height = imageView.frame.size.height / scale
-      zoomRect.size.width  = imageView.frame.size.width / scale
-      let newCenter = imageView.convert(center, from: self)
-      zoomRect.origin.x = newCenter.x - ((zoomRect.size.width / 2.0))
-      zoomRect.origin.y = newCenter.y - ((zoomRect.size.height / 2.0))
-    }
-    return zoomRect
-  }
-  
   @objc func tappedScrollView() {
     delegate?.didSelectScrollView(in: self, scrollView)
   }
@@ -110,5 +98,19 @@ extension DetailCell: UIScrollViewDelegate {
       bottom: top * 0.5,
       right: left * 0.5
     )
+  }
+}
+
+extension DetailCell {
+  func zoomRectForScale(scale : CGFloat, center : CGPoint) -> CGRect {
+    var zoomRect = CGRect.zero
+    if let imageView = viewForZooming(in: scrollView) {
+      zoomRect.size.height = imageView.frame.size.height / scale
+      zoomRect.size.width  = imageView.frame.size.width / scale
+      let newCenter = imageView.convert(center, from: self)
+      zoomRect.origin.x = newCenter.x - ((zoomRect.size.width / 2.0))
+      zoomRect.origin.y = newCenter.y - ((zoomRect.size.height / 2.0))
+    }
+    return zoomRect
   }
 }
