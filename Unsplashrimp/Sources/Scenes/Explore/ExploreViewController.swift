@@ -23,9 +23,9 @@ final class ExploreViewController: BaseViewController {
   @IBOutlet weak var collectionView: UICollectionView!
   @IBOutlet weak var tableView: UITableView!
   
-  fileprivate var topics: [Topic] = []
-  fileprivate var photos: [[Photo]] = []
-  fileprivate var selectedTopicIndex: Int = 0
+  var topics: [Topic] = []
+  var photos: [[Photo]] = []
+  var selectedTopicIndex: Int = 0
 }
 
 // MARK: - Configure

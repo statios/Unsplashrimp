@@ -42,8 +42,10 @@ final class ExploreViewControllerTests: XCTestCase {
   final class ExploreRouterSpy: ExploreRoutingLogic, ExploreDataPassing {
     var dataStore: ExploreDataStore?
     
+    var isCalledRouteToDetail = false
+    
     func routeToDetail() {
-      
+      isCalledRouteToDetail = true
     }
   }
 
@@ -76,7 +78,7 @@ extension ExploreViewControllerTests {
   
   func test_callingFetchPhotos() {
     // Given
-    let dummy = [Topic]()
+    let dummy = Seeds.topics
     
     // When
     viewController.displayTopics(viewModel: .init(topics: dummy))
@@ -85,39 +87,56 @@ extension ExploreViewControllerTests {
     XCTAssert(interactor.isCalledFetchPhotos)
   }
   
-//  func test_callingFetchPagination() {
-//    // Given
-//    viewController.
-//    
-//    // When
-//    viewController.tableView.prefetchDataSource?.tableView(
-//      viewController.tableView,
-//      prefetchRowsAt: [index]
-//    )
-//    
-//    // Then
-//    XCTAssert(interactor.isCalledFetchPagination)
-//  }
-//  
-//  func test_callingFetchSelectTopic() {
-//    // Given
-//    
-//    
-//    // When
-//    
-//    
-//    // Then
-//    XCTAssert(interactor.isCalledFetchSelectTopic)
-//  }
-//  
-//  func test_callingFetchSelectPhoto() {
-//    // Given
-//    
-//    // When
-//    
-//    
-//    // Then
-//    XCTAssert(interactor.isCalledFetchSelectPhoto)
-//  }
+  func test_callingFetchPagination() {
+    // Given
+    viewController.topics = Seeds.topics
+    viewController.photos = Seeds.photos
+
+    // When
+    viewController.tableView(
+      viewController.tableView,
+      willDisplay: UITableViewCell(),
+      forRowAt: .init(row: 1, section: 0)
+    )
+
+    // Then
+    XCTAssert(interactor.isCalledFetchPagination)
+  }
+
+  func test_callingFetchSelectTopic() {
+    // Given
+
+    // When
+    viewController.collectionView(
+      viewController.collectionView,
+      didSelectItemAt: .init(row: 1, section: 0)
+    )
+
+    // Then
+    XCTAssert(interactor.isCalledFetchSelectTopic)
+  }
+
+  func test_callingFetchSelectPhoto() {
+    // Given
+
+    // When
+    viewController.tableView(
+      viewController.tableView,
+      didSelectRowAt: .init(row: 0, section: 0)
+    )
+
+    // Then
+    XCTAssert(interactor.isCalledFetchSelectPhoto)
+  }
+  
+  func test_callingRouteToDetail() {
+    // Given
+    
+    // When
+    viewController.displaySelectPhoto(viewModel: .init())
+    
+    // Then
+    XCTAssert(router.isCalledRouteToDetail)
+  }
 }
 

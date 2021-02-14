@@ -46,6 +46,7 @@
 		F9B2780F25D88B3D00385E18 /* ExploreInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2780B25D88B3D00385E18 /* ExploreInteractorTests.swift */; };
 		F9B2781125D88B3D00385E18 /* ExplorePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2780D25D88B3D00385E18 /* ExplorePresenterTests.swift */; };
 		F9B2783925D8B8E600385E18 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2783825D8B8E600385E18 /* NetworkError.swift */; };
+		F9B2784225D8E97600385E18 /* Seeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2784125D8E97600385E18 /* Seeds.swift */; };
 		F9C497D625D0CA120098A309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C497D525D0CA120098A309 /* AppDelegate.swift */; };
 		F9C497DF25D0CA130098A309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9C497DE25D0CA130098A309 /* Images.xcassets */; };
 		F9C497E225D0CA130098A309 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9C497E025D0CA130098A309 /* LaunchScreen.storyboard */; };
@@ -137,6 +138,7 @@
 		F9B2780B25D88B3D00385E18 /* ExploreInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreInteractorTests.swift; sourceTree = "<group>"; };
 		F9B2780D25D88B3D00385E18 /* ExplorePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenterTests.swift; sourceTree = "<group>"; };
 		F9B2783825D8B8E600385E18 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		F9B2784125D8E97600385E18 /* Seeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seeds.swift; sourceTree = "<group>"; };
 		F9C497D225D0CA110098A309 /* Unsplashrimp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplashrimp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C497D525D0CA120098A309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9C497DE25D0CA130098A309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -357,6 +359,14 @@
 			path = Explore;
 			sourceTree = "<group>";
 		};
+		F9B2784025D8E96C00385E18 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F9B2784125D8E97600385E18 /* Seeds.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		F9C497C925D0CA110098A309 = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				F9B277DB25D7ADA800385E18 /* Sources */,
+				F9B2784025D8E96C00385E18 /* Resources */,
 				F9C497EC25D0CA130098A309 /* UnsplashrimpTests.swift */,
 				F9C497EE25D0CA130098A309 /* Info.plist */,
 			);
@@ -780,6 +791,7 @@
 			files = (
 				F9B2781125D88B3D00385E18 /* ExplorePresenterTests.swift in Sources */,
 				F9B2780F25D88B3D00385E18 /* ExploreInteractorTests.swift in Sources */,
+				F9B2784225D8E97600385E18 /* Seeds.swift in Sources */,
 				F9C497ED25D0CA130098A309 /* UnsplashrimpTests.swift in Sources */,
 				F9B2780E25D88B3D00385E18 /* ExploreViewControllerTests.swift in Sources */,
 				F9B277E525D7ADC100385E18 /* SplashPresenterTests.swift in Sources */,

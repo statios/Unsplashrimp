@@ -18,15 +18,7 @@ final class SplashInteractorTests: XCTestCase {
   }
 
   final class NetworkWorkerSpy: NetworkWorkerLogic {
-    var isCalledRequest = false
-    
-    func request<T: Codable>(
-      _ target: TargetType,
-      type: T.Type,
-      completion: @escaping (Result<T, Error>) -> Void
-    ) {
-      isCalledRequest = true
-    }
+
   }
 
   // MARK: Properties
@@ -45,14 +37,5 @@ final class SplashInteractorTests: XCTestCase {
 
 // MARK: - Tests
 extension SplashInteractorTests {
-  func test_callingNetworkRequest() {
-    // Given
-    let dummyRequest = SplashModels.Prefetch.Request()
-
-    // When
-    interactor.fetchPrefetch(request: dummyRequest)
-
-    // Then
-    XCTAssert(networkWorker.isCalledRequest)
-  }
+  
 }

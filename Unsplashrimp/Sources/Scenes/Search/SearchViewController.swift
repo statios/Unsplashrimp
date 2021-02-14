@@ -97,6 +97,7 @@ extension SearchViewController: UISearchBarDelegate {
   }
   
   func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    setTabBarHidden(hidden: false, animated: true)
     photos.removeAll()
     tableView.reloadData()
   }
@@ -152,6 +153,7 @@ extension SearchViewController:
 
 extension SearchViewController {
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    guard !photos.isEmpty else { return }
     let recognizer = scrollView.panGestureRecognizer
     let condition = recognizer.translation(in: scrollView).y < 0
     setTabBarHidden(hidden: condition, animated: true)
