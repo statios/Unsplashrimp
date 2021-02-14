@@ -19,7 +19,7 @@ class DetailCell: UICollectionViewCell {
   
   lazy var zoomTapRecognizer: UITapGestureRecognizer = {
     let r = UITapGestureRecognizer()
-    r.addTarget(self, action: #selector(doubleTappedScrollView))
+    r.addTarget(self, action: #selector(doubleTappedScrollView(_:)))
     r.numberOfTapsRequired = 2
     return r
   }()
@@ -47,8 +47,28 @@ class DetailCell: UICollectionViewCell {
     )
   }
   
-  @objc func doubleTappedScrollView() {
-    
+  @objc func doubleTappedScrollView(_ recognizer: UITapGestureRecognizer) {
+    if (scrollView.zoomScale > scrollView.minimumZoomScale) {
+      scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
+    } else {
+      let zoomRect = zoomRectForScale(
+        scale: scrollView.maximumZoomScale / 2.0,
+        center: recognizer.location(in: recognizer.view)
+      )
+      scrollView.zoom(to: zoomRect, animated: true)
+    }
+  }
+  
+  func zoomRectForScale(scale : CGFloat, center : CGPoint) -> CGRect {
+    var zoomRect = CGRect.zero
+    if let imageView = viewForZooming(in: scrollView) {
+      zoomRect.size.height = imageView.frame.size.height / scale
+      zoomRect.size.width  = imageView.frame.size.width / scale
+      let newCenter = imageView.convert(center, from: self)
+      zoomRect.origin.x = newCenter.x - ((zoomRect.size.width / 2.0))
+      zoomRect.origin.y = newCenter.y - ((zoomRect.size.height / 2.0))
+    }
+    return zoomRect
   }
   
   @objc func tappedScrollView() {
