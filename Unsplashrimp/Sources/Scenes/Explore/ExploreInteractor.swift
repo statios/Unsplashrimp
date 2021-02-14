@@ -49,38 +49,20 @@ extension ExploreInteractor: ExploreBusinessLogic {
   }
   
   func fetchPagination(request: ExploreModels.Pagination.Request) {
-    networkWorker?
-      .request(
-        UnsplashAPI.photos(
-          id: topics[request.index].id,
-          page: pages[request.index] + 1
-        ),
-        type: UnsplashResponse<[Photo]>.self
-      ) { [weak self] in
-        switch $0 {
-        case .success(let result):
-          if let photos = result.successResult {
-            self?.pages[request.index] += 1
-            self?.photosByTopics[request.index].append(contentsOf: photos)
-            self?.presenter?.presentPagination(
-              response: .init(index: request.index, photos: photos)
-            )
-          } else if let failureResult = result.failureResult {
-            self?.presenter?.presentErrorMessage(
-              resposne: .init(
-                message: failureResult.errors.first
-              )
-            )
-          }
-        case .failure(let error):
-          self?.presenter?.presentErrorMessage(
-            resposne: .init(
-              message: error.message
-            )
-          )
-          return
-        }
-      }
+    let topic = topics[request.index]
+    let page = pages[request.index]
+    requestPhotos(id: topic.id, page: page) { [weak self] in
+      guard let index = self?.selectedTopicIndex else { return }
+      self?.pages[index] += 1
+      self?.photosByTopics[index].append(contentsOf: $0)
+      self?.presenter?.presentPagination(
+        response: .init(index: index, photos: $0)
+      )
+    } onFailure: { [weak self] in
+      self?.presenter?.presentErrorMessage(
+        resposne: .init(message: $0)
+      )
+    }
   }
   
   func fetchSelectTopic(request: ExploreModels.SelectTopic.Request) {
@@ -91,5 +73,33 @@ extension ExploreInteractor: ExploreBusinessLogic {
   func fetchSelectPhoto(request: ExploreModels.SelectPhoto.Request) {
     selectedPhotoIndex = request.index
     presenter?.presentSelectPhoto(resposne: .init())
+  }
+}
+
+// MARK: - Helpers
+extension ExploreInteractor {
+  private func requestPhotos(
+    id: String,
+    page: Int,
+    onSuccess: @escaping ([Photo]) -> Void,
+    onFailure: @escaping (String?) -> Void
+  ) {
+    networkWorker?
+      .request(
+        UnsplashAPI.photos(id: id, page: page),
+        type: UnsplashResponse<[Photo]>.self
+      ) {
+        switch $0 {
+        case .success(let result):
+          if let photos = result.successResult {
+            onSuccess(photos)
+          } else if let failureResult = result.failureResult {
+            onFailure(failureResult.errors.first)
+          }
+        case .failure(let error):
+          onFailure(error.message)
+          return
+        }
+      }
   }
 }
