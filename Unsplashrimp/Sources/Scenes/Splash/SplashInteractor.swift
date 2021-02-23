@@ -72,7 +72,8 @@ extension SplashInteractor {
     networkWorker?.request(
       UnsplashAPI.photos(id: id, page: page),
       type: UnsplashResponse<[Photo]>.self
-    ) {
+    ) { [weak self] in
+      self?.prefetchGroup.leave()
       switch $0 {
       case let .success(response):
         guard let successResult = response.successResult else { return }
@@ -90,7 +91,6 @@ extension SplashInteractor {
         .filter { $0.element.id == topic.id }
         .first?.offset ?? 0
       self?.photos[index] = $0
-      self?.prefetchGroup.leave()
     }
   }
 }
