@@ -38,6 +38,13 @@ extension SplashInteractor: SplashBusinessLogic {
       }
       self?.prefetchGroup.notify(queue: .main) {
         Log.debug("Prefetch Done")
+        self?.photos.enumerated()
+          .filter { $0.element.isEmpty }
+          .map { $0.offset }
+          .forEach {
+            self?.topics.remove(at: $0)
+            self?.photos.remove(at: $0)
+          }
         self?.presenter?.presentPrefetch(response: .init())
       }
     }
