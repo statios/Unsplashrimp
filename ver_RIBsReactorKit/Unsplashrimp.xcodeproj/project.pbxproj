@@ -23,6 +23,26 @@
 		F94D0C40260B134500BA2C77 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F94D0C3F260B134500BA2C77 /* SnapKit */; };
 		F94D0C45260B135400BA2C77 /* NSObject+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C44260B135400BA2C77 /* NSObject+Rx.swift */; };
 		F94D0C4B260B136B00BA2C77 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C4A260B136B00BA2C77 /* Logger.swift */; };
+		F94D0C6F260B14FD00BA2C77 /* SplashPresentableState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C6A260B14FD00BA2C77 /* SplashPresentableState.swift */; };
+		F94D0C70260B14FD00BA2C77 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C6B260B14FD00BA2C77 /* SplashRouter.swift */; };
+		F94D0C71260B14FD00BA2C77 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C6C260B14FD00BA2C77 /* SplashViewController.swift */; };
+		F94D0C72260B14FD00BA2C77 /* SplashBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C6D260B14FD00BA2C77 /* SplashBuilder.swift */; };
+		F94D0C73260B14FD00BA2C77 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C6E260B14FD00BA2C77 /* SplashInteractor.swift */; };
+		F94D0C7C260B150700BA2C77 /* MainPresentableState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C77260B150700BA2C77 /* MainPresentableState.swift */; };
+		F94D0C7D260B150700BA2C77 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C78260B150700BA2C77 /* MainRouter.swift */; };
+		F94D0C7E260B150700BA2C77 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C79260B150700BA2C77 /* MainViewController.swift */; };
+		F94D0C7F260B150700BA2C77 /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C7A260B150700BA2C77 /* MainBuilder.swift */; };
+		F94D0C80260B150700BA2C77 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C7B260B150700BA2C77 /* MainInteractor.swift */; };
+		F94D0C89260B150F00BA2C77 /* ExplorePresentableState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C84260B150F00BA2C77 /* ExplorePresentableState.swift */; };
+		F94D0C8A260B150F00BA2C77 /* ExploreRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C85260B150F00BA2C77 /* ExploreRouter.swift */; };
+		F94D0C8B260B150F00BA2C77 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C86260B150F00BA2C77 /* ExploreViewController.swift */; };
+		F94D0C8C260B150F00BA2C77 /* ExploreBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C87260B150F00BA2C77 /* ExploreBuilder.swift */; };
+		F94D0C8D260B150F00BA2C77 /* ExploreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C88260B150F00BA2C77 /* ExploreInteractor.swift */; };
+		F94D0C96260B151600BA2C77 /* SearchPresentableState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C91260B151600BA2C77 /* SearchPresentableState.swift */; };
+		F94D0C97260B151600BA2C77 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C92260B151600BA2C77 /* SearchRouter.swift */; };
+		F94D0C98260B151600BA2C77 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C93260B151600BA2C77 /* SearchViewController.swift */; };
+		F94D0C99260B151600BA2C77 /* SearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C94260B151600BA2C77 /* SearchBuilder.swift */; };
+		F94D0C9A260B151600BA2C77 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C95260B151600BA2C77 /* SearchInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +76,26 @@
 		F94D0BEE260B120C00BA2C77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F94D0C44260B135400BA2C77 /* NSObject+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Rx.swift"; sourceTree = "<group>"; };
 		F94D0C4A260B136B00BA2C77 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		F94D0C6A260B14FD00BA2C77 /* SplashPresentableState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresentableState.swift; sourceTree = "<group>"; };
+		F94D0C6B260B14FD00BA2C77 /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
+		F94D0C6C260B14FD00BA2C77 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		F94D0C6D260B14FD00BA2C77 /* SplashBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashBuilder.swift; sourceTree = "<group>"; };
+		F94D0C6E260B14FD00BA2C77 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
+		F94D0C77260B150700BA2C77 /* MainPresentableState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresentableState.swift; sourceTree = "<group>"; };
+		F94D0C78260B150700BA2C77 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		F94D0C79260B150700BA2C77 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F94D0C7A260B150700BA2C77 /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
+		F94D0C7B260B150700BA2C77 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		F94D0C84260B150F00BA2C77 /* ExplorePresentableState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresentableState.swift; sourceTree = "<group>"; };
+		F94D0C85260B150F00BA2C77 /* ExploreRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRouter.swift; sourceTree = "<group>"; };
+		F94D0C86260B150F00BA2C77 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		F94D0C87260B150F00BA2C77 /* ExploreBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreBuilder.swift; sourceTree = "<group>"; };
+		F94D0C88260B150F00BA2C77 /* ExploreInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreInteractor.swift; sourceTree = "<group>"; };
+		F94D0C91260B151600BA2C77 /* SearchPresentableState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresentableState.swift; sourceTree = "<group>"; };
+		F94D0C92260B151600BA2C77 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		F94D0C93260B151600BA2C77 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		F94D0C94260B151600BA2C77 /* SearchBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBuilder.swift; sourceTree = "<group>"; };
+		F94D0C95260B151600BA2C77 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,10 +216,10 @@
 		F94D0C10260B125600BA2C77 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				F94D0C14260B126600BA2C77 /* AppStart */,
 				F94D0C52260B137700BA2C77 /* Scenes */,
 				F94D0C49260B136000BA2C77 /* Utilities */,
 				F94D0C1D260B12D300BA2C77 /* Extensions */,
-				F94D0C14260B126600BA2C77 /* AppStart */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -227,8 +267,60 @@
 		F94D0C52260B137700BA2C77 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F94D0C66260B147E00BA2C77 /* Splash */,
+				F94D0C67260B148200BA2C77 /* Main */,
+				F94D0C69260B149300BA2C77 /* Explore */,
+				F94D0C68260B148B00BA2C77 /* Search */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F94D0C66260B147E00BA2C77 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				F94D0C6A260B14FD00BA2C77 /* SplashPresentableState.swift */,
+				F94D0C6B260B14FD00BA2C77 /* SplashRouter.swift */,
+				F94D0C6C260B14FD00BA2C77 /* SplashViewController.swift */,
+				F94D0C6D260B14FD00BA2C77 /* SplashBuilder.swift */,
+				F94D0C6E260B14FD00BA2C77 /* SplashInteractor.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		F94D0C67260B148200BA2C77 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F94D0C77260B150700BA2C77 /* MainPresentableState.swift */,
+				F94D0C78260B150700BA2C77 /* MainRouter.swift */,
+				F94D0C79260B150700BA2C77 /* MainViewController.swift */,
+				F94D0C7A260B150700BA2C77 /* MainBuilder.swift */,
+				F94D0C7B260B150700BA2C77 /* MainInteractor.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F94D0C68260B148B00BA2C77 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F94D0C91260B151600BA2C77 /* SearchPresentableState.swift */,
+				F94D0C92260B151600BA2C77 /* SearchRouter.swift */,
+				F94D0C93260B151600BA2C77 /* SearchViewController.swift */,
+				F94D0C94260B151600BA2C77 /* SearchBuilder.swift */,
+				F94D0C95260B151600BA2C77 /* SearchInteractor.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		F94D0C69260B149300BA2C77 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				F94D0C84260B150F00BA2C77 /* ExplorePresentableState.swift */,
+				F94D0C85260B150F00BA2C77 /* ExploreRouter.swift */,
+				F94D0C86260B150F00BA2C77 /* ExploreViewController.swift */,
+				F94D0C87260B150F00BA2C77 /* ExploreBuilder.swift */,
+				F94D0C88260B150F00BA2C77 /* ExploreInteractor.swift */,
+			);
+			path = Explore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,9 +470,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F94D0C70260B14FD00BA2C77 /* SplashRouter.swift in Sources */,
+				F94D0C8A260B150F00BA2C77 /* ExploreRouter.swift in Sources */,
+				F94D0C7E260B150700BA2C77 /* MainViewController.swift in Sources */,
+				F94D0C6F260B14FD00BA2C77 /* SplashPresentableState.swift in Sources */,
+				F94D0C96260B151600BA2C77 /* SearchPresentableState.swift in Sources */,
+				F94D0C99260B151600BA2C77 /* SearchBuilder.swift in Sources */,
+				F94D0C8D260B150F00BA2C77 /* ExploreInteractor.swift in Sources */,
+				F94D0C8B260B150F00BA2C77 /* ExploreViewController.swift in Sources */,
+				F94D0C89260B150F00BA2C77 /* ExplorePresentableState.swift in Sources */,
 				F94D0BCB260B120B00BA2C77 /* AppDelegate.swift in Sources */,
+				F94D0C8C260B150F00BA2C77 /* ExploreBuilder.swift in Sources */,
+				F94D0C71260B14FD00BA2C77 /* SplashViewController.swift in Sources */,
 				F94D0C4B260B136B00BA2C77 /* Logger.swift in Sources */,
+				F94D0C7D260B150700BA2C77 /* MainRouter.swift in Sources */,
+				F94D0C7C260B150700BA2C77 /* MainPresentableState.swift in Sources */,
+				F94D0C7F260B150700BA2C77 /* MainBuilder.swift in Sources */,
+				F94D0C98260B151600BA2C77 /* SearchViewController.swift in Sources */,
+				F94D0C72260B14FD00BA2C77 /* SplashBuilder.swift in Sources */,
+				F94D0C97260B151600BA2C77 /* SearchRouter.swift in Sources */,
 				F94D0C45260B135400BA2C77 /* NSObject+Rx.swift in Sources */,
+				F94D0C73260B14FD00BA2C77 /* SplashInteractor.swift in Sources */,
+				F94D0C80260B150700BA2C77 /* MainInteractor.swift in Sources */,
+				F94D0C9A260B151600BA2C77 /* SearchInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
