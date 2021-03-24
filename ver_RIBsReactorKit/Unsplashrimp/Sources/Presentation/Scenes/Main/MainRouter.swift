@@ -8,7 +8,11 @@
 import RIBs
 
 // MARK: - MainInteractable
-protocol MainInteractable: Interactable {
+protocol MainInteractable:
+  Interactable,
+  ExploreListener,
+  SearchListener
+{
   var router: MainRouting? { get set }
   var listener: MainListener? { get set }
 }

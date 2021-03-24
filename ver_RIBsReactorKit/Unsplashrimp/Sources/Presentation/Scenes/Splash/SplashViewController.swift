@@ -7,6 +7,7 @@
 
 import UIKit
 
+import SnapKit
 import RxSwift
 import RxCocoa
 import ReactorKit
@@ -41,6 +42,12 @@ final class SplashViewController:
   private let detachActionRelay = PublishRelay<Void>()
   
   // MARK: - UI Components
+  
+  let titleLabel = UILabel().then {
+    $0.textColor = .black
+    $0.text = "Unsplashrimp"
+    $0.font = UIFont.boldSystemFont(ofSize: 24)
+  }
   
   // MARK: - Con(De)structor
   
@@ -84,7 +91,11 @@ private extension SplashViewController {
   }
   
   func layout() {
-    
+    titleLabel
+      .add(to: view)
+      .snp.makeConstraints { (make) in
+        make.center.equalToSuperview()
+      }
   }
   
   func setupProperties() {

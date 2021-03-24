@@ -44,6 +44,15 @@ final class ExploreViewController:
   
   // MARK: - Con(De)structor
   
+  init() {
+    super.init(nibName: nil, bundle: nil)
+    title = "Explore"
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   deinit { logInfo("deinit: \(self)") }
   
   // MARK: - Overridden: UIViewController

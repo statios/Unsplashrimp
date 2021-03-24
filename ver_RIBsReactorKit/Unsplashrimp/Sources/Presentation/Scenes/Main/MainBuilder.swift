@@ -5,10 +5,13 @@
 //  Created by Stat on 2021/03/24.
 //
 
+import UIKit
+
 import RIBs
 
 // MARK: - MainDependency
 protocol MainDependency: Dependency {
+  var mainViewController: (MainPresentable & MainViewControllable) { get }
 }
 
 // MARK: - MainComponent
@@ -39,11 +42,13 @@ final class MainBuilder:
   
   func build(withListener listener: MainListener) -> MainRouting {
     let component = MainComponent(dependency: dependency)
-    let viewController = MainViewController()
+    let viewController = dependency.mainViewController
+    
     let interactor = MainInteractor(
       initialState: component.initialState,
       presenter: viewController
     )
+    
     interactor.listener = listener
     return MainRouter(
       interactor: interactor,

@@ -12,6 +12,8 @@ import ReactorKit
 
 // MARK: - SplashRouting
 protocol SplashRouting: ViewableRouting {
+  func attachMainRIB()
+  func detachMainRIB()
 }
 
 // MARK: - SplashPresentable
@@ -32,10 +34,10 @@ final class SplashInteractor:
   Reactor
 {
   
+  
   // MARK: - Types
   
   typealias Action = SplashPresentableAction
-  
   typealias State = SplashPresentableState
   
   enum Mutation {
@@ -59,6 +61,13 @@ final class SplashInteractor:
     self.initialState = initialState
     super.init(presenter: presenter)
     presenter.listener = self
+  }
+  
+  // MARK: - LifeCycle
+  
+  override func didBecomeActive() {
+    super.didBecomeActive()
+    router?.attachMainRIB()
   }
 }
 
@@ -109,6 +118,9 @@ extension SplashInteractor {
 
 // MARK: - SplashInteractable
 extension SplashInteractor {
+  func detachMainRIB() {
+    router?.detachMainRIB()
+  }
 }
 
 // MARK: - SplashPresentableListener

@@ -9,6 +9,7 @@ import RIBs
 
 // MARK: - ExploreDependency
 protocol ExploreDependency: Dependency {
+  
 }
 
 // MARK: - ExploreComponent

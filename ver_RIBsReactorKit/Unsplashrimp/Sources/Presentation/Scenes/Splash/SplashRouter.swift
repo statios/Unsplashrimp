@@ -8,7 +8,10 @@
 import RIBs
 
 // MARK: - SplashInteractable
-protocol SplashInteractable: Interactable {
+protocol SplashInteractable:
+  Interactable,
+  MainListener
+{
   var router: SplashRouting? { get set }
   var listener: SplashListener? { get set }
 }
@@ -19,16 +22,23 @@ protocol SplashViewControllable: ViewControllable {
 
 // MARK: - SplashRouter
 final class SplashRouter:
-  ViewableRouter<SplashInteractable, SplashViewControllable>,
+  LaunchRouter<SplashInteractable, SplashViewControllable>,
   SplashRouting
 {
   
+  // MARK: - Properties
+  
+  private let mainBuilder: MainBuildable
+  private var mainRouter: MainRouting?
+  
   // MARK: - Con(De)structor
   
-  override init(
+  init(
+    mainBuilder: MainBuildable,
     interactor: SplashInteractable,
     viewController: SplashViewControllable
   ) {
+    self.mainBuilder = mainBuilder
     super.init(
       interactor: interactor,
       viewController: viewController
@@ -39,4 +49,14 @@ final class SplashRouter:
 
 // MARK: - SplashRouting
 extension SplashRouter {
+  func attachMainRIB() {
+    let router = mainBuilder.build(withListener: interactor)
+    attachChild(router)
+    mainRouter = router
+    viewController.present(router.viewControllable)
+  }
+  
+  func detachMainRIB() {
+    
+  }
 }

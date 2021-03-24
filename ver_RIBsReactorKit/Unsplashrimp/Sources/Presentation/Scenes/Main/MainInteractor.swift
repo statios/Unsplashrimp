@@ -33,9 +33,7 @@ final class MainInteractor:
 {
   
   // MARK: - Types
-  
   typealias Action = MainPresentableAction
-  
   typealias State = MainPresentableState
   
   enum Mutation {
@@ -113,4 +111,11 @@ extension MainInteractor {
 
 // MARK: - MainPresentableListener
 extension MainInteractor {
+  func detachExploreRIB() {
+    
+  }
+  
+  func detachSearchRIB() {
+    
+  }
 }

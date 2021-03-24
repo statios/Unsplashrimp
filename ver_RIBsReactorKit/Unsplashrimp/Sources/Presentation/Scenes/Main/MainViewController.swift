@@ -28,7 +28,7 @@ protocol MainPresentableListener: class {
 
 // MARK: - MainViewController
 final class MainViewController:
-  UIViewController,
+  UITabBarController,
   MainPresentable,
   MainViewControllable
 {
@@ -43,6 +43,16 @@ final class MainViewController:
   // MARK: - UI Components
   
   // MARK: - Con(De)structor
+  init(_ viewControllers: [UIViewController]) {
+    super.init(nibName: nil, bundle: nil)
+    setViewControllers(viewControllers, animated: false)
+    modalPresentationStyle = .fullScreen
+    modalTransitionStyle = .crossDissolve
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
   
   deinit { logInfo("deinit: \(self)") }
   
