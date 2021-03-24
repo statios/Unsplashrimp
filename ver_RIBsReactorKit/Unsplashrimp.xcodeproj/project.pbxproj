@@ -43,6 +43,7 @@
 		F94D0C98260B151600BA2C77 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C93260B151600BA2C77 /* SearchViewController.swift */; };
 		F94D0C99260B151600BA2C77 /* SearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C94260B151600BA2C77 /* SearchBuilder.swift */; };
 		F94D0C9A260B151600BA2C77 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0C95260B151600BA2C77 /* SearchInteractor.swift */; };
+		F94D0CA0260B157500BA2C77 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = F94D0C9F260B157500BA2C77 /* ReactorKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 				F94D0C2E260B131500BA2C77 /* RxCocoa in Frameworks */,
 				F94D0C40260B134500BA2C77 /* SnapKit in Frameworks */,
 				F94D0C3A260B132C00BA2C77 /* RxMoya in Frameworks */,
+				F94D0CA0260B157500BA2C77 /* ReactorKit in Frameworks */,
 				F94D0C26260B12FD00BA2C77 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +351,7 @@
 				F94D0C37260B132C00BA2C77 /* ReactiveMoya */,
 				F94D0C39260B132C00BA2C77 /* RxMoya */,
 				F94D0C3F260B134500BA2C77 /* SnapKit */,
+				F94D0C9F260B157500BA2C77 /* ReactorKit */,
 			);
 			productName = Unsplashrimp;
 			productReference = F94D0BC7260B120B00BA2C77 /* Unsplashrimp.app */;
@@ -427,6 +430,7 @@
 				F94D0C2A260B131500BA2C77 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				F94D0C34260B132C00BA2C77 /* XCRemoteSwiftPackageReference "Moya" */,
 				F94D0C3E260B134500BA2C77 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				F94D0C9E260B157500BA2C77 /* XCRemoteSwiftPackageReference "ReactorKit" */,
 			);
 			productRefGroup = F94D0BC8260B120B00BA2C77 /* Products */;
 			projectDirPath = "";
@@ -859,6 +863,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		F94D0C9E260B157500BA2C77 /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactorKit/ReactorKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -906,6 +918,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F94D0C3E260B134500BA2C77 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		F94D0C9F260B157500BA2C77 /* ReactorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F94D0C9E260B157500BA2C77 /* XCRemoteSwiftPackageReference "ReactorKit" */;
+			productName = ReactorKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -74,6 +74,15 @@
         }
       },
       {
+        "package": "ReactorKit",
+        "repositoryURL": "https://github.com/ReactorKit/ReactorKit",
+        "state": {
+          "branch": null,
+          "revision": "fc392a1dc4c98a496089b8bd091cd92f608fd299",
+          "version": "2.1.1"
+        }
+      },
+      {
         "package": "RIBs",
         "repositoryURL": "https://github.com/uber/RIBs",
         "state": {
@@ -89,6 +98,15 @@
           "branch": null,
           "revision": "25613f7ffd16105c74417c1b4eb4c93fd04e2cdf",
           "version": "1.1.0"
+        }
+      },
+      {
+        "package": "RxExpect",
+        "repositoryURL": "https://github.com/devxoul/RxExpect.git",
+        "state": {
+          "branch": null,
+          "revision": "c3a3bb3d46ee831582c6619ecc48cda1cdbff890",
+          "version": "2.0.0"
         }
       },
       {
@@ -125,6 +143,15 @@
           "branch": null,
           "revision": "e421a7b3440a271834337694e6050133a3958bc7",
           "version": "2.7.0"
+        }
+      },
+      {
+        "package": "WeakMapTable",
+        "repositoryURL": "https://github.com/ReactorKit/WeakMapTable.git",
+        "state": {
+          "branch": null,
+          "revision": "9580560169b4b48ba2affe7badba6a7f360495f4",
+          "version": "1.2.0"
         }
       },
       {
