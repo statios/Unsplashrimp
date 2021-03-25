@@ -50,6 +50,9 @@
 		F94D0CE0260B54B700BA2C77 /* ViewControllable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0CDF260B54B700BA2C77 /* ViewControllable+.swift */; };
 		F94D0CE9260B555800BA2C77 /* MainComponent+Explore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0CE8260B555800BA2C77 /* MainComponent+Explore.swift */; };
 		F94D0CF1260B556100BA2C77 /* MainComponent+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94D0CF0260B556100BA2C77 /* MainComponent+Search.swift */; };
+		F9B48DAB260C24D5003C141E /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B48DAA260C24D5003C141E /* Networking.swift */; };
+		F9B48DB4260C2DE5003C141E /* DelayOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B48DB3260C2DE5003C141E /* DelayOption.swift */; };
+		F9B48DB9260C2E27003C141E /* SmartRetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B48DB8260C2E27003C141E /* SmartRetry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +112,9 @@
 		F94D0CDF260B54B700BA2C77 /* ViewControllable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewControllable+.swift"; sourceTree = "<group>"; };
 		F94D0CE8260B555800BA2C77 /* MainComponent+Explore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainComponent+Explore.swift"; sourceTree = "<group>"; };
 		F94D0CF0260B556100BA2C77 /* MainComponent+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainComponent+Search.swift"; sourceTree = "<group>"; };
+		F9B48DAA260C24D5003C141E /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		F9B48DB3260C2DE5003C141E /* DelayOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayOption.swift; sourceTree = "<group>"; };
+		F9B48DB8260C2E27003C141E /* SmartRetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartRetry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +228,7 @@
 		F94D0C0C260B125100BA2C77 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				F9B48DA7260C245E003C141E /* Platform */,
 				F94D0CC5260B4C1600BA2C77 /* Domains */,
 				F94D0C10260B125600BA2C77 /* Presentation */,
 			);
@@ -270,6 +277,7 @@
 				F94D0C44260B135400BA2C77 /* NSObject+Rx.swift */,
 				F94D0CDA260B533400BA2C77 /* UIView+.swift */,
 				F94D0CDF260B54B700BA2C77 /* ViewControllable+.swift */,
+				F9B48DBD260C2E2C003C141E /* Rx */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -320,11 +328,10 @@
 		F94D0C68260B148B00BA2C77 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				F94D0C91260B151600BA2C77 /* SearchPresentableState.swift */,
-				F94D0C92260B151600BA2C77 /* SearchRouter.swift */,
-				F94D0C93260B151600BA2C77 /* SearchViewController.swift */,
 				F94D0C94260B151600BA2C77 /* SearchBuilder.swift */,
+				F94D0C93260B151600BA2C77 /* SearchViewController.swift */,
 				F94D0C95260B151600BA2C77 /* SearchInteractor.swift */,
+				F94D0C92260B151600BA2C77 /* SearchRouter.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -332,11 +339,10 @@
 		F94D0C69260B149300BA2C77 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
-				F94D0C84260B150F00BA2C77 /* ExplorePresentableState.swift */,
-				F94D0C85260B150F00BA2C77 /* ExploreRouter.swift */,
-				F94D0C86260B150F00BA2C77 /* ExploreViewController.swift */,
 				F94D0C87260B150F00BA2C77 /* ExploreBuilder.swift */,
+				F94D0C86260B150F00BA2C77 /* ExploreViewController.swift */,
 				F94D0C88260B150F00BA2C77 /* ExploreInteractor.swift */,
+				F94D0C85260B150F00BA2C77 /* ExploreRouter.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 		F94D0CC6260B4C7200BA2C77 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F9B48DB2260C2DDD003C141E /* Enums */,
 				F94D0CC7260B4C7700BA2C77 /* RIBStates */,
 			);
 			path = Models;
@@ -362,6 +369,8 @@
 			children = (
 				F94D0CBD260B4BD500BA2C77 /* SplashPresentableState.swift */,
 				F94D0C77260B150700BA2C77 /* MainPresentableState.swift */,
+				F94D0C84260B150F00BA2C77 /* ExplorePresentableState.swift */,
+				F94D0C91260B151600BA2C77 /* SearchPresentableState.swift */,
 			);
 			path = RIBStates;
 			sourceTree = "<group>";
@@ -381,6 +390,46 @@
 				F94D0CF0260B556100BA2C77 /* MainComponent+Search.swift */,
 			);
 			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		F9B48DA7260C245E003C141E /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				F9B48DA8260C246D003C141E /* DataSource */,
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		F9B48DA8260C246D003C141E /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				F9B48DA9260C248B003C141E /* Network */,
+				F9B48DAA260C24D5003C141E /* Networking.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		F9B48DA9260C248B003C141E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F9B48DB2260C2DDD003C141E /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				F9B48DB3260C2DE5003C141E /* DelayOption.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		F9B48DBD260C2E2C003C141E /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				F9B48DB8260C2E27003C141E /* SmartRetry.swift */,
+			);
+			path = Rx;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,12 +582,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F94D0C70260B14FD00BA2C77 /* SplashRouter.swift in Sources */,
+				F9B48DB4260C2DE5003C141E /* DelayOption.swift in Sources */,
 				F94D0C8A260B150F00BA2C77 /* ExploreRouter.swift in Sources */,
 				F94D0C7E260B150700BA2C77 /* MainViewController.swift in Sources */,
 				F94D0C96260B151600BA2C77 /* SearchPresentableState.swift in Sources */,
 				F94D0C99260B151600BA2C77 /* SearchBuilder.swift in Sources */,
 				F94D0C8D260B150F00BA2C77 /* ExploreInteractor.swift in Sources */,
 				F94D0C8B260B150F00BA2C77 /* ExploreViewController.swift in Sources */,
+				F9B48DB9260C2E27003C141E /* SmartRetry.swift in Sources */,
 				F94D0CE0260B54B700BA2C77 /* ViewControllable+.swift in Sources */,
 				F94D0C89260B150F00BA2C77 /* ExplorePresentableState.swift in Sources */,
 				F94D0BCB260B120B00BA2C77 /* AppDelegate.swift in Sources */,
@@ -553,6 +604,7 @@
 				F94D0C98260B151600BA2C77 /* SearchViewController.swift in Sources */,
 				F94D0CBE260B4BD500BA2C77 /* SplashPresentableState.swift in Sources */,
 				F94D0CA5260B15A600BA2C77 /* AppComponent.swift in Sources */,
+				F9B48DAB260C24D5003C141E /* Networking.swift in Sources */,
 				F94D0C72260B14FD00BA2C77 /* SplashBuilder.swift in Sources */,
 				F94D0C97260B151600BA2C77 /* SearchRouter.swift in Sources */,
 				F94D0C45260B135400BA2C77 /* NSObject+Rx.swift in Sources */,
