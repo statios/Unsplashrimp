@@ -10,7 +10,11 @@ import Foundation
 import RxSwift
 
 protocol UnsplashRepository {
-  
+  func photos(
+    page: Int,
+    count: Int?,
+    order: UnsplashService.Order?
+  ) -> Single<[Photo]>
 }
 
 final class UnsplashRepositoryImpl: UnsplashRepository {

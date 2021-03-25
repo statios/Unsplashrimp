@@ -63,7 +63,7 @@ final class ExploreViewController:
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    bind(to: listener)
+    bind(to: listener) //TODO: listener check
     setupUI()
   }
   
@@ -89,6 +89,7 @@ private extension ExploreViewController {
   func bindViewWillAppear(to listener: ExplorePresentableListener) {
     rx.viewWillAppear
       .take(1)
+      .debug()
       .map { _ in .loadData }
       .bind(to: listener.action)
       .disposed(by: rx.disposeBag)

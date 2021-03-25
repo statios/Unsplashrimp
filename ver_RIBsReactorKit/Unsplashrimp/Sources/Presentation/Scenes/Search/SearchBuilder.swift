@@ -19,6 +19,10 @@ final class SearchComponent: Component<SearchDependency> {
     SearchPresentableState()
   }
   
+  fileprivate var searchViewController: SearchPresentable & SearchViewControllable {
+    dependency.searchViewController
+  }
+  
   fileprivate var unsplashUseCase: UnsplashUseCase {
     dependency.unsplashUseCase
   }
@@ -45,16 +49,15 @@ final class SearchBuilder:
   
   func build(withListener listener: SearchListener) -> SearchRouting {
     let component = SearchComponent(dependency: dependency)
-    let viewController = SearchViewController()
     let interactor = SearchInteractor(
       initialState: component.initialState,
       unsplashUseCase: component.unsplashUseCase,
-      presenter: viewController
+      presenter: component.searchViewController
     )
     interactor.listener = listener
     return SearchRouter(
       interactor: interactor,
-      viewController: viewController
+      viewController: component.searchViewController
     )
   }
 }

@@ -23,12 +23,19 @@ final class MainComponent: Component<MainDependency> {
     MainPresentableState()
   }
   
-  private var unsplashRepository: UnsplashRepository {
+  fileprivate var unsplashRepository: UnsplashRepository {
     UnsplashRepositoryImpl(service: Networking<UnsplashService>())
   }
   
+  fileprivate var mutablePhotoModelsStream: MutablePhotoModelsStream {
+    shared { PhotoModelsStreamImpl() }
+  }
+  
   var unsplashUseCase: UnsplashUseCase {
-    UnsplashUseCaseImpl(repository: unsplashRepository)
+    UnsplashUseCaseImpl(
+      repository: unsplashRepository,
+      mutablePhotoModelsStream: mutablePhotoModelsStream
+    )
   }
 }
 

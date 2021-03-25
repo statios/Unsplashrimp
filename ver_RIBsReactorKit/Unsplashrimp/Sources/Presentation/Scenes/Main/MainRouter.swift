@@ -35,8 +35,8 @@ final class MainRouter:
   private let exploreBuilder: ExploreBuildable
   private let searchBuilder: SearchBuildable
   
-  private var exploreRouter: ExploreRouter?
-  private var searchRouter: SearchRouter?
+  private var exploreRouter: ExploreRouting?
+  private var searchRouter: SearchRouting?
   
   // MARK: - Con(De)structor
   
@@ -63,13 +63,13 @@ final class MainRouter:
 // MARK: - MainRouting
 extension MainRouter {
   func attatchExploreRIB() {
-    guard let router = exploreRouter else { return }
+    let router = exploreBuilder.build(withListener: interactor)
     exploreRouter = router
     attachChild(router)
   }
   
   func attatchSearchRIB() {
-    guard let router = searchRouter else { return }
+    let router = searchBuilder.build(withListener: interactor)
     searchRouter = router
     attachChild(router)
   }

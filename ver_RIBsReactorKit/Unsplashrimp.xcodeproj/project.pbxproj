@@ -59,6 +59,10 @@
 		F9B48DE4260C923A003C141E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B48DE3260C923A003C141E /* Photo.swift */; };
 		F9B48DF0260CA9FC003C141E /* UnsplashUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B48DEF260CA9FC003C141E /* UnsplashUseCase.swift */; };
 		F9B48DF6260CB0DA003C141E /* RxViewController in Frameworks */ = {isa = PBXBuildFile; productRef = F9B48DF5260CB0DA003C141E /* RxViewController */; };
+		F9B48E29260CE48A003C141E /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B48E28260CE48A003C141E /* URLs.swift */; };
+		F9B48E2E260CE491003C141E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B48E2D260CE491003C141E /* User.swift */; };
+		F9B48E3A260CE70D003C141E /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B48E39260CE70D003C141E /* PhotoModel.swift */; };
+		F9B48E3F260CE716003C141E /* PhotoModelsStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B48E3E260CE716003C141E /* PhotoModelsStream.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +130,10 @@
 		F9B48DDD260C8F28003C141E /* UnsplashRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRepository.swift; sourceTree = "<group>"; };
 		F9B48DE3260C923A003C141E /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		F9B48DEF260CA9FC003C141E /* UnsplashUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashUseCase.swift; sourceTree = "<group>"; };
+		F9B48E28260CE48A003C141E /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		F9B48E2D260CE491003C141E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F9B48E39260CE70D003C141E /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		F9B48E3E260CE716003C141E /* PhotoModelsStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModelsStream.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +380,7 @@
 		F94D0CC6260B4C7200BA2C77 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F9B48E38260CE6F8003C141E /* PhotosModel */,
 				F9B48DB2260C2DDD003C141E /* Enums */,
 				F94D0CC7260B4C7700BA2C77 /* RIBStates */,
 			);
@@ -477,6 +486,8 @@
 			isa = PBXGroup;
 			children = (
 				F9B48DE3260C923A003C141E /* Photo.swift */,
+				F9B48E28260CE48A003C141E /* URLs.swift */,
+				F9B48E2D260CE491003C141E /* User.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -487,6 +498,15 @@
 				F9B48DEF260CA9FC003C141E /* UnsplashUseCase.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		F9B48E38260CE6F8003C141E /* PhotosModel */ = {
+			isa = PBXGroup;
+			children = (
+				F9B48E39260CE70D003C141E /* PhotoModel.swift */,
+				F9B48E3E260CE716003C141E /* PhotoModelsStream.swift */,
+			);
+			path = PhotosModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -649,21 +669,25 @@
 				F9B48DDE260C8F28003C141E /* UnsplashRepository.swift in Sources */,
 				F94D0C99260B151600BA2C77 /* SearchBuilder.swift in Sources */,
 				F94D0C8D260B150F00BA2C77 /* ExploreInteractor.swift in Sources */,
+				F9B48E3A260CE70D003C141E /* PhotoModel.swift in Sources */,
 				F94D0C8B260B150F00BA2C77 /* ExploreViewController.swift in Sources */,
 				F9B48DB9260C2E27003C141E /* SmartRetry.swift in Sources */,
 				F94D0CE0260B54B700BA2C77 /* ViewControllable+.swift in Sources */,
 				F9B48DF0260CA9FC003C141E /* UnsplashUseCase.swift in Sources */,
+				F9B48E29260CE48A003C141E /* URLs.swift in Sources */,
 				F94D0C89260B150F00BA2C77 /* ExplorePresentableState.swift in Sources */,
 				F94D0BCB260B120B00BA2C77 /* AppDelegate.swift in Sources */,
 				F94D0C8C260B150F00BA2C77 /* ExploreBuilder.swift in Sources */,
 				F9B48DE4260C923A003C141E /* Photo.swift in Sources */,
 				F94D0CDB260B533400BA2C77 /* UIView+.swift in Sources */,
+				F9B48E2E260CE491003C141E /* User.swift in Sources */,
 				F94D0C71260B14FD00BA2C77 /* SplashViewController.swift in Sources */,
 				F94D0CD3260B504200BA2C77 /* SplashComponent+Main.swift in Sources */,
 				F94D0C4B260B136B00BA2C77 /* Logger.swift in Sources */,
 				F94D0C7D260B150700BA2C77 /* MainRouter.swift in Sources */,
 				F9B48DC7260C3151003C141E /* UnsplashService.swift in Sources */,
 				F94D0C7C260B150700BA2C77 /* MainPresentableState.swift in Sources */,
+				F9B48E3F260CE716003C141E /* PhotoModelsStream.swift in Sources */,
 				F94D0C7F260B150700BA2C77 /* MainBuilder.swift in Sources */,
 				F94D0C98260B151600BA2C77 /* SearchViewController.swift in Sources */,
 				F94D0CBE260B4BD500BA2C77 /* SplashPresentableState.swift in Sources */,

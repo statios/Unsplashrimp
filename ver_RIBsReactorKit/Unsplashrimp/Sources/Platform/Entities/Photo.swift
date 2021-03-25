@@ -11,22 +11,11 @@ import UIKit
 struct Photo: Codable {
   
   let id: String
-  let width: CGFloat
-  let height: CGFloat
+  let width: Int
+  let height: Int
   let color: String
   let urls: URLs
   let user: User
-  
-  struct URLs: Codable {
-    let thumb: String
-    let small: String
-    let regular: String
-    let full: String
-  }
-  
-  struct User: Codable {
-    let name: String
-  }
   
   enum CodingKeys: String, CodingKey {
     case id

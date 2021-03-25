@@ -49,16 +49,15 @@ final class ExploreBuilder:
   
   func build(withListener listener: ExploreListener) -> ExploreRouting {
     let component = ExploreComponent(dependency: dependency)
-    let viewController = ExploreViewController()
     let interactor = ExploreInteractor(
       initialState: component.initialState,
       unsplashUseCase: component.unsplashUseCase,
-      presenter: viewController
+      presenter: component.exploreViewController
     )
     interactor.listener = listener
     return ExploreRouter(
       interactor: interactor,
-      viewController: viewController
+      viewController: component.exploreViewController
     )
   }
 }

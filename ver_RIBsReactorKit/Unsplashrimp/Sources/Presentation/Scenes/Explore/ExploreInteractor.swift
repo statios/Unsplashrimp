@@ -73,6 +73,8 @@ extension ExploreInteractor {
   func mutate(action: Action) -> Observable<Mutation> {
     switch action {
     case .loadData:
+      //TODO: Connect a stream
+      unsplashUseCase.loadData().subscribe()
       return .empty()//TODO: 
     case .detachAction:
       return .just(.detach)
