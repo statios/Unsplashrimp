@@ -35,7 +35,6 @@ final class ExploreInteractor:
   // MARK: - Types
   
   typealias Action = ExplorePresentableAction
-  
   typealias State = ExplorePresentableState
   
   enum Mutation {
@@ -45,18 +44,22 @@ final class ExploreInteractor:
   // MARK: - Properties
   
   weak var router: ExploreRouting?
-  
   weak var listener: ExploreListener?
   
   let initialState: State
+  
+  private let unsplashUseCase: UnsplashUseCase
   
   // MARK: - Con(De)structor
   
   init(
     initialState: State,
+    unsplashUseCase: UnsplashUseCase,
     presenter: ExplorePresentable
   ) {
     self.initialState = initialState
+    self.unsplashUseCase = unsplashUseCase
+    
     super.init(presenter: presenter)
     presenter.listener = self
   }
@@ -69,6 +72,8 @@ extension ExploreInteractor {
   
   func mutate(action: Action) -> Observable<Mutation> {
     switch action {
+    case .loadData:
+      return .empty()//TODO: 
     case .detachAction:
       return .just(.detach)
     }

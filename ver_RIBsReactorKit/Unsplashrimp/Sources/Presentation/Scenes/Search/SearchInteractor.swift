@@ -45,18 +45,22 @@ final class SearchInteractor:
   // MARK: - Properties
   
   weak var router: SearchRouting?
-  
   weak var listener: SearchListener?
   
   let initialState: State
+  
+  private let unsplashUseCase: UnsplashUseCase
   
   // MARK: - Con(De)structor
   
   init(
     initialState: State,
+    unsplashUseCase: UnsplashUseCase,
     presenter: SearchPresentable
   ) {
     self.initialState = initialState
+    self.unsplashUseCase = unsplashUseCase
+    
     super.init(presenter: presenter)
     presenter.listener = self
   }

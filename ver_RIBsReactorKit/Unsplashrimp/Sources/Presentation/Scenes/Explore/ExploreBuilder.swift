@@ -9,13 +9,22 @@ import RIBs
 
 // MARK: - ExploreDependency
 protocol ExploreDependency: Dependency {
-  
+  var exploreViewController: ExplorePresentable & ExploreViewControllable { get }
+  var unsplashUseCase: UnsplashUseCase { get }
 }
 
 // MARK: - ExploreComponent
 final class ExploreComponent: Component<ExploreDependency> {
   fileprivate var initialState: ExplorePresentableState {
     ExplorePresentableState()
+  }
+  
+  fileprivate var exploreViewController: ExplorePresentable & ExploreViewControllable {
+    dependency.exploreViewController
+  }
+  
+  fileprivate var unsplashUseCase: UnsplashUseCase {
+    dependency.unsplashUseCase
   }
 }
 
@@ -43,6 +52,7 @@ final class ExploreBuilder:
     let viewController = ExploreViewController()
     let interactor = ExploreInteractor(
       initialState: component.initialState,
+      unsplashUseCase: component.unsplashUseCase,
       presenter: viewController
     )
     interactor.listener = listener

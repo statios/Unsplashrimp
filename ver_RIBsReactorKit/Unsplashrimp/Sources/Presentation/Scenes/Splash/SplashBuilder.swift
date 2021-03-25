@@ -10,8 +10,7 @@ import UIKit
 import RIBs
 
 // MARK: - SplashDependency
-protocol SplashDependency: Dependency {
-}
+protocol SplashDependency: SplashDependencyMain { }
 
 // MARK: - SplashComponent
 final class SplashComponent: Component<SplashDependency> {

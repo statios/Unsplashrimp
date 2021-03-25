@@ -7,12 +7,14 @@
 
 import UIKit
 
-import RxSwift
-import RxCocoa
 import ReactorKit
+import RxCocoa
+import RxSwift
+import RxViewController
 
 // MARK: - ExplorePresentableAction
 enum ExplorePresentableAction {
+  case loadData
   case detachAction
 }
 
@@ -41,6 +43,8 @@ final class ExploreViewController:
   private let detachActionRelay = PublishRelay<Void>()
   
   // MARK: - UI Components
+  
+  let tableView = UITableView()
   
   // MARK: - Con(De)structor
   
@@ -74,7 +78,20 @@ final class ExploreViewController:
 private extension ExploreViewController {
   func bind(to listener: ExplorePresentableListener?) {
     guard let listener = listener else { return }
+    bindActions(to: listener)
+  }
+  
+  func bindActions(to listener: ExplorePresentableListener) {
+    bindViewWillAppear(to: listener)
     bindDetachAction(to: listener)
+  }
+  
+  func bindViewWillAppear(to listener: ExplorePresentableListener) {
+    rx.viewWillAppear
+      .take(1)
+      .map { _ in .loadData }
+      .bind(to: listener.action)
+      .disposed(by: rx.disposeBag)
   }
   
   func bindDetachAction(to listener: ExplorePresentableListener) {
@@ -88,12 +105,20 @@ private extension ExploreViewController {
 // MARK: - SetupUI
 private extension ExploreViewController {
   func setupUI() {
+    navigationController?.do {
+      $0.hidesBarsOnSwipe = true
+    }
+    
     layout()
     setupProperties()
   }
   
   func layout() {
-    
+    tableView
+      .add(to: view)
+      .snp.makeConstraints { (make) in
+        make.edges.equalToSuperview()
+      }
   }
   
   func setupProperties() {

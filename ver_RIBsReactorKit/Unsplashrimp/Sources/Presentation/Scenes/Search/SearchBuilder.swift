@@ -9,12 +9,18 @@ import RIBs
 
 // MARK: - SearchDependency
 protocol SearchDependency: Dependency {
+  var searchViewController: SearchPresentable & SearchViewControllable { get }
+  var unsplashUseCase: UnsplashUseCase { get }
 }
 
 // MARK: - SearchComponent
 final class SearchComponent: Component<SearchDependency> {
   fileprivate var initialState: SearchPresentableState {
     SearchPresentableState()
+  }
+  
+  fileprivate var unsplashUseCase: UnsplashUseCase {
+    dependency.unsplashUseCase
   }
 }
 
@@ -42,6 +48,7 @@ final class SearchBuilder:
     let viewController = SearchViewController()
     let interactor = SearchInteractor(
       initialState: component.initialState,
+      unsplashUseCase: component.unsplashUseCase,
       presenter: viewController
     )
     interactor.listener = listener
