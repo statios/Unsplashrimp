@@ -14,7 +14,7 @@ import RxViewController
 
 // MARK: - ExplorePresentableAction
 enum ExplorePresentableAction {
-  case loadData
+  case refresh
   case detachAction
 }
 
@@ -45,6 +45,7 @@ final class ExploreViewController:
   // MARK: - UI Components
   
   let tableView = UITableView()
+  let indicatorView = UIActivityIndicatorView()
   
   // MARK: - Con(De)structor
   
@@ -79,7 +80,10 @@ private extension ExploreViewController {
   func bind(to listener: ExplorePresentableListener?) {
     guard let listener = listener else { return }
     bindActions(to: listener)
+    bindState(from: listener)
   }
+  
+  // MARK: - Binding Action
   
   func bindActions(to listener: ExplorePresentableListener) {
     bindViewWillAppear(to: listener)
@@ -89,8 +93,7 @@ private extension ExploreViewController {
   func bindViewWillAppear(to listener: ExplorePresentableListener) {
     rx.viewWillAppear
       .take(1)
-      .debug()
-      .map { _ in .loadData }
+      .map { _ in .refresh }
       .bind(to: listener.action)
       .disposed(by: rx.disposeBag)
   }
@@ -101,6 +104,35 @@ private extension ExploreViewController {
       .bind(to: listener.action)
       .disposed(by: rx.disposeBag)
   }
+  
+  // MARK: - Binding State
+  
+  func bindState(from listener: ExplorePresentableListener) {
+    bindLoadingState(from: listener)
+    bindPhotosState(from: listener)
+  }
+  
+  func bindLoadingState(from listener: ExplorePresentableListener) {
+    listener.state.map { $0.isLoading }
+      .distinctUntilChanged()
+      .subscribe(onNext: { [weak self] in
+        guard let indicatorView = self?.indicatorView else { return }
+        $0 ? indicatorView.startAnimating() : indicatorView.stopAnimating()
+      }).disposed(by: rx.disposeBag)
+  }
+  
+  func bindPhotosState(from listener: ExplorePresentableListener) {
+    listener.state.map { $0.photos }
+      .distinctUntilChanged()
+      .bind(
+        to: tableView.rx.items(
+          cellIdentifier: "PhotoListCell",
+          cellType: PhotoListCell.self
+        )
+      ) { (index, viewModel, cell) in
+        cell.configure(by: viewModel)
+      }.disposed(by: rx.disposeBag)
+  }
 }
 
 // MARK: - SetupUI
@@ -108,6 +140,18 @@ private extension ExploreViewController {
   func setupUI() {
     navigationController?.do {
       $0.hidesBarsOnSwipe = true
+    }
+    
+    tableView.do {
+      $0.estimatedRowHeight = UITableView.automaticDimension
+      $0.register(
+        PhotoListCell.self,
+        forCellReuseIdentifier: "PhotoListCell"
+      )
+    }
+    
+    indicatorView.do {
+      $0.style = .large
     }
     
     layout()
@@ -119,6 +163,12 @@ private extension ExploreViewController {
       .add(to: view)
       .snp.makeConstraints { (make) in
         make.edges.equalToSuperview()
+      }
+    
+    indicatorView
+      .add(to: view)
+      .snp.makeConstraints { (make) in
+        make.center.equalToSuperview()
       }
   }
   
