@@ -9,12 +9,22 @@ import RIBs
 
 // MARK: - SearchDependency
 protocol SearchDependency: Dependency {
+  var searchViewController: SearchPresentable & SearchViewControllable { get }
+  var unsplashUseCase: UnsplashUseCase { get }
 }
 
 // MARK: - SearchComponent
 final class SearchComponent: Component<SearchDependency> {
   fileprivate var initialState: SearchPresentableState {
     SearchPresentableState()
+  }
+  
+  fileprivate var searchViewController: SearchPresentable & SearchViewControllable {
+    dependency.searchViewController
+  }
+  
+  fileprivate var unsplashUseCase: UnsplashUseCase {
+    dependency.unsplashUseCase
   }
 }
 
@@ -39,15 +49,15 @@ final class SearchBuilder:
   
   func build(withListener listener: SearchListener) -> SearchRouting {
     let component = SearchComponent(dependency: dependency)
-    let viewController = SearchViewController()
     let interactor = SearchInteractor(
       initialState: component.initialState,
-      presenter: viewController
+      unsplashUseCase: component.unsplashUseCase,
+      presenter: component.searchViewController
     )
     interactor.listener = listener
     return SearchRouter(
       interactor: interactor,
-      viewController: viewController
+      viewController: component.searchViewController
     )
   }
 }

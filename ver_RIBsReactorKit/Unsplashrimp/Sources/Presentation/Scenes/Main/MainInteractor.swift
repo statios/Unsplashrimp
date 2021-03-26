@@ -12,6 +12,10 @@ import ReactorKit
 
 // MARK: - MainRouting
 protocol MainRouting: ViewableRouting {
+  func attatchExploreRIB()
+  func detatchExploreRIB()
+  func attatchSearchRIB()
+  func detatchSearchRIB()
 }
 
 // MARK: - MainPresentable
@@ -112,10 +116,10 @@ extension MainInteractor {
 // MARK: - MainPresentableListener
 extension MainInteractor {
   func detachExploreRIB() {
-    
+    router?.detatchExploreRIB()
   }
   
   func detachSearchRIB() {
-    
+    router?.detatchSearchRIB()
   }
 }

@@ -57,6 +57,8 @@ extension SplashRouter {
   }
   
   func detachMainRIB() {
-    
+    guard let router = mainRouter else { return }
+    detachChild(router)
+    mainRouter = nil
   }
 }

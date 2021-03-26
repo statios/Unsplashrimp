@@ -7,12 +7,14 @@
 
 import UIKit
 
-import RxSwift
-import RxCocoa
 import ReactorKit
+import RxCocoa
+import RxSwift
+import RxViewController
 
 // MARK: - ExplorePresentableAction
 enum ExplorePresentableAction {
+  case loadData
   case detachAction
 }
 
@@ -42,6 +44,8 @@ final class ExploreViewController:
   
   // MARK: - UI Components
   
+  let tableView = UITableView()
+  
   // MARK: - Con(De)structor
   
   init() {
@@ -59,7 +63,7 @@ final class ExploreViewController:
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    bind(to: listener)
+    bind(to: listener) //TODO: listener check
     setupUI()
   }
   
@@ -74,7 +78,21 @@ final class ExploreViewController:
 private extension ExploreViewController {
   func bind(to listener: ExplorePresentableListener?) {
     guard let listener = listener else { return }
+    bindActions(to: listener)
+  }
+  
+  func bindActions(to listener: ExplorePresentableListener) {
+    bindViewWillAppear(to: listener)
     bindDetachAction(to: listener)
+  }
+  
+  func bindViewWillAppear(to listener: ExplorePresentableListener) {
+    rx.viewWillAppear
+      .take(1)
+      .debug()
+      .map { _ in .loadData }
+      .bind(to: listener.action)
+      .disposed(by: rx.disposeBag)
   }
   
   func bindDetachAction(to listener: ExplorePresentableListener) {
@@ -88,12 +106,20 @@ private extension ExploreViewController {
 // MARK: - SetupUI
 private extension ExploreViewController {
   func setupUI() {
+    navigationController?.do {
+      $0.hidesBarsOnSwipe = true
+    }
+    
     layout()
     setupProperties()
   }
   
   func layout() {
-    
+    tableView
+      .add(to: view)
+      .snp.makeConstraints { (make) in
+        make.edges.equalToSuperview()
+      }
   }
   
   func setupProperties() {
