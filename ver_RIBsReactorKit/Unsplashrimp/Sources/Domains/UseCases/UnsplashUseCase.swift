@@ -12,7 +12,11 @@ import RxSwift
 protocol UnsplashUseCase {
   var repository: UnsplashRepository { get }
   var photoModelsStream: PhotoModelsStream { get }
-  func loadData() -> Observable<Void>
+  func loadPhotoModels(
+    isRefresh: Bool,
+    count: Int,
+    order: UnsplashService.Order
+  ) -> Observable<Void>
 }
 
 final class UnsplashUseCaseImpl: UnsplashUseCase {
@@ -30,11 +34,19 @@ final class UnsplashUseCaseImpl: UnsplashUseCase {
     self._photoModelsStream = mutablePhotoModelsStream
   }
   
-  func loadData() -> Observable<Void> {
-    repository.photos(page: 0, count: nil, order: nil)
-      .asObservable()
-      .do(onNext: { [weak self] in self?.updatePhotoModels(by: $0) })
-      .map { _ in }
+  func loadPhotoModels(
+    isRefresh: Bool,
+    count: Int,
+    order: UnsplashService.Order
+  ) -> Observable<Void> {
+    
+    repository.photos(
+      page: isRefresh ? 1 : repository.page + 1,
+      count: count,
+      order: order
+    ).asObservable()
+    .do(onNext: { [weak self] in self?.updatePhotoModels(by: $0) })
+    .map { _ in }
   }
   
   private func updatePhotoModels(by results: [Photo]) {

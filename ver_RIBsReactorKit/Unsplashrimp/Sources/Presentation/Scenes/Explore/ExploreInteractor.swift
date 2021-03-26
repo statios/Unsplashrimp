@@ -38,6 +38,9 @@ final class ExploreInteractor:
   typealias State = ExplorePresentableState
   
   enum Mutation {
+    case setLoading(Bool)
+    case loadData
+    case setPhotos([PhotoViewModel])
     case detach
   }
   
@@ -49,6 +52,7 @@ final class ExploreInteractor:
   let initialState: State
   
   private let unsplashUseCase: UnsplashUseCase
+  private let requestItemSize: Int = 10
   
   // MARK: - Con(De)structor
   
@@ -72,10 +76,17 @@ extension ExploreInteractor {
   
   func mutate(action: Action) -> Observable<Mutation> {
     switch action {
-    case .loadData:
-      //TODO: Connect a stream
-      unsplashUseCase.loadData().subscribe()
-      return .empty()//TODO: 
+    case .refresh:
+      let startLoading = Observable<Mutation>.just(.setLoading(true))
+      let endLoading = Observable<Mutation>.just(.setLoading(false))
+      let loadData = unsplashUseCase.loadPhotoModels(
+        isRefresh: true,
+        count: requestItemSize,
+        order: .latest
+      ).map { Mutation.loadData }
+      .catchErrorJustReturn(.setLoading(false))
+      
+      return .concat([startLoading, loadData, endLoading])
     case .detachAction:
       return .just(.detach)
     }
@@ -88,8 +99,13 @@ extension ExploreInteractor {
       .flatMap { [weak self] mutation -> Observable<Mutation> in
         guard let this = self else { return .never() }
         switch mutation {
+        case .loadData:
+          return this.unsplashUseCase.photoModelsStream.photoModels
+            .map { $0.map { PhotoViewModel(photoModel: $0) } }
+            .map { Mutation.setPhotos($0) }
         case .detach:
           return this.detachExploreRIBTransform()
+        default: return .just(mutation)
         }
     }
   }
@@ -105,8 +121,14 @@ extension ExploreInteractor {
     state: State,
     mutation: Mutation
   ) -> State {
-    let newState = state
+    var newState = state
     switch mutation {
+    case .setLoading(let isLoading):
+      newState.isLoading = isLoading
+    case .setPhotos(let photos):
+      newState.photos = photos
+    case .loadData:
+      Log.debug("Do nothing when \(mutation)")
     case .detach:
       logDebug("route logic: \(mutation)")
     }

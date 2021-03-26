@@ -10,10 +10,18 @@ import Moya
 
 enum UnsplashService {
   
-  enum Order: String {
-    case latest = "latest"
-    case oldest = "oldest"
-    case popular = "popular"
+  enum Order: Int {
+    case latest = 0
+    case oldest = 1
+    case popular = 2
+    
+    var value: String {
+      switch self {
+      case .latest: return "latest"
+      case .oldest: return "oldest"
+      case .popular: return "popular"
+      }
+    }
   }
   
   case photos(page: Int, perPage: Int?, orderBy: Order?)
@@ -47,7 +55,7 @@ extension UnsplashService: TargetType {
         parameters: [
           "page": page,
           "per_page": perPage as Any,
-          "order_by": orderBy as Any
+          "order_by": orderBy?.value as Any
         ],
         encoding: URLEncoding.default
       )

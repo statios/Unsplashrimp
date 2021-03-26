@@ -8,4 +8,6 @@
 import Foundation
 
 struct ExplorePresentableState {
+  var isLoading: Bool = false
+  var photos: [PhotoViewModel] = []
 }
