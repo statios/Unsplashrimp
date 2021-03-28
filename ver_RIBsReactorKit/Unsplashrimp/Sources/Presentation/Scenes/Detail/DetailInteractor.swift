@@ -48,17 +48,20 @@ final class DetailInteractor:
   
   let initialState: State
   
-  private let photoModelStream: MutablePhotoModelStream
+  private let photoModelsStream: PhotoModelsStream
+  private let mutablePhotoModelStream: MutablePhotoModelStream
   
   // MARK: - Con(De)structor
   
   init(
     initialState: State,
-    photoModelStream: MutablePhotoModelStream,
+    photoModelsStream: PhotoModelsStream,
+    mutablePhotoModelStream: MutablePhotoModelStream,
     presenter: DetailPresentable
   ) {
     self.initialState = initialState
-    self.photoModelStream = photoModelStream
+    self.photoModelsStream = photoModelsStream
+    self.mutablePhotoModelStream = mutablePhotoModelStream
     super.init(presenter: presenter)
     presenter.listener = self
   }

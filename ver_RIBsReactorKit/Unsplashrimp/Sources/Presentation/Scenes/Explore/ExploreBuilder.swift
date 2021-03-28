@@ -27,12 +27,12 @@ final class ExploreComponent: Component<ExploreDependency> {
     dependency.unsplashUseCase
   }
   
-  fileprivate var mutablePhotoModelStream: MutablePhotoModelStream {
-    shared { PhotoModelStreamImpl() }
+  var photoModelsStream: PhotoModelsStream {
+    dependency.unsplashUseCase.photoModelsStream
   }
   
-  var photoModelStream: MutablePhotoModelStream {
-    mutablePhotoModelStream
+  var mutablePhotoModelStream: MutablePhotoModelStream {
+    shared { PhotoModelStreamImpl() }
   }
 }
 
@@ -60,6 +60,7 @@ final class ExploreBuilder:
     let interactor = ExploreInteractor(
       initialState: component.initialState,
       unsplashUseCase: component.unsplashUseCase,
+      mutablePhotoModelStream: component.mutablePhotoModelStream,
       presenter: component.exploreViewController
     )
     interactor.listener = listener

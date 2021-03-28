@@ -55,16 +55,19 @@ final class ExploreInteractor:
   private let unsplashUseCase: UnsplashUseCase
   private let requestItemSize: Int = 10
   
+  private let mutablePhotoModelStream: MutablePhotoModelStream
+  
   // MARK: - Con(De)structor
   
   init(
     initialState: State,
     unsplashUseCase: UnsplashUseCase,
+    mutablePhotoModelStream: MutablePhotoModelStream,
     presenter: ExplorePresentable
   ) {
     self.initialState = initialState
+    self.mutablePhotoModelStream = mutablePhotoModelStream
     self.unsplashUseCase = unsplashUseCase
-    
     super.init(presenter: presenter)
     presenter.listener = self
   }
