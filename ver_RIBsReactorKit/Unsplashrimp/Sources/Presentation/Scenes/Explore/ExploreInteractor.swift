@@ -41,6 +41,7 @@ final class ExploreInteractor:
     case setLoading(Bool)
     case loadData
     case setPhotos([PhotoViewModel])
+    case selectPhoto(PhotoViewModel)
     case detach
   }
   
@@ -79,6 +80,7 @@ extension ExploreInteractor {
     case .refresh: return refreshMutation()
     case .detachAction: return .just(.detach)
     case .display(let indexPath): return displayMutation(by: indexPath)
+    case .select(let photoModel): return selectMutation(by: photoModel)
     }
   }
   
@@ -107,6 +109,10 @@ extension ExploreInteractor {
     return .concat(startLoading, loadPhotoModels, endLoading)
   }
   
+  private func selectMutation(by model: PhotoModel) -> Observable<Mutation> {
+    return .empty()
+  }
+  
   // MARK: - Transform mutation
   
   func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
@@ -115,10 +121,11 @@ extension ExploreInteractor {
         guard let this = self else { return .never() }
         switch mutation {
         case .loadData:
-          Log.error("set photos")
           return this.unsplashUseCase.photoModelsStream.photoModels
             .map { $0.map { PhotoViewModel(photoModel: $0) } }
             .map { Mutation.setPhotos($0) }
+        case .selectPhoto(let model):
+          return .empty() // TODO: update PhotoModelStream
         case .detach:
           return this.detachExploreRIBTransform()
         default: return .just(mutation)
@@ -143,7 +150,7 @@ extension ExploreInteractor {
       newState.isLoading = isLoading
     case .setPhotos(let photos):
       newState.photos = photos
-    case .loadData:
+    case .loadData, .selectPhoto:
       Log.debug("Do nothing when \(mutation)")
     case .detach:
       logDebug("route logic: \(mutation)")

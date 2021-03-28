@@ -55,6 +55,7 @@
 		F959AB0726104E7F0044BD84 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959AB0226104E7F0044BD84 /* DetailViewController.swift */; };
 		F959AB0826104E7F0044BD84 /* DetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959AB0326104E7F0044BD84 /* DetailBuilder.swift */; };
 		F959AB0926104E7F0044BD84 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959AB0426104E7F0044BD84 /* DetailInteractor.swift */; };
+		F959AB122610523F0044BD84 /* PhotoModelStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959AB112610523F0044BD84 /* PhotoModelStream.swift */; };
 		F9B48DAB260C24D5003C141E /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B48DAA260C24D5003C141E /* Networking.swift */; };
 		F9B48DB4260C2DE5003C141E /* DelayOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B48DB3260C2DE5003C141E /* DelayOption.swift */; };
 		F9B48DB9260C2E27003C141E /* SmartRetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B48DB8260C2E27003C141E /* SmartRetry.swift */; };
@@ -136,6 +137,7 @@
 		F959AB0226104E7F0044BD84 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F959AB0326104E7F0044BD84 /* DetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBuilder.swift; sourceTree = "<group>"; };
 		F959AB0426104E7F0044BD84 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		F959AB112610523F0044BD84 /* PhotoModelStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModelStream.swift; sourceTree = "<group>"; };
 		F9B48DAA260C24D5003C141E /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		F9B48DB3260C2DE5003C141E /* DelayOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayOption.swift; sourceTree = "<group>"; };
 		F9B48DB8260C2E27003C141E /* SmartRetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartRetry.swift; sourceTree = "<group>"; };
@@ -539,6 +541,7 @@
 				F9B48E39260CE70D003C141E /* PhotoModel.swift */,
 				F9B48E67260DCCD8003C141E /* PhotoViewModel.swift */,
 				F9B48E3E260CE716003C141E /* PhotoModelsStream.swift */,
+				F959AB112610523F0044BD84 /* PhotoModelStream.swift */,
 			);
 			path = PhotosModel;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				F94D0C8A260B150F00BA2C77 /* ExploreRouter.swift in Sources */,
 				F94D0C7E260B150700BA2C77 /* MainViewController.swift in Sources */,
 				F94D0C96260B151600BA2C77 /* SearchPresentableState.swift in Sources */,
+				F959AB122610523F0044BD84 /* PhotoModelStream.swift in Sources */,
 				F9B48DDE260C8F28003C141E /* UnsplashRepository.swift in Sources */,
 				F94D0C99260B151600BA2C77 /* SearchBuilder.swift in Sources */,
 				F9B48E9A260DDCC8003C141E /* Device.swift in Sources */,
