@@ -327,6 +327,7 @@
 				F94D0C67260B148200BA2C77 /* Main */,
 				F94D0C69260B149300BA2C77 /* Explore */,
 				F94D0C68260B148B00BA2C77 /* Search */,
+				F959AAF026103F420044BD84 /* Detail */,
 				F9B48E75260DD52D003C141E /* Views */,
 			);
 			path = Scenes;
@@ -423,6 +424,13 @@
 				F94D0CF0260B556100BA2C77 /* MainComponent+Search.swift */,
 			);
 			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		F959AAF026103F420044BD84 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		F9B48DA7260C245E003C141E /* Platform */ = {

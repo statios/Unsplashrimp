@@ -13,7 +13,6 @@ protocol UnsplashUseCase {
   var repository: UnsplashRepository { get }
   var photoModelsStream: PhotoModelsStream { get }
   func loadPhotoModels(
-    isRefresh: Bool,
     count: Int,
     order: UnsplashService.Order
   ) -> Observable<Void>
@@ -35,17 +34,31 @@ final class UnsplashUseCaseImpl: UnsplashUseCase {
   }
   
   func loadPhotoModels(
-    isRefresh: Bool,
     count: Int,
     order: UnsplashService.Order
   ) -> Observable<Void> {
     
     repository.photos(
-      page: isRefresh ? 1 : repository.page + 1,
+      page: 1,
       count: count,
       order: order
     ).asObservable()
     .do(onNext: { [weak self] in self?.updatePhotoModels(by: $0) })
+    .map { _ in }
+  }
+  
+  func loadMorePhotoModels(
+    page: Int,
+    count: Int,
+    order: UnsplashService.Order
+  ) -> Observable<Void> {
+    
+    repository.photos(
+      page: repository.page + 1,
+      count: count,
+      order: order
+    ).asObservable()
+    .do(onNext: { [weak self] in self?.appendPhotoModels(by: $0) })
     .map { _ in }
   }
   

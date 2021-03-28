@@ -80,15 +80,15 @@ extension ExploreInteractor {
       let startLoading = Observable<Mutation>.just(.setLoading(true))
       let endLoading = Observable<Mutation>.just(.setLoading(false))
       let loadData = unsplashUseCase.loadPhotoModels(
-        isRefresh: true,
         count: requestItemSize,
         order: .latest
       ).map { Mutation.loadData }
       .catchErrorJustReturn(.setLoading(false))
-      
       return .concat([startLoading, loadData, endLoading])
     case .detachAction:
       return .just(.detach)
+    case .display(let indexPath):
+      return .empty()
     }
   }
   
