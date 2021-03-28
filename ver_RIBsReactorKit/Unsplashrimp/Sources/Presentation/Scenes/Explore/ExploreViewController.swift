@@ -15,6 +15,7 @@ import RxViewController
 // MARK: - ExplorePresentableAction
 enum ExplorePresentableAction {
   case refresh
+  case display(IndexPath)
   case detachAction
 }
 
@@ -87,6 +88,7 @@ private extension ExploreViewController {
   
   func bindActions(to listener: ExplorePresentableListener) {
     bindViewWillAppear(to: listener)
+    bindWillDisplayCell(to: listener)
     bindDetachAction(to: listener)
   }
   
@@ -94,6 +96,13 @@ private extension ExploreViewController {
     rx.viewWillAppear
       .take(1)
       .map { _ in .refresh }
+      .bind(to: listener.action)
+      .disposed(by: rx.disposeBag)
+  }
+  
+  func bindWillDisplayCell(to listener: ExplorePresentableListener) {
+    tableView.rx.willDisplayCell
+      .map { .display($0.indexPath) }
       .bind(to: listener.action)
       .disposed(by: rx.disposeBag)
   }

@@ -12,6 +12,7 @@ import RxSwift
 protocol UnsplashUseCase {
   var repository: UnsplashRepository { get }
   var photoModelsStream: PhotoModelsStream { get }
+  
   func loadPhotoModels(
     isRefresh: Bool,
     count: Int,
@@ -45,7 +46,11 @@ final class UnsplashUseCaseImpl: UnsplashUseCase {
       count: count,
       order: order
     ).asObservable()
-    .do(onNext: { [weak self] in self?.updatePhotoModels(by: $0) })
+    .do(onNext: { [weak self] in
+      isRefresh
+        ? self?.updatePhotoModels(by: $0)
+        : self?.appendPhotoModels(by: $0)
+    })
     .map { _ in }
   }
   
