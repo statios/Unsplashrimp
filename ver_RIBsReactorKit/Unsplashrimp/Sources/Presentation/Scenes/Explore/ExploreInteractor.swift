@@ -76,20 +76,35 @@ extension ExploreInteractor {
   
   func mutate(action: Action) -> Observable<Mutation> {
     switch action {
-    case .refresh:
-      let startLoading = Observable<Mutation>.just(.setLoading(true))
-      let endLoading = Observable<Mutation>.just(.setLoading(false))
-      let loadData = unsplashUseCase.loadPhotoModels(
-        count: requestItemSize,
-        order: .latest
-      ).map { Mutation.loadData }
-      .catchErrorJustReturn(.setLoading(false))
-      return .concat([startLoading, loadData, endLoading])
-    case .detachAction:
-      return .just(.detach)
-    case .display(let indexPath):
-      return .empty()
+    case .refresh: return refreshMutation()
+    case .detachAction: return .just(.detach)
+    case .display(let indexPath): return displayMutation(by: indexPath)
     }
+  }
+  
+  private func refreshMutation() -> Observable<Mutation> {
+    let startLoading = Observable<Mutation>.just(.setLoading(true))
+    let endLoading = Observable<Mutation>.just(.setLoading(false))
+    let loadPhotoModels = unsplashUseCase.loadPhotoModels(
+      isRefresh: true,
+      count: requestItemSize,
+      order: .latest
+    ).map { Mutation.loadData }
+    .catchErrorJustReturn(.setLoading(false))
+    return .concat([startLoading, loadPhotoModels, endLoading])
+  }
+  
+  private func displayMutation(by indexPath: IndexPath) -> Observable<Mutation> {
+    guard indexPath.row == currentState.photos.count - 1 else { return .empty() }
+    let startLoading = Observable<Mutation>.just(.setLoading(true))
+    let endLoading = Observable<Mutation>.just(.setLoading(false))
+    let loadPhotoModels = unsplashUseCase.loadPhotoModels(
+      isRefresh: false,
+      count: requestItemSize,
+      order: .latest
+    ).map { Mutation.loadData }
+    .catchErrorJustReturn(.setLoading(false))
+    return .concat(startLoading, loadPhotoModels, endLoading)
   }
   
   // MARK: - Transform mutation
@@ -100,6 +115,7 @@ extension ExploreInteractor {
         guard let this = self else { return .never() }
         switch mutation {
         case .loadData:
+          Log.error("set photos")
           return this.unsplashUseCase.photoModelsStream.photoModels
             .map { $0.map { PhotoViewModel(photoModel: $0) } }
             .map { Mutation.setPhotos($0) }
