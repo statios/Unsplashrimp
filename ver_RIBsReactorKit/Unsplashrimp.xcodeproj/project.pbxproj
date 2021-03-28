@@ -56,6 +56,7 @@
 		F959AB0826104E7F0044BD84 /* DetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959AB0326104E7F0044BD84 /* DetailBuilder.swift */; };
 		F959AB0926104E7F0044BD84 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959AB0426104E7F0044BD84 /* DetailInteractor.swift */; };
 		F959AB122610523F0044BD84 /* PhotoModelStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959AB112610523F0044BD84 /* PhotoModelStream.swift */; };
+		F959AB18261054EA0044BD84 /* ExploreComponent+Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F959AB17261054EA0044BD84 /* ExploreComponent+Detail.swift */; };
 		F9B48DAB260C24D5003C141E /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B48DAA260C24D5003C141E /* Networking.swift */; };
 		F9B48DB4260C2DE5003C141E /* DelayOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B48DB3260C2DE5003C141E /* DelayOption.swift */; };
 		F9B48DB9260C2E27003C141E /* SmartRetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B48DB8260C2E27003C141E /* SmartRetry.swift */; };
@@ -138,6 +139,7 @@
 		F959AB0326104E7F0044BD84 /* DetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBuilder.swift; sourceTree = "<group>"; };
 		F959AB0426104E7F0044BD84 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		F959AB112610523F0044BD84 /* PhotoModelStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModelStream.swift; sourceTree = "<group>"; };
+		F959AB17261054EA0044BD84 /* ExploreComponent+Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExploreComponent+Detail.swift"; sourceTree = "<group>"; };
 		F9B48DAA260C24D5003C141E /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		F9B48DB3260C2DE5003C141E /* DelayOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayOption.swift; sourceTree = "<group>"; };
 		F9B48DB8260C2E27003C141E /* SmartRetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartRetry.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 		F94D0C69260B149300BA2C77 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
+				F959AB16261054DA0044BD84 /* Dependencies */,
 				F94D0C87260B150F00BA2C77 /* ExploreBuilder.swift */,
 				F94D0C86260B150F00BA2C77 /* ExploreViewController.swift */,
 				F94D0C88260B150F00BA2C77 /* ExploreInteractor.swift */,
@@ -448,6 +451,14 @@
 				F959AB0126104E7F0044BD84 /* DetailRouter.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		F959AB16261054DA0044BD84 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				F959AB17261054EA0044BD84 /* ExploreComponent+Detail.swift */,
+			);
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 		F9B48DA7260C245E003C141E /* Platform */ = {
@@ -756,6 +767,7 @@
 				F94D0CBE260B4BD500BA2C77 /* SplashPresentableState.swift in Sources */,
 				F94D0CA5260B15A600BA2C77 /* AppComponent.swift in Sources */,
 				F9B48DAB260C24D5003C141E /* Networking.swift in Sources */,
+				F959AB18261054EA0044BD84 /* ExploreComponent+Detail.swift in Sources */,
 				F94D0C72260B14FD00BA2C77 /* SplashBuilder.swift in Sources */,
 				F94D0C97260B151600BA2C77 /* SearchRouter.swift in Sources */,
 				F94D0C45260B135400BA2C77 /* NSObject+Rx.swift in Sources */,

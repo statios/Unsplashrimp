@@ -9,12 +9,17 @@ import RIBs
 
 // MARK: - DetailDependency
 protocol DetailDependency: Dependency {
+  var photoModelStream: MutablePhotoModelStream { get }
 }
 
 // MARK: - DetailComponent
 final class DetailComponent: Component<DetailDependency> {
   fileprivate var initialState: DetailPresentableState {
     DetailPresentableState()
+  }
+  
+  var photoModelStream: MutablePhotoModelStream {
+    dependency.photoModelStream
   }
 }
 
@@ -42,6 +47,7 @@ final class DetailBuilder:
     let viewController = DetailViewController()
     let interactor = DetailInteractor(
       initialState: component.initialState,
+      photoModelStream: component.photoModelStream,
       presenter: viewController
     )
     interactor.listener = listener

@@ -35,7 +35,6 @@ final class DetailInteractor:
   // MARK: - Types
   
   typealias Action = DetailPresentableAction
-  
   typealias State = DetailPresentableState
   
   enum Mutation {
@@ -45,18 +44,21 @@ final class DetailInteractor:
   // MARK: - Properties
   
   weak var router: DetailRouting?
-  
   weak var listener: DetailListener?
   
   let initialState: State
+  
+  private let photoModelStream: MutablePhotoModelStream
   
   // MARK: - Con(De)structor
   
   init(
     initialState: State,
+    photoModelStream: MutablePhotoModelStream,
     presenter: DetailPresentable
   ) {
     self.initialState = initialState
+    self.photoModelStream = photoModelStream
     super.init(presenter: presenter)
     presenter.listener = self
   }

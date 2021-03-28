@@ -8,7 +8,7 @@
 import RIBs
 
 // MARK: - ExploreDependency
-protocol ExploreDependency: Dependency {
+protocol ExploreDependency: ExploreDependencyDetail {
   var exploreViewController: ExplorePresentable & ExploreViewControllable { get }
   var unsplashUseCase: UnsplashUseCase { get }
 }
@@ -25,6 +25,14 @@ final class ExploreComponent: Component<ExploreDependency> {
   
   fileprivate var unsplashUseCase: UnsplashUseCase {
     dependency.unsplashUseCase
+  }
+  
+  fileprivate var mutablePhotoModelStream: MutablePhotoModelStream {
+    shared { PhotoModelStreamImpl() }
+  }
+  
+  var photoModelStream: MutablePhotoModelStream {
+    mutablePhotoModelStream
   }
 }
 
